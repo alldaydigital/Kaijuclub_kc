@@ -26,7 +26,7 @@ npm --cache /tmp/kaiju-npm run dev -- --host 0.0.0.0 --port 5173
 .cms-venv/bin/python scripts/validate_collection.py
 node --test tests/test_admin.mjs
 npm --cache /tmp/kaiju-npm run build -- --base=/Kaijuclub_kc/
-npm --cache /tmp/kaiju-npm run preview -- --host 0.0.0.0 --port 4173
+npm --cache /tmp/kaiju-npm run preview -- --base=/Kaijuclub_kc/ --host 0.0.0.0 --port 4175 --strictPort
 ```
 
 Vite builds the public site and the separate `/beheer/` entry. `deploy-pages.yml` validates actual catalog/media bytes, runs Python and Node suites, builds and publishes pushes to main. Both desktop and mobile management previews use a nonce-bound same-origin iframe of the production site, not a separate imitation of its design. Credentials are never transferred to the preview.
