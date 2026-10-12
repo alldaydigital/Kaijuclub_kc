@@ -1,6 +1,6 @@
 # Kaijuclub
 
-Automotive portfolio for drift, stance, track and street. A 90s Japanese automotive direction with a restrained navigation wordmark and a wide club photograph, condensed editorial typography, bone-white sections, racing-red accents, and locally bundled fonts. Visitors explore car dossiers, story tabs, discipline selections and visual essays on-site; Instagram is only in the footer.
+Automotive portfolio for drift, stance, track and street. A 90s Japanese automotive direction with a restrained navigation wordmark and a wide club photograph, condensed editorial typography, bone-white sections, racing-red accents, and locally bundled fonts. Visitors explore car dossiers, story tabs and visual essays on-site; Instagram is only in the footer.
 
 Live: https://alldaydigital.github.io/Kaijuclub_kc/
 

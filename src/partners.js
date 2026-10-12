@@ -10,5 +10,12 @@ export function partnerCard(item){
 }
 const grid=document.querySelector('#partner-grid');
 if(grid){try{const response=await fetch(import.meta.env.BASE_URL+'data/partners.json',{cache:'no-cache',signal:AbortSignal.timeout(10000)});if(!response.ok)throw new Error();const data=await response.json();if(data.schemaVersion!==1||!Array.isArray(data.partners))throw new Error();if(data.partners.length){grid.innerHTML=data.partners.map(partnerCard).join('');document.querySelector('#partner-empty').hidden=true;}}catch{document.querySelector('#partner-empty').textContent='De partnercollectie is tijdelijk niet beschikbaar. Voor samenwerkingen: kaijuclub.be@gmail.com.';}}
-const menu=document.querySelector('.menu-toggle');menu?.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));document.querySelector('#mobile-nav').hidden=!open;});
+const menu=document.querySelector('.menu-toggle');const mobileNav=document.querySelector('#mobile-nav');
+if(menu&&mobileNav){
+  const setMenu=open=>{menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Menu sluiten':'Menu openen');mobileNav.hidden=!open;};
+  menu.addEventListener('click',()=>setMenu(menu.getAttribute('aria-expanded')!=='true'));
+  mobileNav.addEventListener('click',event=>{if(event.target.closest('a'))setMenu(false);});
+  document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!mobileNav.hidden){setMenu(false);menu.focus();}});
+  window.matchMedia('(min-width:1001px)').addEventListener('change',event=>{if(event.matches)setMenu(false);});
+}
 const year=document.querySelector('#year');if(year)year.textContent=new Date().getFullYear();

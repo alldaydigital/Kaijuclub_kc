@@ -25,12 +25,7 @@ const previewParameters=new URLSearchParams(location.search);
 const previewNonce=previewParameters.get('nonce');
 const isAdminPreview=previewParameters.get('preview')==='beheer'&&window.parent!==window&&!!previewNonce;
 if(isAdminPreview)document.body.classList.add('admin-preview','preview-waiting');
-const disciplines = {
-  drift:{kicker:'DRIFT / THE LINE',title:'De lijn.',text:'Soms komt een wagen pas echt tot leven in beweging. Drift draait om expressie, controle en een lijn die je vanuit een andere hoek beleeft.'},
-  stance:{kicker:'STANCE / THE DETAIL',title:'Het detail.',text:'Een verhouding die klopt. Een detail dat je blik vasthoudt. Stance is aandacht voor het geheel, tot in de kleinste keuzes.'},
-  track:{kicker:'TRACK / THE FOCUS',title:'De focus.',text:'De bocht, de lijn en het moment waarop alles samenkomt. Track is een andere manier om naar een machine te kijken: aandacht wordt focus.'},
-  street:{kicker:'STREET / THE FREEDOM',title:'De vrijheid.',text:'Niet elke rit heeft een bestemming nodig. Soms zit de liefde voor een wagen gewoon in de weg, het moment en de mensen met wie je rijdt.'},
-};
+const disciplines = {drift:true,stance:true,track:true,street:true};
 const stories = {
   attention:{image:'/images/culture.jpg',alt:'Regendruppels op het koetswerk van een klassieke Porsche',frame:'KC / THE DETAILS',caption:'HET VERSCHIL ZIT IN WAT JE ZIET.',counter:'01 / 03'},
   character:{image:'/images/porsche-993.jpg',alt:'Zilveren Porsche 993 in rood en blauw licht',frame:'KC / THE CHARACTER',caption:'JE HERKENT KARAKTER VANZELF.',counter:'02 / 03'},
@@ -47,7 +42,6 @@ const dialog = document.querySelector('#car-dialog');
 const noteDialog = document.querySelector('#note-dialog');
 const menuButton = document.querySelector('.menu-toggle');
 const mobileNav = document.querySelector('#mobile-nav');
-let selectedDiscipline = 'street';
 let activeCar;
 let carFocus;
 let noteFocus;
@@ -194,26 +188,13 @@ for(const button of document.querySelectorAll('[data-story]')){
     event.preventDefault();selectStory(ids[index],{focus:true});
   });
 }
-function selectDiscipline(id){
-  const discipline=disciplines[id];if(!discipline)return;selectedDiscipline=id;
-  for(const button of document.querySelectorAll('[data-discipline]')){const active=button.dataset.discipline===id;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));}
-  document.querySelector('#discipline-kicker').textContent=discipline.kicker;document.querySelector('#discipline-title').textContent=discipline.title;document.querySelector('#discipline-copy').textContent=discipline.text;
-  document.querySelector('#discipline-garage').innerHTML=`BEKIJK DE ${id.toUpperCase()}-BUILDS ${arrow}`;
-  document.querySelector('#discipline-note').textContent=`${String(builds.filter(car=>car.category===id).length).padStart(2,'0')} ${collectionMode==='managed'?'clubwagen':'referentiewagen'} in deze selectie.`;
-  const photo=document.querySelector('#discipline-photo');const candidate=builds.find(car=>car.category===id);
-  if(photo&&candidate){photo.hidden=false;photo.src=imageUrl(candidate.image);photo.alt=candidate.alt;photo.style.objectPosition=candidate.position||'center';document.querySelector('#discipline-photo-caption').textContent=`${id.toUpperCase()} / ${candidate.reference?'VISUAL REFERENCE':'CLUB BUILD'}`;}
-  else if(photo){photo.hidden=true;document.querySelector('#discipline-photo-caption').textContent='NOG GEEN WAGEN IN DEZE SELECTIE';}
-}
-for(const button of document.querySelectorAll('[data-discipline]'))button.addEventListener('click',()=>selectDiscipline(button.dataset.discipline));
-document.querySelector('#discipline-garage').addEventListener('click',()=>setFilter(selectedDiscipline));
-
 function closeMenu(){menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Menu openen');mobileNav.hidden=true;}
 menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));menuButton.setAttribute('aria-label',open?'Menu openen':'Menu sluiten');mobileNav.hidden=open;});
 mobileNav.addEventListener('click',event=>{if(event.target.closest('a'))closeMenu();});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!mobileNav.hidden){closeMenu();menuButton.focus();}});
 window.matchMedia('(min-width:1001px)').addEventListener('change',event=>{if(event.matches)closeMenu();});
 
-const navSections=['garage','culture','discover','journal'].map(id=>document.getElementById(id));
+const navSections=['garage','culture','journal','events'].map(id=>document.getElementById(id)).filter(Boolean);
 let scrollQueued=false;
 function updateScrollUI(){
   const height=document.documentElement.scrollHeight-innerHeight;
@@ -247,7 +228,7 @@ function applyCollection(data){
       const first=builds[0];
       for(const button of document.querySelectorAll('[data-open-build]')){button.disabled=!first;if(first){button.dataset.openBuild=first.id;button.setAttribute('aria-label',`Ontdek ${first.name}`);}}
       const detailButton=document.querySelector('.connect-bottom [data-open-build]');if(detailButton)detailButton.innerHTML=`${first?'BEKIJK DE UITGELICHTE FICHE':'DE COLLECTIE KOMT ERAAN'} ${arrow}`;
-      selectDiscipline(selectedDiscipline);syncRoute();
+      syncRoute();
     }
 }
 async function loadCollection(){
