@@ -5,12 +5,14 @@ const catalog = JSON.parse(readFileSync(new URL('./public/data/vehicles.json', i
 const escapeAttribute = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 
 export default defineConfig({
+  build: { rolldownOptions: { input: { site: new URL('./index.html',import.meta.url).pathname, beheer: new URL('./beheer/index.html',import.meta.url).pathname } } },
   define: { __INITIAL_COLLECTION__: JSON.stringify(catalog) },
   plugins: [{
     name: 'kaiju-published-collection',
     transformIndexHtml: {
       order: 'pre',
       handler(html) {
+        if(!html.includes('class="hero-photo"'))return html;
         const first = catalog.mode === 'managed' ? catalog.vehicles[0] : null;
         if (!first) return html;
         return html.replace(/(<img class="hero-photo"[^>]*?src=")[^"]+("[^>]*?alt=")[^"]+("[^>]*?width=")[^"]+("[^>]*?height=")[^"]+("[^>]*>)/,

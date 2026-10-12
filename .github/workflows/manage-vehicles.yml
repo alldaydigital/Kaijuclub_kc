@@ -1,8 +1,6 @@
 name: Wagenbeheer en publicatie
 
 on:
-  issues:
-    types: [opened, edited, closed, reopened, labeled]
   workflow_dispatch:
     inputs:
       test_issue:

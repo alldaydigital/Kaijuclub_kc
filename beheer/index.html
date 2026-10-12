@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data: https://raw.githubusercontent.com; connect-src 'self' https://api.github.com https://raw.githubusercontent.com; frame-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+    <meta name="theme-color" content="#121312">
+    <meta name="description" content="Beheer de Kaijuclub-garage. Voeg foto's en wageninformatie toe en bekijk je fiche voordat je publiceert.">
+    <title>Garagebeheer — KAIJUCLUB</title>
+    <link rel="stylesheet" href="/src/admin.css">
+    <script type="module" src="/src/admin.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#vehicle-form">Naar de wagengegevens</a>
+    <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"/></symbol>
+      <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+      <symbol id="icon-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6"/><rect x="14" y="4" width="6" height="6"/><rect x="4" y="14" width="6" height="6"/><rect x="14" y="14" width="6" height="6"/></symbol>
+      <symbol id="icon-eye" viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+      <symbol id="icon-upload" viewBox="0 0 24 24"><path d="M12 16V3m-5 5 5-5 5 5M4 15v5h16v-5"/></symbol>
+      <symbol id="icon-photo" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 5-5 4 4 4-6 5 7"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+      <symbol id="icon-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="1"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+      <symbol id="icon-screen" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="1"/><path d="M8 21h8m-4-4v4"/></symbol>
+      <symbol id="icon-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M10 18h4"/></symbol>
+      <symbol id="icon-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 8a2.5 2.5 0 1 1 4 2c-1 .6-1.5 1.3-1.5 3M12 16v1"/></symbol>
+      <symbol id="icon-refresh" viewBox="0 0 24 24"><path d="M20 7v5h-5M4 17v-5h5M5.6 7a7 7 0 0 1 12-2L20 8M4 16l2.4 3a7 7 0 0 0 12-2"/></symbol>
+      <symbol id="icon-trash" viewBox="0 0 24 24"><path d="M3 6h18M9 6V3h6v3M5 6l1 15h12l1-15M10 10v7m4-7v7"/></symbol>
+    </svg>
+
+    <div class="admin-shell">
+      <aside class="sidebar" aria-label="Hoofdnavigatie">
+        <a class="admin-brand" href="../" aria-label="Kaijuclub website"><span>KAIJU<span>CLUB</span></span><small>THE GARAGE / 怪獣</small></a>
+        <div class="sidebar-rule" aria-hidden="true"></div>
+        <nav class="sidebar-nav">
+          <a class="sidebar-link active" href="#garage" aria-current="page"><svg class="icon"><use href="#icon-grid"/></svg><span>Garage</span><span id="sidebar-count" class="sidebar-count">0</span></a>
+          <a class="sidebar-link" href="../" target="_blank" rel="noopener"><svg class="icon"><use href="#icon-arrow"/></svg><span>Bekijk de site</span></a>
+        </nav>
+        <div class="sidebar-bottom">
+          <span class="sidebar-edition">KAIJUCLUB<br>COLLECTION CONTROL</span>
+          <button class="sidebar-link" id="open-help" type="button"><svg class="icon"><use href="#icon-help"/></svg><span>Hoe werkt het?</span></button>
+          <div class="sidebar-account"><span class="account-avatar" aria-hidden="true">KC</span><div><strong id="account-name">Clubbeheer</strong><small id="account-status">Niet verbonden</small></div><button id="connection-button" class="icon-button" type="button" title="Beheer verbinden" aria-label="Beheer verbinden"><svg class="icon"><use href="#icon-lock"/></svg></button></div>
+        </div>
+      </aside>
+
+      <main class="admin-main" id="garage">
+        <header class="admin-topbar">
+          <div class="page-breadcrumb"><span>KAIJUCLUB</span><span aria-hidden="true">/</span><strong>Garagebeheer</strong></div>
+          <div class="topbar-actions"><button id="lock-admin" class="button button-small button-quiet" type="button" hidden>Vergrendelen</button><span class="connection-status" id="connection-status"><i aria-hidden="true"></i>Niet verbonden</span><button class="button button-small button-quiet" id="connect-account" type="button"><svg class="icon"><use href="#icon-lock"/></svg>Verbind beheer</button></div>
+        </header>
+
+        <div class="workspace">
+          <section class="collection-panel" aria-labelledby="collection-title">
+            <div class="collection-heading"><div class="section-kicker">01 / JOUW COLLECTIE</div><div class="collection-title-row"><h1 id="collection-title">Garage.</h1><span id="collection-count" class="count-label">00</span></div><p>Elke wagen verdient zijn eigen verhaal.</p></div>
+            <button id="add-vehicle" class="button button-dark add-vehicle" type="button"><svg class="icon"><use href="#icon-plus"/></svg>Wagen toevoegen<svg class="icon button-tail" aria-hidden="true"><use href="#icon-arrow"/></svg></button>
+            <label class="collection-search"><svg class="icon" aria-hidden="true"><use href="#icon-grid"/></svg><span class="sr-only">Zoek een wagen</span><input id="vehicle-search" type="search" placeholder="Zoek in je garage…" autocomplete="off"></label>
+            <div class="collection-filters" role="group" aria-label="Wagens filteren"><button class="active" type="button" data-collection-filter="all" aria-pressed="true">Alles <span id="count-all">0</span></button><button type="button" data-collection-filter="published" aria-pressed="false">Live <span id="count-published">0</span></button><button type="button" data-collection-filter="draft" aria-pressed="false">Concept <span id="count-draft">0</span></button></div>
+            <div class="vehicle-list" id="vehicle-list" aria-label="Jouw wagens">
+              <div class="collection-empty" id="collection-empty"><span class="empty-outline" aria-hidden="true"><svg class="icon"><use href="#icon-photo"/></svg></span><strong>Hier begint je collectie.</strong><p>Voeg je eerste wagen toe. Je ziet meteen hoe hij op de site komt te staan.</p></div>
+            </div>
+            <div class="collection-footer"><i aria-hidden="true"></i><span id="collection-sync-status">Je collectie verschijnt na het verbinden.</span><button id="refresh-collection" class="icon-button" type="button" title="Collectie vernieuwen" aria-label="Collectie vernieuwen"><svg class="icon"><use href="#icon-refresh"/></svg></button></div>
+          </section>
+
+          <section class="editor-panel" aria-labelledby="editor-title">
+            <header class="editor-heading"><div><span class="section-kicker">02 / DE WAGENFICHE</span><h2 id="editor-title">Een nieuwe build.</h2></div><span id="editor-badge" class="status-badge draft"><i aria-hidden="true"></i>Concept</span></header>
+            <div class="editor-intro">Foto’s, karakter en de details die het verschil maken. Het voorbeeld volgt terwijl je werkt.</div>
+            <form id="vehicle-form" class="vehicle-form" novalidate>
+              <div id="form-error" class="notice notice-error" role="alert" hidden></div>
+              <fieldset class="editor-section"><legend><span>01</span>De basis</legend>
+                <div class="field"><label for="vehicle-name">Naam van de wagen <span class="required-mark">*</span></label><input id="vehicle-name" name="name" type="text" maxlength="120" placeholder="Bijvoorbeeld: Nissan Skyline R34" required autocomplete="off"><span class="field-help">Deze naam staat op de kaart en bovenaan de fiche.</span></div>
+                <div class="field"><label for="vehicle-category">Discipline <span class="required-mark">*</span></label><div class="select-wrap"><select id="vehicle-category" name="category" required><option value="street">Street</option><option value="stance">Stance</option><option value="track">Track</option><option value="drift">Drift</option></select><span aria-hidden="true">⌄</span></div></div>
+                <div class="field-row"><div class="field"><label for="vehicle-series">Serie / model <span class="optional">optioneel</span></label><input id="vehicle-series" name="series" type="text" maxlength="120" placeholder="R34, 993, Z34…" autocomplete="off"></div><div class="field"><label for="vehicle-origin">Herkomst <span class="optional">optioneel</span></label><input id="vehicle-origin" name="origin" type="text" maxlength="80" placeholder="Japan, België…" autocomplete="off"></div></div>
+                <label class="feature-control" for="vehicle-featured"><input id="vehicle-featured" name="featured" type="checkbox"><span class="checkbox-visual" aria-hidden="true"><svg class="icon"><use href="#icon-check"/></svg></span><span><strong>Uitgelichte build</strong><small>Geef deze wagen de eerste plek in de garage.</small></span><span class="feature-star" aria-hidden="true">✳</span></label>
+              </fieldset>
+
+              <fieldset class="editor-section photo-section"><legend><span>02</span>De fotografie <span class="required-mark">*</span></legend>
+                <div id="photo-dropzone" class="photo-dropzone"><input id="photo-input" type="file" accept="image/jpeg,image/png,image/webp" multiple class="sr-only" aria-label="Foto's van de wagen toevoegen"><div class="upload-symbol" aria-hidden="true"><svg class="icon"><use href="#icon-upload"/></svg></div><strong>Sleep je foto’s hier.</strong><p>Of kies ze van je telefoon of computer.</p><button class="button button-small button-outline" id="choose-photos" type="button">Foto’s kiezen<svg class="icon"><use href="#icon-plus"/></svg></button><small id="photo-hint">JPG, PNG of WebP · maximaal 12 foto’s</small><p class="optimization-note">Je foto’s worden automatisch webklaar gemaakt.</p></div>
+                <div id="photo-list" class="photo-list" aria-label="Foto's van deze wagen"></div>
+                <p class="field-help photo-order-help" id="photo-order-help" hidden>De eerste foto is de cover. Wijzig de volgorde met de pijlen.</p>
+                <div id="upload-status" class="upload-status" role="status" aria-live="polite"></div>
+              </fieldset>
+
+              <fieldset class="editor-section"><legend><span>03</span>Het verhaal <span class="optional">optioneel</span></legend><div class="field"><label class="sr-only" for="vehicle-story">Het verhaal achter deze wagen</label><textarea id="vehicle-story" name="story" rows="7" maxlength="10000" placeholder="Wat maakt deze wagen bijzonder? Vertel over de build, jullie keuzes of het gevoel achter het stuur."></textarea><span class="field-help">Schrijf zoals je het aan een andere liefhebber zou vertellen. Een nieuwe alinea maak je met een lege regel.</span></div></fieldset>
+
+              <fieldset class="editor-section spec-section"><legend><span>04</span>De details <span class="optional">optioneel</span></legend><p class="section-help">Voeg alleen toe wat je wilt delen. Bijvoorbeeld motor, velgen, onderstel of vermogen.</p><div class="spec-list" id="spec-list"></div><button id="add-spec" class="text-button" type="button"><svg class="icon"><use href="#icon-plus"/></svg>Detail toevoegen</button></fieldset>
+              <div class="editor-bottom-note"><svg class="icon" aria-hidden="true"><use href="#icon-eye"/></svg><p>Bekijk je kaart, fiche en de volledige site voordat je publiceert.</p></div>
+            </form>
+            <footer class="editor-actions"><div class="editor-status" id="editor-status" role="status" aria-live="polite"><i aria-hidden="true"></i><span>Nog niet opgeslagen</span></div><div class="save-actions"><button id="archive-vehicle" class="button button-small button-danger" type="button" hidden>Verbergen</button><button id="save-draft" class="button button-small button-outline" type="button">Concept bewaren</button><button id="publish-vehicle" class="button button-small button-accent" type="button">Publiceren<svg class="icon"><use href="#icon-arrow"/></svg></button></div></footer>
+          </section>
+
+          <section class="preview-panel" aria-labelledby="preview-title">
+            <header class="preview-heading"><div><span class="section-kicker">03 / ZO ZIEN ZE JOU</span><h2 id="preview-title">Het echte beeld.</h2></div><span class="preview-live"><i aria-hidden="true"></i>LIVE VOORBEELD</span></header>
+            <div class="preview-toolbar"><div class="segmented-control preview-views" role="group" aria-label="Voorbeeldweergave"><button type="button" data-preview-view="site" class="active" aria-pressed="true">Website</button><button type="button" data-preview-view="card" aria-pressed="false">Garagekaart</button><button type="button" data-preview-view="dossier" aria-pressed="false">Wagenfiche</button></div><div class="segmented-control preview-devices" role="group" aria-label="Schermformaat"><button type="button" data-preview-device="desktop" class="active" aria-pressed="true" aria-label="Desktopvoorbeeld" title="Desktop"><svg class="icon"><use href="#icon-screen"/></svg></button><button type="button" data-preview-device="mobile" aria-pressed="false" aria-label="Mobiel voorbeeld" title="Mobiel"><svg class="icon"><use href="#icon-phone"/></svg></button></div></div>
+            <div id="preview-canvas" class="preview-canvas" data-device="desktop"><div class="preview-screen" id="preview-screen"><div class="preview-browser" aria-hidden="true"><span class="browser-dots"><i></i><i></i><i></i></span><span>KAIJUCLUB / PREVIEW</span><svg class="icon"><use href="#icon-lock"/></svg></div><div class="preview-frame-wrap" id="preview-frame-wrap"><iframe id="preview-frame" title="Live voorbeeld van je Kaijuclub-website" src="about:blank" loading="eager"></iframe><div id="preview-placeholder" class="preview-placeholder" hidden><svg class="icon"><use href="#icon-photo"/></svg><strong>Je build komt hier tot leven.</strong><p>Voeg een naam en je eerste foto toe.</p></div></div></div></div>
+            <footer class="preview-footer"><p><svg class="icon" aria-hidden="true"><use href="#icon-eye"/></svg><span id="preview-description">Dit is een voorbeeld. Je wijzigingen zijn nog niet live.</span></p><span id="preview-dimensions" class="preview-dimensions">DESKTOP</span></footer>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <dialog id="connection-dialog" class="admin-dialog" aria-labelledby="connection-title"><button class="dialog-close icon-button" id="close-connection" type="button" aria-label="Sluiten"><svg class="icon"><use href="#icon-close"/></svg></button><div class="dialog-topline">KAIJUCLUB / BEHEERTOEGANG</div><span class="dialog-emblem" aria-hidden="true"><svg class="icon"><use href="#icon-lock"/></svg></span><h2 id="connection-title">Jouw garage.<br>Jouw controle.</h2><p class="dialog-intro">Verbind één keer je beheertoegang. Daarna voeg je hier foto’s en wageninformatie toe, met een direct voorbeeld van je site.</p><div id="connection-error" class="notice notice-error" role="alert" hidden></div><form id="connection-form"><div class="field"><label for="admin-token">Beheersleutel</label><input id="admin-token" name="token" type="password" required autocomplete="off" spellcheck="false" placeholder="Plak je beheersleutel"><span class="field-help">Alleen een account met beheertoegang kan wagens opslaan en publiceren.</span></div><label class="remember-control" for="remember-connection"><input id="remember-connection" type="checkbox"><span>Onthoud deze verbinding op dit toestel</span></label><div id="remember-password-field" class="field" hidden><label for="admin-password">Je eigen wachtwoord</label><input id="admin-password" name="password" type="password" minlength="12" autocomplete="new-password" placeholder="Minimaal 12 tekens"><span class="field-help">Dit wachtwoord beveiligt de opgeslagen sleutel op dit toestel.</span></div><div class="dialog-actions"><button class="button button-dark" id="submit-connection" type="submit">Beheer verbinden<svg class="icon"><use href="#icon-arrow"/></svg></button></div></form><form id="unlock-form" hidden><div class="field"><label for="unlock-password">Beheerwachtwoord op dit toestel</label><input id="unlock-password" type="password" required autocomplete="current-password" placeholder="Je eigen beheerwachtwoord"></div><div class="dialog-actions"><button class="button button-dark" type="submit">Beheer openen</button></div><button id="forget-connection" class="text-button" type="button">Opnieuw koppelen met een andere sleutel</button></form><details class="connection-help" id="connection-help"><summary>Eerste keer verbinden?</summary><div id="connection-instructions"><p>Je hebt een beheersleutel van jullie GitHub-account nodig. Die geeft dit beheerscherm toestemming om de wagenfiches en foto’s in jullie website op te slaan.</p><ol class="connection-steps"><li>Open <strong>Beheersleutel aanmaken</strong> en log in bij GitHub.</li><li>Kies bij <strong>Repository access → Only select repositories</strong> alleen <strong>Kaijuclub_kc</strong>.</li><li>Geef bij <strong>Repository permissions → Contents</strong> de toegang <strong>Read and write</strong>. Metadata wordt automatisch toegevoegd.</li><li>Klik <strong>Generate token</strong> en plak de sleutel uitsluitend in het veld hierboven.</li><li>Vink <strong>Onthoud deze verbinding</strong> aan en kies een eigen wachtwoord van minimaal 12 tekens om later op dit toestel met dat wachtwoord in te loggen.</li></ol><a id="create-admin-token" class="text-link" href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">Beheersleutel aanmaken ↗</a><p class="privacy-note">Jullie website-repository is openbaar. Concepten staan niet op de website, maar opgeslagen foto’s en gegevens zijn via GitHub zichtbaar.</p></div></details></dialog>
+
+    <dialog id="help-dialog" class="admin-dialog help-dialog" aria-labelledby="help-title"><button class="dialog-close icon-button" id="close-help" type="button" aria-label="Sluiten"><svg class="icon"><use href="#icon-close"/></svg></button><div class="dialog-topline">KAIJUCLUB / AAN DE SLAG</div><h2 id="help-title">Van build<br>naar verhaal.</h2><p class="dialog-intro">Je beheert alles hier. Het voorbeeld laat je meteen zien wat bezoekers te zien krijgen.</p><ol class="help-steps"><li><span>01</span><div><strong>Voeg een wagen toe.</strong><p>Geef hem een naam en kies street, stance, track of drift.</p></div></li><li><span>02</span><div><strong>Kies je foto’s.</strong><p>Sleep ze in het vak. De eerste foto wordt je cover; de andere komen in de fiche.</p></div></li><li><span>03</span><div><strong>Maak het persoonlijk.</strong><p>Een verhaal en specificaties zijn optioneel. Bekijk de kaart en fiche op desktop en mobiel.</p></div></li><li><span>04</span><div><strong>Bewaar of publiceer.</strong><p>Een concept blijft van de website. Publiceren maakt de build zichtbaar zodra de site is bijgewerkt.</p></div></li></ol><p class="help-note">Een bestaande wagen aanpassen? Selecteer hem in de garage, wijzig de gegevens en publiceer opnieuw. Met <strong>Verbergen</strong> haal je hem van de website.</p><button class="button button-dark" id="help-done" type="button">Aan de slag<svg class="icon"><use href="#icon-arrow"/></svg></button></dialog>
+
+    <div id="admin-toast" class="admin-toast" role="status" aria-live="polite" hidden></div>
+  </body>
+</html>

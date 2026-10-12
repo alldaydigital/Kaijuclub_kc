@@ -1,38 +1,48 @@
-# Wagens beheren
+# Je garage beheren op de website
 
-Je bestaande GitHub-account is de beheerderslogin. Je hoeft geen code aan te passen of bestanden te deployen.
+**[Open het Kaijuclub-beheer](https://alldaydigital.github.io/Kaijuclub_kc/beheer/)**
 
-**[Nieuwe wagen toevoegen](https://github.com/alldaydigital/Kaijuclub_kc/issues/new?template=vehicle.yml)** · **[Wagenfiches beheren](https://github.com/alldaydigital/Kaijuclub_kc/issues?q=is%3Aissue+label%3Awagen+-label%3Acms-test)** · **[Website](https://alldaydigital.github.io/Kaijuclub_kc/)**
+Je voegt wagens, foto's en informatie toe in de website zelf. De rechterkant toont de echte bezoekerswebsite: volledige site, garagekaart of wagenfiche. Je kunt wisselen tussen desktop en mobiel en het voorbeeld vergroten. Ontwerpen en bekijken kan meteen; verbinden is nodig om te bewaren.
+
+## Eerste keer: je beheer verbinden
+
+1. Klik in het beheer op **Verbind beheer**, daarna **Eerste keer verbinden?**.
+2. Open **Beheersleutel aanmaken** en log in met een GitHub-account dat schrijfrechten heeft op `alldaydigital/Kaijuclub_kc`.
+3. Kies een fine-grained personal access token met **Repository access → Only select repositories → Kaijuclub_kc**. Geef **Repository permissions → Contents → Read and write**. Metadata wordt automatisch toegevoegd. Je hebt geen andere rechten nodig.
+4. Maak de sleutel aan en plak hem uitsluitend in het afgeschermde veld op de beheerpagina. Deel de sleutel niet in chat of in een wagenfiche.
+5. Vink **Onthoud deze verbinding op dit toestel** aan en kies een eigen beheerwachtwoord van minimaal 12 tekens. De sleutel wordt lokaal versleuteld opgeslagen; later open je het beheer op dit toestel met dat wachtwoord.
+
+De koppeling wordt gecontroleerd op echte schrijfrechten. Een verkeerde of verlopen sleutel geeft een foutmelding. Het wachtwoord ontgrendelt de koppeling op deze browser; op een ander toestel moet je de koppeling opnieuw maken. Bij een verlopen GitHub-sleutel kies je **Opnieuw koppelen**. De aanmaaklink stelt 90 dagen geldigheid voor; GitHub toont de gekozen vervaldatum.
+
+Je hoeft geen GitHub-formulieren of code te gebruiken om een wagen toe te voegen of te wijzigen. GitHub verzorgt achterliggend de opslag en publicatie.
 
 ## Een wagen toevoegen
 
-1. Open het formulier en log in met het GitHub-account dat deze repository beheert.
-2. Vul de wagennaam en discipline in. Sleep 1 tot 12 eigen foto's in het fotoveld. De eerste foto is de omslag. JPEG, PNG en WebP worden ondersteund, maximaal 10 MB en 40 megapixels per foto.
-3. Voeg desgewenst serie, herkomst, verhaal en specificaties toe. Specificaties hebben één regel per item, bijvoorbeeld `Motor: RB26DETT`. Kies **Ja** bij Uitgelicht om de wagen bovenaan te plaatsen.
-4. Kies **Concept** om de fiche alvast te bewaren, of **Publiceren** om ze op de website te zetten. Klik op **Create** om de fiche op te slaan.
+1. Klik **Wagen toevoegen**.
+2. Vul de naam en discipline in. Serie, herkomst, verhaal en details zijn optioneel.
+3. Sleep foto's in het fotovak, of kies ze van je telefoon/computer. JPG, PNG en WebP zijn ondersteund: maximaal 12 foto's, 10 MB en 40 megapixels per bronfoto. HEIC wordt niet ondersteund.
+4. Foto's worden automatisch verkleind tot maximaal 2400 pixels en webklaar gemaakt. Je bronbestand blijft op je toestel behouden. De eerste foto is de omslag; gebruik de pijlen of sleep de miniaturen om de volgorde te wijzigen. Je kunt een beschrijving per foto toevoegen en de zichtbare uitsnede van de omslag bijstellen.
+5. Bekijk je kaart, fiche en volledige website op desktop en mobiel.
+6. Kies **Concept bewaren** om later verder te werken, of **Publiceren** om de wagen zichtbaar te maken.
 
-Het publiceren duurt doorgaans enkele minuten. De automatische controle geeft de fiche een label: `cms:live` na een geslaagde publicatie, `cms:concept` voor een verborgen fiche, of `cms:fout` als een controle of publicatie is mislukt. De titel wordt automatisch de wagennaam.
+Concepten worden echt in de repository opgeslagen en kunnen na opnieuw inloggen ook op een ander toestel worden geopend. Niet-bewaarde wijzigingen krijgen aanvullend een lokale herstelkopie in de browser. De editor geeft aan wanneer werk nog niet bewaard is.
 
-## Een bestaande wagen wijzigen
+## Een bestaande wagen aanpassen
 
-Open de wagenfiche uit de beheerlijst. Kies het menu met drie puntjes bij de **eerste beschrijving**, daarna **Edit**. Bewerk de inhoud onder de bestaande veldtitels en sla op. GitHub opent bestaande fiches als tekst; laat de `###` veldtitels staan. Je kunt nieuwe foto's in het veld Fotos slepen, de volgorde wijzigen en foto's verwijderen. Onder Status staat `Concept` of `Publiceren`.
+Selecteer de wagen in de garage. Bewerk foto's, verhaal of details. Met **Concept bewaren** blijven bestaande live gegevens en foto's behouden; pas **Wijzigingen publiceren** vervangt de live versie. Een uitgelichte wagen krijgt voorrang in de collectie. De eerste live wagen bepaalt de grote foto bovenaan de website.
 
-Nieuwe gegevens en foto's verschijnen na de automatische controle. De website biedt een fotogalerij, specificaties, verhaal, disciplinefilter en een directe deelbare link per wagen. De eerste gepubliceerde clubwagen vervangt de voorbeeldfoto in de hero; de voorbeeldcollectie wordt vervangen door jullie eigen collectie.
+**Verbergen** haalt de wagen van de website, maar bewaart de fiche en foto's. **Terug publiceren** zet hem terug. De website herstelt nooit voorbeeldwagens wanneer alle eigen wagens verborgen zijn.
 
-## Verbergen en terugzetten
+## Bewaren en publiceren
 
-- Zet **Status** op `Concept`, of sluit de fiche met **Close issue**, om de wagen van de website te halen.
-- Open een gesloten fiche opnieuw en zet **Status** op `Publiceren` om de wagen terug te zetten.
-- Verwijder of wijzig het label `wagen` niet: dat label koppelt de fiche aan het beheer.
+Foto's, concepten en de publieke collectie worden samen in één wijziging bewaard. Een gelijktijdige wijziging door iemand anders geeft een conflictmelding en overschrijft geen werk. Klik **Vernieuwen** om de actuele collectie te laden; je lokale wijzigingen blijven in de editor staan.
 
-## Als een publicatie mislukt
+Na publiceren wordt de website automatisch gecontroleerd en gebouwd. Dit duurt doorgaans enkele minuten. De editor toont eerst dat de gegevens bewaard zijn en vervolgens de publicatiestatus. Een mislukte controle behoudt de eerdere website. Corrigeer de fiche en publiceer opnieuw; ook een ongewijzigde wagen kan opnieuw worden gepubliceerd.
 
-Open [Wagenbeheer en publicatie](https://github.com/alldaydigital/Kaijuclub_kc/actions/workflows/manage-vehicles.yml) en bekijk de mislukte stap. Corrigeer een ongeldige foto, discipline of specificatie via Edit; opslaan start de controle opnieuw. Bij een tijdelijke storing kun je de mislukte run opnieuw uitvoeren, of **Run workflow** op branch `main` gebruiken zonder testnummer. Ook als de gegevens al zijn opgeslagen, publiceert een nieuwe run de website opnieuw.
+De controle valideert alle foto's en collectiegegevens voordat de site live gaat. De beheersleutel staat nooit in de repository of in de publieke website. Vergrendelen wist de ontsleutelde sleutel uit het beheer; de lokaal versleutelde koppeling blijft beschikbaar. Het beheer vergrendelt ook na 30 minuten zonder activiteit.
 
-Alle fiches worden samen gecontroleerd. Een ongeldige gepubliceerde fiche blokkeert de nieuwe collectie, zodat de bestaande website behouden blijft. Zet een onvolledige fiche terug op Concept om andere wagens te kunnen publiceren. Foto's worden volledig gevalideerd en op de eigen website gehost. Er staat geen beheertoken in de browser. Alleen de eigenaar en medewerkers met schrijf-, maintain- of adminrechten kunnen publiceren; inzendingen van andere bezoekers verschijnen niet op de website.
+## Openbare opslag
 
-## Openbare repository
+De GitHub-repository is openbaar. **Opgeslagen conceptgegevens en foto's zijn daar ook zichtbaar**, hoewel concepten buiten de bezoekerswebsite blijven. Verbergen verwijdert foto's niet uit de repository of versiegeschiedenis. Gebruik dit beheer voor openbare portfolio-informatie.
 
-Deze repository is openbaar. **Ook conceptfiches en hun uploads zijn zichtbaar op GitHub**, hoewel ze niet op de website verschijnen. Gebruik dit beheer voor openbare portfolio-informatie. Verbergen op de website verwijdert de foto's niet uit GitHub of de versiegeschiedenis.
-
-De huidige voorbeeldwagens zijn herkenbaar als referenties. Er staan nog geen bevestigde clubwagens in het beheer. Testfiches met het label `cms-test` worden altijd uitgesloten van gewone publicaties.
+De huidige bezoekerscollectie bevat nog duidelijk gemarkeerde referentiewagens. Je eigen gepubliceerde wagens vervangen die collectie. De oude GitHub Issue Form-route is vervangen door dit beheer en verwerkt geen automatische wijzigingen meer.

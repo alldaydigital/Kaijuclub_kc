@@ -268,6 +268,9 @@ def main():
             args.output_dir.mkdir(parents=True,exist_ok=True)
             (args.output_dir/'vehicles.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n')
     else:
+        manager_path=Path(__file__).resolve().parents[1]/'cms/catalog.json'
+        if manager_path.exists() and json.loads(manager_path.read_text()).get('vehicles'):
+            raise ValidationError('De collectie wordt beheerd via de website. Gebruik /beheer/ om wagens te bewaren en publiceren.')
         result=sync_catalog(issues,args.root,args.repo,can_write)
     print(f"Validated {len(result['vehicles'])} published vehicle(s); mode={result['mode']}.")
 

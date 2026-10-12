@@ -21,6 +21,10 @@ let builds = referenceBuilds;
 let collectionMode = 'reference';
 let selectedPhoto = 0;
 let appliedCollection = '';
+const previewParameters=new URLSearchParams(location.search);
+const previewNonce=previewParameters.get('nonce');
+const isAdminPreview=previewParameters.get('preview')==='beheer'&&window.parent!==window&&!!previewNonce;
+if(isAdminPreview)document.body.classList.add('admin-preview','preview-waiting');
 const disciplines = {
   drift:{kicker:'DRIFT / THE LINE',title:'De lijn.',text:'Soms komt een wagen pas echt tot leven in beweging. Drift draait om expressie, controle en een lijn die je vanuit een andere hoek beleeft.'},
   stance:{kicker:'STANCE / THE DETAIL',title:'Het detail.',text:'Een verhouding die klopt. Een detail dat je blik vasthoudt. Stance is aandacht voor het geheel, tot in de kleinste keuzes.'},
@@ -78,14 +82,15 @@ function renderCar(car,focusControl) {
   selectedPhoto=0;
   document.querySelector('#car-detail').innerHTML = `
     <div class="dossier-top"><span>KC / BUILD DOSSIER</span><span>${car.number} / ${String(builds.length).padStart(2,'0')}</span></div>
-    <div class="dossier-layout"><figure class="dossier-visual"><img class="detail-image" src="${imageUrl(car.image)}" alt="${escapeHtml(car.alt)}" width="${car.width}" height="${car.height}" style="object-position:${car.position}"><figcaption>${escapeHtml(car.credit||'Clubcollectie')} <span>${car.reference?'VISUAL REFERENCE':'CLUB BUILD'}</span></figcaption>${car.gallery?.length>1?`<div class="dossier-gallery" role="group" aria-label="Foto’s van deze wagen">${car.gallery.map((photo,i)=>`<button data-gallery-index="${i}" aria-label="Foto ${i+1} van ${car.gallery.length}" aria-pressed="${i===0}"><img src="${imageUrl(photo.src)}" alt="" width="${photo.width}" height="${photo.height}"></button>`).join('')}</div>`:''}</figure><div class="detail-copy"><span class="eyebrow">${car.category.toUpperCase()} / ${car.reference?'REFERENCE BUILD':'CLUB BUILD'}</span><h2 id="detail-title">${escapeHtml(car.name)}</h2><dl class="build-facts">${car.series?`<div><dt>Serie</dt><dd>${escapeHtml(car.series)}</dd></div>`:''}${car.origin?`<div><dt>Herkomst</dt><dd>${escapeHtml(car.origin)}</dd></div>`:''}<div><dt>Discipline</dt><dd>${car.category}</dd></div></dl><h3>${escapeHtml(car.title)}</h3><p class="dossier-lead">${escapeHtml(car.intro)}</p>${car.paragraphs.map(text=>`<p>${escapeHtml(text)}</p>`).join('')}${car.specs?.length?`<dl class="vehicle-specs">${car.specs.map(spec=>`<div><dt>${escapeHtml(spec.label)}</dt><dd>${escapeHtml(spec.value)}</dd></div>`).join('')}</dl>`:''}${car.focus.length?`<div class="build-focus"><span class="eyebrow">WAT JE LAAT KIJKEN</span><ul>${car.focus.map(text=>`<li>${escapeHtml(text)}</li>`).join('')}</ul></div>`:''}${car.reference?`<p class="disclaimer">Dit is een referentiewagen, geen bevestigde clubbuild. Eigen foto's, specificaties en het persoonlijke verhaal vervangen deze fiche zodra ze beschikbaar zijn.</p>`:''}<div class="share-area"><button class="text-link" data-share-build="${car.id}">KOPIEER DE LINK ${arrow}</button><span class="share-status" aria-live="polite"></span><input class="share-fallback" aria-label="Link naar deze wagenfiche" readonly hidden></div></div></div>
+    <div class="dossier-layout"><figure class="dossier-visual"><img class="detail-image" src="${imageUrl(car.image)}" alt="${escapeHtml(car.alt)}" width="${car.width}" height="${car.height}" style="object-position:${car.position}"><figcaption>${escapeHtml(car.credit||'Clubcollectie')} <span>${car.reference?'VISUAL REFERENCE':'CLUB BUILD'}</span></figcaption>${car.gallery?.length>1?`<div class="dossier-gallery" role="group" aria-label="Foto’s van deze wagen">${car.gallery.map((photo,i)=>`<button data-gallery-index="${i}" aria-label="Foto ${i+1} van ${car.gallery.length}" aria-pressed="${i===0}"><img src="${imageUrl(photo.src)}" alt="" width="${photo.width}" height="${photo.height}"></button>`).join('')}</div>`:''}</figure><div class="detail-copy"><span class="eyebrow">${car.category.toUpperCase()} / ${car.reference?'REFERENCE BUILD':'CLUB BUILD'}</span><h2 id="detail-title">${escapeHtml(car.name)}</h2><dl class="build-facts">${car.series?`<div><dt>Serie</dt><dd>${escapeHtml(car.series)}</dd></div>`:''}${car.origin?`<div><dt>Herkomst</dt><dd>${escapeHtml(car.origin)}</dd></div>`:''}<div><dt>Discipline</dt><dd>${car.category}</dd></div></dl>${car.title!==car.name?`<h3>${escapeHtml(car.title)}</h3>`:''}${car.intro?`<p class="dossier-lead">${escapeHtml(car.intro)}</p>`:''}${car.paragraphs.map(text=>`<p>${escapeHtml(text)}</p>`).join('')}${car.specs?.length?`<dl class="vehicle-specs">${car.specs.map(spec=>`<div><dt>${escapeHtml(spec.label)}</dt><dd>${escapeHtml(spec.value)}</dd></div>`).join('')}</dl>`:''}${car.focus.length?`<div class="build-focus"><span class="eyebrow">WAT JE LAAT KIJKEN</span><ul>${car.focus.map(text=>`<li>${escapeHtml(text)}</li>`).join('')}</ul></div>`:''}${car.reference?`<p class="disclaimer">Dit is een referentiewagen, geen bevestigde clubbuild. Eigen foto's, specificaties en het persoonlijke verhaal vervangen deze fiche zodra ze beschikbaar zijn.</p>`:''}<div class="share-area"><button class="text-link" data-share-build="${car.id}">KOPIEER DE LINK ${arrow}</button><span class="share-status" aria-live="polite"></span><input class="share-fallback" aria-label="Link naar deze wagenfiche" readonly hidden></div></div></div>
     <div class="dossier-navigation"><button data-build-step="-1" class="dossier-previous" aria-label="Vorige wagen"><span>←</span><span><small>VORIGE BUILD</small>${escapeHtml(builds[(index-1+builds.length)%builds.length].name)}</span></button><span class="dossier-counter">${car.number} / ${String(builds.length).padStart(2,'0')}</span><button data-build-step="1" class="dossier-next" aria-label="Volgende wagen"><span><small>VOLGENDE BUILD</small>${escapeHtml(builds[(index+1)%builds.length].name)}</span><span>→</span></button></div>`;
   dialog.setAttribute('aria-labelledby','detail-title');
-  if (focusControl) dialog.querySelector(focusControl)?.focus({preventScroll:true});
+  dialog.scrollTop=0;
+  if (focusControl) {const heading=dialog.querySelector('#detail-title');heading.tabIndex=-1;heading.focus({preventScroll:true});}
 }
 function selectPhoto(index,focus=false){
   const photo=activeCar?.gallery?.[index];if(!photo)return;selectedPhoto=index;
-  const image=dialog.querySelector('.detail-image');image.src=imageUrl(photo.src);image.alt=photo.alt||activeCar.alt;image.width=photo.width;image.height=photo.height;
+  const image=dialog.querySelector('.detail-image');image.src=imageUrl(photo.src);image.alt=photo.alt||activeCar.alt;image.width=photo.width;image.height=photo.height;image.style.objectPosition=index===0?(activeCar.position||'center'):'center';
   for(const button of dialog.querySelectorAll('[data-gallery-index]'))button.setAttribute('aria-pressed',String(Number(button.dataset.galleryIndex)===index));
   if(focus)dialog.querySelector(`[data-gallery-index="${index}"]`).focus();
 }
@@ -156,7 +161,7 @@ function openNote(id,{fromHash=false}={}) {
   noteDialog.setAttribute('aria-labelledby','note-title');
   if(!noteDialog.open)noteDialog.showModal();updateScrollLock();
 }
-for(const button of document.querySelectorAll('[data-note]'))button.addEventListener('click',()=>openNote(button.dataset.note));
+for(const button of document.querySelectorAll('[data-note],[data-open-note]'))button.addEventListener('click',()=>openNote(button.dataset.note||button.dataset.openNote));
 noteDialog.addEventListener('click',event=>{const button=event.target.closest('[data-related-builds]');if(button){noteDialog.close();setFilter(button.dataset.relatedBuilds);location.hash='garage';}});
 noteDialog.addEventListener('close',()=>{if(location.hash.startsWith('#note-'))history.replaceState(null,'',noteReturnHash);updateScrollLock();if(noteFocus?.isConnected)noteFocus.focus({preventScroll:true});});
 for(const modal of [dialog,noteDialog]){
@@ -195,6 +200,9 @@ function selectDiscipline(id){
   document.querySelector('#discipline-kicker').textContent=discipline.kicker;document.querySelector('#discipline-title').textContent=discipline.title;document.querySelector('#discipline-copy').textContent=discipline.text;
   document.querySelector('#discipline-garage').innerHTML=`BEKIJK DE ${id.toUpperCase()}-BUILDS ${arrow}`;
   document.querySelector('#discipline-note').textContent=`${String(builds.filter(car=>car.category===id).length).padStart(2,'0')} ${collectionMode==='managed'?'clubwagen':'referentiewagen'} in deze selectie.`;
+  const photo=document.querySelector('#discipline-photo');const candidate=builds.find(car=>car.category===id);
+  if(photo&&candidate){photo.hidden=false;photo.src=imageUrl(candidate.image);photo.alt=candidate.alt;photo.style.objectPosition=candidate.position||'center';document.querySelector('#discipline-photo-caption').textContent=`${id.toUpperCase()} / ${candidate.reference?'VISUAL REFERENCE':'CLUB BUILD'}`;}
+  else if(photo){photo.hidden=true;document.querySelector('#discipline-photo-caption').textContent='NOG GEEN WAGEN IN DEZE SELECTIE';}
 }
 for(const button of document.querySelectorAll('[data-discipline]'))button.addEventListener('click',()=>selectDiscipline(button.dataset.discipline));
 document.querySelector('#discipline-garage').addEventListener('click',()=>setFilter(selectedDiscipline));
@@ -210,6 +218,7 @@ let scrollQueued=false;
 function updateScrollUI(){
   const height=document.documentElement.scrollHeight-innerHeight;
   document.documentElement.style.setProperty('--scroll-progress',`${height>0?Math.min(100,scrollY/height*100):0}%`);
+  if(!isAdminPreview&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.style.setProperty('--hero-offset',`${Math.min(25,scrollY*.035)}px`);
   let current='';for(const section of navSections){if(section.getBoundingClientRect().top<innerHeight*.35)current=section.id;}
   for(const link of document.querySelectorAll('.desktop-nav a,.mobile-nav a')){const active=link.getAttribute('href')===`#${current}`;link.classList.toggle('active',active);if(active)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');}
   scrollQueued=false;
@@ -224,7 +233,7 @@ syncRoute();updateScrollUI();
 
 function normalizeVehicle(record,index){
   if(!/^club-\d+$/.test(record.id)||!disciplines[record.category]||typeof record.name!=='string')throw new Error('Invalid vehicle');
-  const validImage=path=>typeof path==='string'&&((location.protocol==='file:'&&path.startsWith('data:image/'))||/^\/images\/vehicles\/\d+\/[a-f0-9]{64}\.(jpg|png|webp)$/.test(path));
+  const validImage=path=>typeof path==='string'&&((location.protocol==='file:'&&path.startsWith('data:image/'))||(isAdminPreview&&(path.startsWith('blob:'+location.origin+'/')||/^data:image\/(jpeg|png|webp|svg\+xml)[;,]/.test(path)||/^https:\/\/raw\.githubusercontent\.com\/alldaydigital\/Kaijuclub_kc\/(main|[a-f0-9]{40})\/cms\/media\/\d+\/[a-f0-9]{64}\.(jpg|png|webp)$/.test(path)))||/^\/images\/vehicles\/\d+\/[a-f0-9]{64}\.(jpg|png|webp)$/.test(path));
   if(!validImage(record.image)||!Array.isArray(record.gallery)||!record.gallery.length||record.gallery.some(photo=>!validImage(photo.src)))throw new Error('Invalid image');
   return {...record,number:String(index+1).padStart(2,'0'),reference:false,series:String(record.series||''),origin:String(record.origin||''),model:String(record.model||record.category.toUpperCase()),credit:String(record.credit||''),title:String(record.title||'De details van deze build.'),intro:String(record.intro||record.teaser||''),paragraphs:Array.isArray(record.paragraphs)?record.paragraphs:[],focus:Array.isArray(record.focus)?record.focus:[],specs:Array.isArray(record.specs)?record.specs:[],teaser:String(record.teaser||record.intro||'Ontdek deze clubwagen van dichtbij.')};
 }
@@ -253,4 +262,22 @@ async function loadCollection(){
     if(collectionMode!=='managed')document.querySelector('.collection-status').textContent='REFERENTIECOLLECTIE';
   }finally{clearTimeout(timeout);}
 }
-loadCollection();
+if(!isAdminPreview)loadCollection();
+if(isAdminPreview){
+  window.addEventListener('message',event=>{
+    if(event.source!==window.parent||event.origin!==location.origin||event.data?.type!=='kaiju:preview'||event.data.nonce!==previewNonce)return;
+    try{
+      const {catalog,view,id}=event.data;
+      if(catalog?.schemaVersion!==1||catalog.mode!=='managed'||!Array.isArray(catalog.vehicles))return;
+      if(dialog.open)dialog.close();if(noteDialog.open)noteDialog.close();
+      appliedCollection='';applyCollection(catalog);
+      document.body.classList.remove('preview-waiting','preview-card','preview-dossier');
+      if(view==='card'){document.body.classList.add('preview-card');document.querySelector('.car-card')?.classList.toggle('car-card-featured',!!event.data.cardFeatured);}
+      if(view==='dossier'){document.body.classList.add('preview-dossier');openCar(id,{fromHash:true});}
+      if(view==='card')window.scrollTo({top:document.querySelector('#garage').offsetTop,behavior:'instant'});
+      else if(view==='site')window.scrollTo({top:0,behavior:'instant'});
+      window.parent.postMessage({type:'kaiju:preview-rendered',nonce:previewNonce},location.origin);
+    }catch{window.parent.postMessage({type:'kaiju:preview-error',nonce:previewNonce},location.origin);}
+  });
+  window.parent.postMessage({type:'kaiju:preview-ready',nonce:previewNonce},location.origin);
+}
