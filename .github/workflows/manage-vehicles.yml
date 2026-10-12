@@ -1,0 +1,123 @@
+name: Wagenbeheer en publicatie
+
+on:
+  issues:
+    types: [opened, edited, closed, reopened, labeled]
+  workflow_dispatch:
+    inputs:
+      test_issue:
+        description: 'Alleen voor validatie: nummer van een cms-test fiche; geen publicatie'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+  issues: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  manage:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (contains(github.event.issue.labels.*.name, 'wagen') &&
+      !contains(github.event.issue.labels.*.name, 'cms-test') &&
+      contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.issue.author_association) &&
+      (github.event.action != 'edited' || github.event.changes.body) &&
+      (github.event_name != 'issues' || github.event.action != 'labeled' || github.event.label.name == 'wagen'))
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      CMS_TEST_ISSUE: ${{ inputs.test_issue || '' }}
+    steps:
+      - name: Huidige website ophalen
+        uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Python instellen
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Afbeeldingsvalidatie installeren
+        run: python -m pip install --requirement scripts/cms-requirements.txt
+      - name: Beheercontroles uitvoeren
+        run: python -m unittest discover -s tests -p 'test_vehicle_cms.py' -v
+      - name: Wagens en foto's veilig verwerken
+        run: |
+          set -euo pipefail
+          if [[ -n "$CMS_TEST_ISSUE" ]]; then
+            python scripts/sync_vehicles.py --test-issue "$CMS_TEST_ISSUE" --output-dir /tmp/kaiju-cms-test
+          else
+            python scripts/sync_vehicles.py
+          fi
+      - name: Testresultaat bewaren
+        if: env.CMS_TEST_ISSUE != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: cms-validation
+          path: /tmp/kaiju-cms-test/vehicles.json
+      - name: Node.js instellen
+        if: env.CMS_TEST_ISSUE == ''
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Website controleren en bouwen
+        if: env.CMS_TEST_ISSUE == ''
+        run: |
+          npm ci --no-audit --no-fund
+          npm run build -- --base=/Kaijuclub_kc/
+      - name: Gepubliceerde collectie bewaren
+        id: catalog
+        if: env.CMS_TEST_ISSUE == ''
+        run: |
+          set -euo pipefail
+          git add public/data/vehicles.json
+          if [[ -d public/images/vehicles ]]; then
+            git add public/images/vehicles
+          fi
+          if git diff --cached --quiet; then
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+          else
+            git config user.name 'github-actions[bot]'
+            git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+            git commit -m 'Update vehicle collection from wagenbeheer'
+            git push origin HEAD:main
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Pages instellen
+        if: env.CMS_TEST_ISSUE == ''
+        uses: actions/configure-pages@v5
+      - name: Website klaarzetten
+        if: env.CMS_TEST_ISSUE == ''
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+      - name: Website publiceren
+        id: deployment
+        if: env.CMS_TEST_ISSUE == ''
+        uses: actions/deploy-pages@v4
+      - name: Beheerstatus bijwerken
+        if: always() && env.CMS_TEST_ISSUE == '' && github.event_name == 'issues'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const number = context.payload.issue.number;
+            const issue = (await github.rest.issues.get({...context.repo, issue_number: number})).data;
+            const status = ${{ toJSON(job.status) }} === 'success'
+              ? (issue.state === 'open' && /### (Status|Publicatie)\s*\n+Publiceren\s*(\n|$)/.test(issue.body || '') ? 'cms:live' : 'cms:concept')
+              : 'cms:fout';
+            const labels = issue.labels.map(label => typeof label === 'string' ? label : label.name).filter(name => !name.startsWith('cms:'));
+            labels.push(status);
+            await github.rest.issues.setLabels({...context.repo, issue_number: number, labels});
+            const name = (issue.body || '').match(/### Wagen\s*\n+([^\n]+)/)?.[1]?.trim();
+            if (name && name !== '_No response_' && name.length <= 120 && issue.title !== '[Wagen] ' + name) {
+              await github.rest.issues.update({...context.repo, issue_number: number, title: '[Wagen] ' + name});
+            }

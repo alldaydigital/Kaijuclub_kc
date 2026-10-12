@@ -1,0 +1,70 @@
+name: Wagen beheren
+description: Voeg een wagen toe of werk foto's en informatie bij. Alleen clubbeheerders kunnen publiceren.
+title: "[Wagen] "
+labels: [wagen]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Je bestaande GitHub-account is je beheerderslogin.** Alleen accounts met schrijf-, maintain- of adminrechten op deze repository mogen wagens publiceren. Een inzending van een ander account verschijnt niet op de website.
+
+        Bewaar eerst als **Concept**. Kies **Publiceren** zodra alles klaar is. Een open fiche met Publiceren verschijnt na de automatische controle op de website. Zet terug op Concept of sluit de fiche om de wagen te verwijderen. Je kunt deze fiche later bewerken om de wagen bij te werken.
+  - type: input
+    id: name
+    attributes:
+      label: Wagen
+      description: Merk en model, zoals Nissan Skyline.
+      placeholder: Merk en model
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Discipline
+      options: [street, stance, track, drift]
+    validations:
+      required: true
+  - type: textarea
+    id: photos
+    attributes:
+      label: Fotos
+      description: Sleep 1 tot 12 eigen foto's in dit veld. Gebruik JPEG, PNG of WebP, maximaal 10 MB per foto. De eerste foto is de omslag. Geef foto's bij voorkeur een beschrijvende tekst tussen de vierkante haakjes.
+      placeholder: "![Beschrijving van je wagen](https://github.com/user-attachments/assets/...)"
+    validations:
+      required: true
+  - type: input
+    id: series
+    attributes:
+      label: Serie
+      placeholder: "Bijvoorbeeld R34"
+  - type: input
+    id: origin
+    attributes:
+      label: Herkomst
+      placeholder: "Bijvoorbeeld Japan"
+  - type: textarea
+    id: story
+    attributes:
+      label: Verhaal
+      description: Vertel het verhaal van deze wagen. De eerste alinea wordt ook gebruikt als korte introductie; verdere alinea's verschijnen in de fiche.
+  - type: textarea
+    id: specs
+    attributes:
+      label: Specificaties
+      description: Optioneel. Eén eigen specificatie per regel in de vorm 'Label: waarde'. Voeg alleen bevestigde informatie toe.
+      placeholder: "Motor: RB26DETT\nWielen: 18 inch"
+  - type: dropdown
+    id: featured
+    attributes:
+      label: Uitgelicht
+      description: Zet deze wagen bovenaan de collectie.
+      options: [Nee, Ja]
+      default: 0
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      options: [Concept, Publiceren]
+      default: 0
+    validations:
+      required: true
