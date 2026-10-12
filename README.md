@@ -1,6 +1,6 @@
 # Kaijuclub
 
-Automotive portfolio for drift, stance, track and street culture. Built with Vite and vanilla JavaScript, with locally bundled fonts and automotive reference photography. The design uses charcoal, warm ivory and restrained orange accents, with a cinematic hero and an editorial garage.
+Automotive portfolio for drift, stance, track and street culture. Built with Vite and vanilla JavaScript, with locally bundled fonts and automotive reference photography. The design uses a late-90s automotive zine direction: near-black, bone white, racing red, chrome Racing Sans One lettering, IBM Plex Mono labels, a framed R34 hero and a contact-sheet garage. The requested references are Nightride and Revved; their current websites could not be inspected because network access was blocked.
 
 ## Development
 
@@ -18,7 +18,7 @@ npm --cache /tmp/kaiju-npm run build
 npm --cache /tmp/kaiju-npm run preview
 ```
 
-Deploy the generated `dist` directory to a static host. The site is not yet published.
+Deploy the generated `dist` directory to a static host. The website is published at https://alldaydigital.github.io/Kaijuclub_kc/ using the GitHub Pages workflow.
 
 ## Actual club cars
 
@@ -36,6 +36,6 @@ Run `python scripts/export-preview.py` after installing dependencies. Download t
 
 `.github/workflows/deploy-pages.yml` installs the locked dependencies, builds with the `/Kaijuclub_kc/` site path and publishes using GitHub Actions on pushes to `main`.
 
-Enable **Settings → Pages → Build and deployment → Source: GitHub Actions** for this repository. A successful workflow returns the actual public URL. Do not describe the site as live until the Pages deployment and an external request succeed.
+GitHub Pages is enabled with **Settings → Pages → Build and deployment → Source: GitHub Actions**. A successful workflow returns the actual public URL. Do not describe the site as live until the Pages deployment and an external request succeed.
 
 To automate enabling Pages, the GitHub API must be reachable and the connected GitHub identity must have the required repository permissions. Native Git access alone does not establish that access.

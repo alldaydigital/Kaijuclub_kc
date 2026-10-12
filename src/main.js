@@ -1,3 +1,5 @@
+import '@fontsource/racing-sans-one/400.css';
+import '@fontsource/ibm-plex-mono/400.css';
 import '@fontsource/barlow-condensed/700.css';
 import '@fontsource/barlow-condensed/800.css';
 import '@fontsource/inter/400.css';
