@@ -211,7 +211,7 @@ function closeMenu(){menuButton.setAttribute('aria-expanded','false');menuButton
 menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));menuButton.setAttribute('aria-label',open?'Menu openen':'Menu sluiten');mobileNav.hidden=open;});
 mobileNav.addEventListener('click',event=>{if(event.target.closest('a'))closeMenu();});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!mobileNav.hidden){closeMenu();menuButton.focus();}});
-window.matchMedia('(min-width:901px)').addEventListener('change',event=>{if(event.matches)closeMenu();});
+window.matchMedia('(min-width:1001px)').addEventListener('change',event=>{if(event.matches)closeMenu();});
 
 const navSections=['garage','culture','discover','journal'].map(id=>document.getElementById(id));
 let scrollQueued=false;
