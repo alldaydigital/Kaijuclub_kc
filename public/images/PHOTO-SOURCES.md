@@ -27,3 +27,7 @@ These are third-party stock examples, not documented vehicles of Kaijuclub. Do n
 - /tmp/kaiju-photo-candidates/Bennyonye/README.md
 
 Preserve photographer/stock source credits in an image-credit file when copying selected photos into the website.
+
+## Club header
+
+`kaiju-club-header.png` is a horizontal image edit made with image_gen from the user-supplied Kaijuclub photograph in this conversation (two white sedans with tribal liveries). It is an AI-assisted reframing, not a lossless crop of the original source. No photographer name or car model has been inferred. The original upload was not exposed as a downloadable workspace file. The unmodified tool output is retained at its generated workspace path. Other gallery images above remain clearly marked visual references.

@@ -247,7 +247,6 @@ function applyCollection(data){
       const first=builds[0];
       for(const button of document.querySelectorAll('[data-open-build]')){button.disabled=!first;if(first){button.dataset.openBuild=first.id;button.setAttribute('aria-label',`Ontdek ${first.name}`);}}
       const detailButton=document.querySelector('.connect-bottom [data-open-build]');if(detailButton)detailButton.innerHTML=`${first?'BEKIJK DE UITGELICHTE FICHE':'DE COLLECTIE KOMT ERAAN'} ${arrow}`;
-      if(first){const hero=document.querySelector('.hero-photo');hero.src=imageUrl(first.image);hero.alt=first.alt;hero.width=first.width;hero.height=first.height;hero.style.objectPosition=first.position||'center';document.querySelector('.photo-index').textContent=`[ ${first.series||first.name} / CLUB BUILD ]`;}
       selectDiscipline(selectedDiscipline);syncRoute();
     }
 }

@@ -98,4 +98,22 @@ export class GitHubStore {
     if(!run)return {state:'queued'};
     return {state:run.status==='completed'?(run.conclusion==='success'?'live':'failed'):run.status,url:run.html_url};
   }
+  async readFile(path) {
+    if(!this.head)throw new ApiError('Verbind het beheer eerst.');
+    const tree=await this.request(this.endpoint(`git/trees/${this.head.tree}?recursive=1`));
+    if(tree.truncated)throw new ApiError('Het bestand kon niet veilig geladen worden.');
+    const entry=tree.tree.find(item=>item.type==='blob'&&item.path===path);
+    if(!entry)throw new ApiError('Het beheerbestand ontbreekt.');
+    return JSON.parse(decodeContent(await this.request(this.endpoint(`git/blobs/${entry.sha}`))));
+  }
+  async saveFiles(files,message) {
+    if(!this.head)throw new ApiError('Verbind het beheer eerst.');
+    const ref=await this.request(this.endpoint(`git/ref/heads/${this.branch}`));
+    if(ref.object.sha!==this.head.sha)throw new ApiError('De site is intussen gewijzigd. Je werk blijft in het formulier. Verbind opnieuw om de actuele versie te laden.',409);
+    const entries=Object.entries(files).map(([path,data])=>({path,mode:'100644',type:'blob',content:JSON.stringify(data,null,2)+'\n'}));
+    const tree=await this.request(this.endpoint('git/trees'),{method:'POST',body:{base_tree:this.head.tree,tree:entries}});
+    const commit=await this.request(this.endpoint('git/commits'),{method:'POST',body:{message,tree:tree.sha,parents:[this.head.sha]}});
+    await this.request(this.endpoint(`git/refs/heads/${this.branch}`),{method:'PATCH',body:{sha:commit.sha,force:false}});
+    this.head={sha:commit.sha,tree:tree.sha};return commit.sha;
+  }
 }

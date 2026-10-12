@@ -46,3 +46,13 @@ De controle valideert alle foto's en collectiegegevens voordat de site live gaat
 De GitHub-repository is openbaar. **Opgeslagen conceptgegevens en foto's zijn daar ook zichtbaar**, hoewel concepten buiten de bezoekerswebsite blijven. Verbergen verwijdert foto's niet uit de repository of versiegeschiedenis. Gebruik dit beheer voor openbare portfolio-informatie.
 
 De huidige bezoekerscollectie bevat nog duidelijk gemarkeerde referentiewagens. Je eigen gepubliceerde wagens vervangen die collectie. De oude GitHub Issue Form-route is vervangen door dit beheer en verwerkt geen automatische wijzigingen meer.
+
+## Partners en sponsors
+
+Open **Partners & sponsors** in de zijbalk of `/beheer/partners/`. De opgeslagen, versleutelde GitHub-koppeling uit het garagebeheer werkt met hetzelfde beheerwachtwoord. Je kunt ook dezelfde fine-grained beheersleutel opnieuw invoeren.
+
+Kies **Partner toevoegen**, vul naam, type, introductie en eventueel een https-website en logo in. Het directe voorbeeld gebruikt de echte kaartvormgeving. Logo’s worden automatisch verkleind met behoud van transparantie. **Bewaar concept** verandert een bestaande gepubliceerde kaart niet. **Publiceer** plaatst de kaart na de GitHub Pages-publicatie op `/partners/`. **Verberg op de site** haalt de kaart van de partnerpagina. Concepten en logo’s zijn zichtbaar in de openbare GitHub-repository.
+
+## Event- en partneraanvragen
+
+De formulieren bezorgen aanvragen via FormSubmit aan **kaijuclub.be@gmail.com**. Bij het eerste gebruik stuurt FormSubmit een activatiemail: bevestig die in deze mailbox voordat je op de bezorging vertrouwt. Controleer ook spam en test daarna met een eigen aanvraag. Zonder die bevestiging is de daadwerkelijke mailboxbezorging niet geverifieerd. Bij een onzekere verzending blijft de ingevulde aanvraag in het formulier staan. Aanvragen komen niet in de openbare repository terecht.

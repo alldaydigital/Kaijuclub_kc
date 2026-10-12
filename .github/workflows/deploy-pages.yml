@@ -32,6 +32,7 @@ jobs:
           python -m pip install --requirement scripts/cms-requirements.txt
           python -m unittest discover -s tests -p 'test_*.py' -v
           python scripts/validate_collection.py
+          python scripts/validate_partners.py
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -41,7 +42,7 @@ jobs:
         run: npm ci --no-audit --no-fund
       - name: Build for GitHub Pages
         run: |
-          node --test tests/test_admin.mjs
+          node --test tests/*.mjs
           npm run build -- --base=/Kaijuclub_kc/
       - name: Configure Pages
         uses: actions/configure-pages@v5
