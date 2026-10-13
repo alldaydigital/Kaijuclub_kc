@@ -1,3 +1,4 @@
+import {normalizeConnectionToken,checkGitHubConnection} from './admin-auth.js';
 import '@fontsource/racing-sans-one/400.css';
 import '@fontsource/barlow-condensed/700.css';
 import '@fontsource/ibm-plex-mono/400.css';
@@ -87,7 +88,19 @@ for(const button of all('[data-collection-filter]'))button.addEventListener('cli
 
 function showConnection(){const remembered=hasVault();$('#connection-form').hidden=remembered;$('#unlock-form').hidden=!remembered;$('#connection-error').hidden=true;$('#connection-dialog').showModal();(remembered?$('#unlock-password'):$('#admin-token')).focus();}
 function connectedUI(login){$('#account-name').textContent=login;$('#account-status').textContent='Beheer verbonden';$('#connection-status').innerHTML='<i aria-hidden="true"></i>Verbonden';$('#connect-account').textContent='Koppeling';$('#lock-admin').hidden=false;touchSession();renderCollection();}
-async function connectToken(token,password,remember){if(!/^github_pat_[A-Za-z0-9_]+$/.test(token))throw new Error('Gebruik een fine-grained GitHub-beheersleutel voor uitsluitend Kaijuclub_kc.');const nextStore=new GitHubStore(token);try{const account=await nextStore.connect();if(remember)await rememberConnection(token,password);store?.lock();store=nextStore;connectedUI(account.login);for(const record of store.catalog.vehicles)attachUrls(record);if(!dirty&&!current.name&&!current.photos.length&&store.catalog.vehicles.length)setCurrent(store.catalog.vehicles[0]);else{renderCollection();schedulePreview();}$('#connection-dialog').close();$('#connection-form').reset();$('#unlock-form').reset();$('#remember-password-field').hidden=true;notice('Beheer verbonden. Je kunt nu concepten bewaren en publiceren.');if(pendingAction){const action=pendingAction;pendingAction=null;await saveVehicle(action);}}catch(error){nextStore.lock();throw error;}}
+async function connectToken(value,password,remember){
+ const token=normalizeConnectionToken(value);
+ if(remember&&password.length<12)throw new Error('Gebruik een beheerwachtwoord van minimaal 12 tekens.');
+ const nextStore=new GitHubStore(token);let account;
+ try{account=await nextStore.connect();}catch(error){nextStore.lock();throw error;}
+ let remembered=true;if(remember){try{await rememberConnection(token,password);}catch{remembered=false;}}
+ store?.lock();store=nextStore;connectedUI(account.login);
+ for(const record of store.catalog.vehicles)attachUrls(record);
+ if(!dirty&&!current.name&&!current.photos.length&&store.catalog.vehicles.length)setCurrent(store.catalog.vehicles[0]);else{renderCollection();schedulePreview();}
+ $('#connection-dialog').close();$('#connection-form').reset();$('#unlock-form').reset();$('#remember-password-field').hidden=true;
+ notice(remembered?'Beheer verbonden. Je kunt nu concepten bewaren en publiceren.':'Beheer verbonden. Onthouden lukte niet doordat deze browser de lokale opslag blokkeert. De koppeling werkt zolang deze pagina open blijft.',!remembered);
+ if(pendingAction){const action=pendingAction;pendingAction=null;await saveVehicle(action);}
+}
 for(const selector of ['#connection-button','#connect-account'])$(selector).addEventListener('click',showConnection);$('#close-connection').addEventListener('click',()=>{$('#connection-dialog').close();pendingAction=null;$('#admin-token').value='';$('#admin-password').value='';$('#unlock-password').value='';});$('#connection-dialog').addEventListener('cancel',()=>{pendingAction=null;$('#admin-token').value='';$('#admin-password').value='';$('#unlock-password').value='';});
 $('#remember-connection').addEventListener('change',event=>{$('#remember-password-field').hidden=!event.target.checked;$('#admin-password').required=event.target.checked;});
 $('#connection-form').addEventListener('submit',async event=>{event.preventDefault();const button=$('#submit-connection');button.disabled=true;$('#connection-error').hidden=true;try{await connectToken($('#admin-token').value.trim(),$('#admin-password').value,$('#remember-connection').checked);}catch(error){$('#connection-error').hidden=false;$('#connection-error').textContent=error.message;}finally{button.disabled=false;}});
@@ -107,3 +120,5 @@ window.addEventListener('beforeunload',event=>{if(dirty||busy){event.preventDefa
 document.addEventListener('visibilitychange',()=>{if(document.hidden&&dirty)keepRecovery(current).catch(()=>{});});
 setCurrent(current);sizeFrame($('#preview-frame'));notice('Voeg foto’s en gegevens toe om het resultaat te bekijken. Verbind het beheer wanneer je wilt bewaren.');
 recoverDrafts().then(records=>{if(records.length){for(const record of records){for(const photo of record.photos)if(photo.file){photo.previewUrl=URL.createObjectURL(photo.file);ownedUrls.add(photo.previewUrl);}recovered.set(record.id,record);working.set(record.id,record);}setCurrent(records.sort((a,b)=>b.recoveredAt-a.recoveredAt)[0]);notice('Je niet-bewaarde werk uit deze browser is hersteld. Verbind het beheer om het definitief te bewaren.');}}).catch(()=>{});
+
+$('#check-github-connection').addEventListener('click',async event=>{const button=event.currentTarget;button.disabled=true;$('#github-connection-result').textContent='Verbinding controleren…';const result=await checkGitHubConnection();$('#github-connection-result').textContent=result.message;button.disabled=false;});

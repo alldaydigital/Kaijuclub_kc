@@ -8,7 +8,7 @@ Je voegt wagens, foto's en informatie toe in de website zelf. De rechterkant too
 
 1. Klik in het beheer op **Verbind beheer**, daarna **Eerste keer verbinden?**.
 2. Open **Beheersleutel aanmaken** en log in met een GitHub-account dat schrijfrechten heeft op `alldaydigital/Kaijuclub_kc`.
-3. Kies een fine-grained personal access token met **Repository access → Only select repositories → Kaijuclub_kc**. Geef **Repository permissions → Contents → Read and write**. Metadata wordt automatisch toegevoegd. Je hebt geen andere rechten nodig.
+3. Kies **Resource owner → alldaydigital** en een fine-grained personal access token met **Repository access → Only select repositories → Kaijuclub_kc**. Geef **Repository permissions → Contents → Read and write**. Metadata wordt automatisch toegevoegd. Je hebt geen andere rechten nodig.
 4. Maak de sleutel aan en plak hem uitsluitend in het afgeschermde veld op de beheerpagina. Deel de sleutel niet in chat of in een wagenfiche.
 5. Vink **Onthoud deze verbinding op dit toestel** aan en kies een eigen beheerwachtwoord van minimaal 12 tekens. De sleutel wordt lokaal versleuteld opgeslagen; later open je het beheer op dit toestel met dat wachtwoord.
 
@@ -29,7 +29,7 @@ Concepten worden echt in de repository opgeslagen en kunnen na opnieuw inloggen 
 
 ## Een bestaande wagen aanpassen
 
-Selecteer de wagen in de garage. Bewerk foto's, verhaal of details. Met **Concept bewaren** blijven bestaande live gegevens en foto's behouden; pas **Wijzigingen publiceren** vervangt de live versie. Een uitgelichte wagen krijgt voorrang in de collectie. De eerste live wagen bepaalt de grote foto bovenaan de website.
+Selecteer de wagen in de garage. Bewerk foto's, verhaal of details. Met **Concept bewaren** blijven bestaande live gegevens en foto's behouden; pas **Wijzigingen publiceren** vervangt de live versie. Een uitgelichte wagen krijgt voorrang in de collectie. De headerfoto blijft onafhankelijk van de garagecollectie.
 
 **Verbergen** haalt de wagen van de website, maar bewaart de fiche en foto's. **Terug publiceren** zet hem terug. De website herstelt nooit voorbeeldwagens wanneer alle eigen wagens verborgen zijn.
 
@@ -56,3 +56,11 @@ Kies **Partner toevoegen**, vul naam, type, introductie en eventueel een https-w
 ## Event- en partneraanvragen
 
 De formulieren bezorgen aanvragen via FormSubmit aan **kaijuclub.be@gmail.com**. Bij het eerste gebruik stuurt FormSubmit een activatiemail: bevestig die in deze mailbox voordat je op de bezorging vertrouwt. Controleer ook spam en test daarna met een eigen aanvraag. Zonder die bevestiging is de daadwerkelijke mailboxbezorging niet geverifieerd. Bij een onzekere verzending blijft de ingevulde aanvraag in het formulier staan. Aanvragen komen niet in de openbare repository terecht.
+
+## Als verbinden niet lukt
+
+Beide beheerders accepteren fine-grained sleutels (`github_pat_`) en klassieke sleutels (`ghp_`). GitHub ondersteunt fine-grained tokens niet voor bepaalde externe/repository-bijdragers. Kun je `alldaydigital` niet kiezen als Resource owner? Maak dan een klassieke personal access token met alleen `public_repo`. Je GitHub-account moet zelf schrijfrechten hebben. Een klassieke sleutel kan meerdere openbare repositories van dat account bereiken; de voorkeur blijft een sleutel beperkt tot deze repository als GitHub dat toestaat. Zie de [GitHub-beperkingen](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens-limitations).
+
+Kies **Controleer verbinding met GitHub** in het inlogvenster. Dit test bereikbaarheid zonder je sleutel te versturen. Bij een blokkade: open het beheer met de link **Open beheer in een apart tabblad**, controleer privacy-extensies voor `api.github.com` of probeer een ander netwerk. Een ongeldige/verlopen sleutel, ontbrekende Contents-rechten, een verkeerde repositoryselectie, SSO of een tijdelijke GitHub-limiet krijgen elk een aparte melding. Een SSH-sleutel en het lokale beheerwachtwoord zijn geen GitHub personal access token. Deel sleutels uitsluitend via het afgeschermde veld op de beheerpagina.
+
+Kan de browser de versleutelde koppeling niet onthouden, dan blijft de werkende sessie open en verschijnt een aparte melding. In partnerbeheer wordt de gevraagde bewaar-/publicatieactie na succesvol verbinden automatisch uitgevoerd.

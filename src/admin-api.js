@@ -1,4 +1,5 @@
 import {REPOSITORY,BRANCH,validateManagerCatalog,cleanFields,publicCatalog,validateFields,photoPublicPath} from './admin-model.js';
+import {checkGitHubConnection} from './admin-auth.js';
 const MANAGER_PATH='cms/catalog.json';
 const PUBLIC_PATH='public/data/vehicles.json';
 export class ApiError extends Error { constructor(message,status=0){super(message);this.status=status;} }
@@ -17,18 +18,30 @@ export class GitHubStore {
     try {
       const response=await this.fetcher('https://api.github.com/'+path,{method,headers:{Authorization:'Bearer '+this.token,Accept:'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28',...(body?{'Content-Type':'application/json'}:{})},...(body?{body:JSON.stringify(body)}:{}),signal:controller.signal,credentials:'omit',cache:'no-store',redirect:'error',referrerPolicy:'no-referrer'});
       if(!response.ok) {
-        const messages={401:'Je beheerkoppeling is verlopen. Koppel GitHub opnieuw.',403:'Deze koppeling heeft onvoldoende rechten of GitHub beperkt tijdelijk de aanvragen. Controleer Contents: Read and write.',404:'De collectie of repository is niet bereikbaar met deze beheerkoppeling.',409:'Iemand heeft de collectie intussen gewijzigd. Je wijzigingen blijven hier bewaard. Laad de actuele collectie en probeer opnieuw.',422:'De collectie is intussen gewijzigd of GitHub kon deze update niet bewaren. Je wijzigingen blijven hier bewaard.'};
+        const header=name=>response.headers?.get?.(name)||'';
+        const repositoryHint=`repository ${this.repository}`;
+        const writeProbe=method==='POST'&&path.endsWith('/git/blobs');
+        const messages={401:'GitHub weigert deze sleutel: hij is ongeldig, verlopen of ingetrokken. Maak een nieuwe personal access token aan en koppel opnieuw.',403:writeProbe?`GitHub weigert schrijven naar ${repositoryHint}. Fine-grained: Resource owner alldaydigital, selecteer Kaijuclub_kc en Contents: Read and write. Klassiek: public_repo. Je account moet zelf schrijfrechten hebben; een eventuele organisatiegoedkeuring moet afgerond zijn.`:`Deze sleutel heeft geen toegang tot ${repositoryHint}. Controleer de repositoryselectie en je accountrechten.`,404:`GitHub vindt ${repositoryHint} niet met deze sleutel. Controleer de repositoryselectie, Resource owner alldaydigital en de toegang van je GitHub-account.`,409:'Iemand heeft de collectie intussen gewijzigd. Je wijzigingen blijven hier bewaard. Laad de actuele collectie en probeer opnieuw.',422:'De collectie is intussen gewijzigd of GitHub kon deze update niet bewaren. Je wijzigingen blijven hier bewaard.'};
+        if(response.status===429||(response.status===403&&(header('x-ratelimit-remaining')==='0'||header('retry-after'))))throw new ApiError('GitHub beperkt tijdelijk het aantal aanvragen. Wacht even en probeer opnieuw; je sleutel en invoer zijn behouden.',response.status);
+        if(response.status===403&&header('x-github-sso').startsWith('required'))throw new ApiError('De GitHub-organisatie vereist SSO-autorisatie. Autoriseer deze sleutel voor de organisatie in je GitHub-instellingen en probeer opnieuw.',403);
         throw new ApiError(messages[response.status]||'GitHub kon de wijziging niet verwerken. Je werk blijft hier bewaard.',response.status);
       }
-      return response.status===204?null:await response.json();
-    }catch(error){if(error instanceof ApiError)throw error;throw new ApiError('De verbinding is onderbroken. Je werk blijft hier bewaard. Controleer je verbinding en probeer opnieuw.');}
+      if(response.status===204)return null;
+      try{return await response.json();}catch{throw new ApiError('Het antwoord van GitHub kon niet worden gelezen. Je invoer is behouden. Gebruik de verbindingscontrole en probeer opnieuw.',response.status);}
+    }catch(error){
+      if(error instanceof ApiError)throw error;
+      if(controller.signal.aborted)throw new ApiError('GitHub antwoordde niet op tijd. Je invoer is behouden. Controleer de verbinding en probeer opnieuw.');
+      const check=await checkGitHubConnection({fetcher:this.fetcher});
+      throw new ApiError(check.reachable?'GitHub is bereikbaar, maar de aanvraag met je beheersleutel kon niet worden voltooid. Open het beheer rechtstreeks in een apart browsertabblad en controleer eventuele privacy-extensies. Je invoer is behouden.':check.message);
+    }
     finally{clearTimeout(timer);signal?.removeEventListener('abort',abort);}
   }
   endpoint(path){return `repos/${this.repository}${path?'/'+path:''}`;}
   async connect() {
     const user=await this.request('user');
-    const repo=await this.request(this.endpoint(''));
-    if(!repo.permissions?.push)throw new ApiError('Je account heeft geen schrijfrechten voor de Kaijuclub-website.',403);
+    await this.request(this.endpoint(''));
+    // The permissions field is optional in GitHub's repository response.
+    // Test the actual write operation instead of rejecting missing metadata.
     // Verify actual token write scope without changing a branch or published file.
     await this.request(this.endpoint('git/blobs'),{method:'POST',body:{content:'Kaijuclub CMS connection check',encoding:'utf-8'}});
     await this.load();return {login:user.login,avatar:user.avatar_url};

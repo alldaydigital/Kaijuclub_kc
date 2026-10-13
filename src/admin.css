@@ -22,3 +22,5 @@
 
 /* Readable mobile fields also prevent automatic focus zoom on iOS. */
 @media(max-width:700px){.field input,.field select,.field textarea,.collection-search input{font-size:16px}}
+
+.connection-check{margin-top:20px;border-top:1px solid var(--line);padding-top:12px}.connection-check .field-help{line-height:1.8}.connection-check .text-link{font-size:10px;line-height:1.7}
