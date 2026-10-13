@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": 2,
-  "publishedAt": "2026-10-13T19:13:19.226Z",
+  "revision": 3,
+  "publishedAt": "2026-10-13T19:14:07.074Z",
   "content": {
     "contact_email": "kaijuclub.be@gmail.com",
     "social_instagram": "https://www.instagram.com/kaijuclub_kc/",
@@ -45,7 +45,7 @@
     },
     "hero_text_4": "怪獣 / KAIJUCLUB",
     "hero_text_5": "DRIFT · STANCE · TRACK · STREET",
-    "hero_text_6": "VIER DISCIPLINES. HETZELFDE GEVOEL.",
+    "hero_text_6": "",
     "hero_text_7": "Voor wie het verschil ziet.\nEn de passie erachter herkent.",
     "hero_text_8": "ONTDEK DE WAGENS",
     "hero_text_9": "Dit zijn wij",
@@ -55,7 +55,7 @@
     "disciplines_text_3": "TRACK",
     "disciplines_text_4": "STREET",
     "disciplines_text_5": "怪獣",
-    "manifesto_text_1": "THE KAIJU MINDSET",
+    "manifesto_text_1": "",
     "manifesto_text_2": "Kwaliteit.\nGeen toeval.",
     "manifesto_text_3": "Kaijuclub is een automotive club met kwalitatieve wagens. Maar wat ons verbindt, gaat verder dan het metaal.",
     "manifesto_text_4": "Het is de aandacht voor een detail. De eigenheid van een build. De passie die je herkent, ook als je elkaar nog niet kent.",
