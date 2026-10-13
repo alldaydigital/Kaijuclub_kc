@@ -21,7 +21,7 @@ let manager = newSiteManager(), content = clone(defaultSiteContent), baseline = 
 let store = null, selectedGroup = CONTENT_GROUPS.find(group => group.id === 'hero') || CONTENT_GROUPS[0], currentPage = 'home', device = 'desktop';
 let dirty = false, busy = false, processing = false, pendingAction = null, watchVersion = 0, contentHeadSha = null;
 let previewTimer, recoveryTimer, previewLoadTimer, inactivityTimer, recoveryWarning = false;
-const pageNames = {home:'Homepage', partners:'Partners & sponsors', events:'Events & fotoreportages', global:'Instellingen'};
+const pageNames = {agenda:'Agenda',home:'Homepage', partners:'Partners & sponsors', events:'Events & fotoreportages', global:'Instellingen'};
 
 function notice(message = '', error = false) {
   const element = $('#site-notice');
@@ -62,7 +62,7 @@ function visibleGroups() {
 function renderGroups() {
   const list = $('#site-group-list'); list.replaceChildren();
   const groups = visibleGroups();
-  for (const page of ['home', 'partners', 'events', 'global']) {
+  for (const page of ['home', 'partners', 'events', 'agenda', 'global']) {
     const items = groups.filter(group => group.page === page);
     if (!items.length) continue;
     const heading = document.createElement('p'); heading.className = 'group-list-heading'; heading.textContent = pageNames[page]; list.append(heading);

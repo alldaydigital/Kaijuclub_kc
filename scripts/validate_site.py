@@ -44,7 +44,7 @@ def timestamp(value):
 def safe_site_link(value):
     if not isinstance(value, str) or len(value) > 500 or re.search(r'[\x00-\x20\\]', value):
         return False
-    if re.fullmatch(r'/(?:#[A-Za-z][\w-]*|(?:partners|events)/(?:#[A-Za-z][\w-]*)?)?', value) or re.fullmatch(r'#[A-Za-z][\w-]*', value):
+    if re.fullmatch(r'/(?:#[A-Za-z][\w-]*|(?:partners|events|agenda)/(?:#[A-Za-z][\w-]*)?)?', value) or re.fullmatch(r'#[A-Za-z][\w-]*', value):
         return True
     try:
         url = urlsplit(value)

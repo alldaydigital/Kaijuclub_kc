@@ -15,3 +15,4 @@
 [data-preview-focus=true]{outline:2px solid var(--accent);outline-offset:7px;background:#f3f6ea}
 
 @media(max-width:370px){.management-nav a{font-size:8px;padding:7px 6px}}
+@media(max-width:700px){.management-nav{flex-wrap:wrap}.management-nav a{min-width:0;flex:0 1 auto}}

@@ -3,6 +3,7 @@
 | Wat wil je aanpassen? | Open het beheer |
 | --- | --- |
 | Teksten, foto's, knoppen en uitstraling | [Website bewerken](https://alldaydigital.github.io/Kaijuclub_kc/beheer/website/) |
+| Events waar we aanwezig zijn | [Agenda](https://alldaydigital.github.io/Kaijuclub_kc/beheer/agenda/) |
 | Eventreportages en fotogalerijen | [Events & fotoportfolio](https://alldaydigital.github.io/Kaijuclub_kc/beheer/events/) |
 | Clubwagens en hun dossiers | [Garage](https://alldaydigital.github.io/Kaijuclub_kc/beheer/) |
 | Partners, sponsors en logo's | [Partners & sponsors](https://alldaydigital.github.io/Kaijuclub_kc/beheer/partners/) |
@@ -99,3 +100,14 @@ Kan de browser de koppeling niet onthouden, dan blijft de werkende sessie open e
 De bestaande GitHub-koppeling en het onthouden beheerwachtwoord werken hier ook. Niet-opgeslagen werk krijgt een eigen herstelkopie in deze browser. Op een ander toestel laad je opgeslagen reportages door het beheer te verbinden. De pagina begint met een clubgalerij van jullie reeds beschikbare beelden; eventnamen, datums en locaties worden pas ingevuld wanneer jullie die toevoegen.
 
 De algemene teksten en de uitstraling van de Events-pagina pas je aan bij **Website → Events: pagina & portfolio**. Bezoekers kunnen reportages, onderschriften en vergrote foto's op de website bekijken. De aanvraagknop leidt naar het bestaande eventformulier.
+
+
+## Agenda: waar zijn we aanwezig?
+
+1. Open [Agenda beheren](https://alldaydigital.github.io/Kaijuclub_kc/beheer/agenda/) en kies **Event toevoegen +**.
+2. Vul de naam, datum en locatie in. Kies jullie aanwezigheid: bevestigd, in planning of deelname geannuleerd. Uur, adres, praktische info en een officiële eventlink zijn optioneel. Het directe voorbeeld toont hoe bezoekers het event zien.
+3. Kies **Bewaar concept** om later verder te werken, of **Publiceer event** om het in de [publieke agenda](https://alldaydigital.github.io/Kaijuclub_kc/agenda/) te plaatsen. Gebruik dezelfde GitHub-koppeling als bij het wagenbeheer. Het beheer bevestigt zodra de publicatie live is.
+
+Komende events staan automatisch op datum. Een event blijft tot en met de einddatum zichtbaar als komend event en verschuift daarna naar **Eerdere events**, op basis van de Belgische datum. Voor een meerdaags event vul je ook de einddatum in. Bij een nacht-event loopt die einddatum door naar de volgende dag. Tijden zijn lokale Belgische tijden en mogen leeg blijven. **Verberg op de website** haalt een gepubliceerd event weg; opnieuw publiceren maakt het weer zichtbaar.
+
+Agenda is voor jullie aanwezigheid; **Events & fotoportfolio** blijft de plek voor foto's en reportages. De teksten boven en onder de agenda zijn aanpasbaar via **Website → Agenda & aanwezigheid**. Er staan nog geen geplande events in de agenda: voeg jullie echte datums toe. Niet-opgeslagen werk wordt waar mogelijk in deze browser hersteld. Opgeslagen concepten zijn leesbaar in de openbare GitHub-repository.

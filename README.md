@@ -6,6 +6,8 @@ Automotive portfolio for drift, stance, track and street. A 90s Japanese automot
 | --- | --- |
 | Website | https://alldaydigital.github.io/Kaijuclub_kc/ |
 | Events & photo portfolio | https://alldaydigital.github.io/Kaijuclub_kc/events/ |
+| Attendance agenda | https://alldaydigital.github.io/Kaijuclub_kc/agenda/ |
+| Agenda editor | https://alldaydigital.github.io/Kaijuclub_kc/beheer/agenda/ |
 | Events editor | https://alldaydigital.github.io/Kaijuclub_kc/beheer/events/ |
 | Partners | https://alldaydigital.github.io/Kaijuclub_kc/partners/ |
 | Website editor | https://alldaydigital.github.io/Kaijuclub_kc/beheer/website/ |
@@ -31,12 +33,13 @@ npm --cache /tmp/kaiju-npm run dev -- --host 0.0.0.0 --port 5173
 .cms-venv/bin/python scripts/validate_partners.py
 .cms-venv/bin/python scripts/validate_site.py
 .cms-venv/bin/python scripts/validate_events.py
+.cms-venv/bin/python scripts/validate_agenda.py
 node --test tests/*.mjs
 npm --cache /tmp/kaiju-npm run build -- --base=/Kaijuclub_kc/
 npm --cache /tmp/kaiju-npm run preview -- --base=/Kaijuclub_kc/ --host 0.0.0.0 --port 4175 --strictPort
 ```
 
-Vite builds all seven routes. The deployment workflow validates saved content, actual image bytes and immutable public projections, runs the Python and Node suites, builds, then publishes main to GitHub Pages. Pages must use **Settings → Pages → Build and deployment → Source: GitHub Actions**. Confirm the matching commit's successful workflow and live HTTPS bytes before reporting a deployment as live.
+Vite builds all nine routes. The deployment workflow validates saved content, actual image bytes and immutable public projections, runs the Python and Node suites, builds, then publishes main to GitHub Pages. Pages must use **Settings → Pages → Build and deployment → Source: GitHub Actions**. Confirm the matching commit's successful workflow and live HTTPS bytes before reporting a deployment as live.
 
 ## Website content management
 
@@ -83,3 +86,10 @@ python3 scripts/export-preview.py
 `/beheer/events/` supports multi-image upload (up to24 raster images,10MB each), automatic WebP preparation, cover selection, photo order, captions, alternative text, photo credits and desktop/mobile cover crop. Its iframe uses the actual public report renderer at1440/390 logical pixels, with expanded preview. Optional encrypted shared connection, local IndexedDB recovery, explicit/idle locking and safe GitHub transport match the existing CMS. Saving a draft preserves the immutable published report; publication/hiding atomically commits metadata/public projection/media with a fresh-ref check and force:false. New media stays in cms/event-media until publication. The public repository also exposes unpublished drafts/photos.
 
 `cms/events.json` contains concepts and snapshots; `public/data/events.json` contains only published, visible reports sorted by date. `scripts/validate_events.py` verifies the projection and actual decoded photo bytes/dimensions/SHA256 before deployment. A first club gallery reuses the already-authorized club header and published vehicle photo, with no invented event name, date, location or attendance. The exact header remains a horizontal image_gen adaptation as documented in PHOTO-SOURCES.md. Replace/add galleries with real meet, show and circuit-day reports as material becomes available. Event-page copy, navigation and metadata are editable under Website → Events: pagina & portfolio. Existing locally recovered site concepts upgrade the new fields without discarding earlier copy.
+
+
+## Attendance agenda
+
+`/agenda/` lists the events where the club will attend, separately from the `/events/` photo portfolio. Entries show a date plaque, event type, confirmed/planned/cancelled attendance, venue/address, optional local Belgian hours, practical information and safe optional official-event/map links. Upcoming events are sorted by date and time; today and ongoing multi-day events stay upcoming through their last day. Older entries appear under Earlier events. The day follows Europe/Brussels and is checked on returning to the tab and every 30 seconds. No real future attendance is invented; the initial calendar is empty.
+
+`/beheer/agenda/` needs only name, date and location to publish. It uses the shared GitHub connection/encrypted vault, actual public card renderer in guarded desktop/mobile/expanded iframes, browser draft recovery, explicit and idle locking, and deployment-status feedback. Draft/publish/hide atomically saves `cms/agenda.json` and `public/data/agenda.json` through the shared store's fresh-ref check and non-forced update. Editing a draft preserves the live snapshot. Concepts remain readable in the public repository. Optional end dates handle multi-day and overnight events; same-day end times must follow start times. `scripts/validate_agenda.py` verifies record shapes, dates/times, safe URLs and exact public snapshots in CI. Whole-page copy and Agenda navigation are editable in Website → Agenda & aanwezigheid. Existing local website concepts gain only the known calendar fields while keeping all earlier edits.

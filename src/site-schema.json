@@ -157,6 +157,20 @@
           "type": "text",
           "value": "Menu sluiten",
           "maxLength": 500
+        },
+        {
+          "key": "nav_4_label",
+          "label": "Agenda: menutekst",
+          "type": "text",
+          "value": "Agenda",
+          "maxLength": 500
+        },
+        {
+          "key": "nav_4_link",
+          "label": "Link: Agenda",
+          "type": "url",
+          "value": "/agenda/",
+          "maxLength": 500
         }
       ]
     },
@@ -2363,6 +2377,189 @@
           "type": "text",
           "value": "Dit is een voorbeeld. Aanvragen worden hier niet verstuurd.",
           "maxLength": 500
+        }
+      ]
+    },
+    {
+      "id": "agenda",
+      "label": "Agenda & aanwezigheid",
+      "page": "agenda",
+      "selector": "main.agenda-page",
+      "fields": [
+        {
+          "key": "agenda_eyebrow",
+          "label": "KAIJUCLUB / NEXT STOPS",
+          "type": "text",
+          "value": "KAIJUCLUB / NEXT STOPS",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_title",
+          "label": "Meet us",
+          "type": "textarea",
+          "value": "Meet us\nout there.",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_intro",
+          "label": "De volgende stops van Kaijuclub. Ontdek waar onze clubwagens aanw",
+          "type": "textarea",
+          "value": "De volgende stops van Kaijuclub. Ontdek waar onze clubwagens aanwezig zijn en kom onze wereld van dichtbij beleven.",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_collection_label",
+          "label": "THE CALENDAR / 会いましょう",
+          "type": "text",
+          "value": "THE CALENDAR / 会いましょう",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_collection_title",
+          "label": "Waar je ons vindt.",
+          "type": "text",
+          "value": "Waar je ons vindt.",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_upcoming",
+          "label": "Komende events",
+          "type": "text",
+          "value": "Komende events",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_past",
+          "label": "Eerdere events",
+          "type": "text",
+          "value": "Eerdere events",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_empty_title",
+          "label": "Onze volgende stop?",
+          "type": "text",
+          "value": "Onze volgende stop?",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_empty_copy",
+          "label": "Zodra onze aanwezigheid vastligt, vind je hier het event, de datu",
+          "type": "textarea",
+          "value": "Zodra onze aanwezigheid vastligt, vind je hier het event, de datum en alle praktische informatie.",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_past_empty",
+          "label": "Er staan nog geen eerdere events in de agenda.",
+          "type": "text",
+          "value": "Er staan nog geen eerdere events in de agenda.",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_error",
+          "label": "De laatste agenda-update kon niet worden geladen. Probeer later o",
+          "type": "text",
+          "value": "De laatste agenda-update kon niet worden geladen. Probeer later opnieuw.",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_location",
+          "label": "Locatie",
+          "type": "text",
+          "value": "Locatie",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_info",
+          "label": "Praktische informatie",
+          "type": "text",
+          "value": "Praktische informatie",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_time",
+          "label": "Lokale tijd / België",
+          "type": "text",
+          "value": "Lokale tijd / België",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_website",
+          "label": "EVENTWEBSITE ↗",
+          "type": "text",
+          "value": "EVENTWEBSITE ↗",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_map",
+          "label": "BEKIJK DE LOCATIE ↗",
+          "type": "text",
+          "value": "BEKIJK DE LOCATIE ↗",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_status_confirmed",
+          "label": "Kaijuclub aanwezig",
+          "type": "text",
+          "value": "Kaijuclub aanwezig",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_status_planned",
+          "label": "Aanwezigheid in planning",
+          "type": "text",
+          "value": "Aanwezigheid in planning",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_status_cancelled",
+          "label": "Deelname geannuleerd",
+          "type": "text",
+          "value": "Deelname geannuleerd",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_cta_title",
+          "label": "Jouw event.",
+          "type": "textarea",
+          "value": "Jouw event.\nOnze line-up.",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_cta_copy",
+          "label": "Wil je Kaijuclub op jouw event? Vertel ons je plannen en vraag on",
+          "type": "textarea",
+          "value": "Wil je Kaijuclub op jouw event? Vertel ons je plannen en vraag onze clubwagens aan.",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_cta_button",
+          "label": "VRAAG KAIJUCLUB AAN",
+          "type": "text",
+          "value": "VRAAG KAIJUCLUB AAN",
+          "maxLength": 1000
+        },
+        {
+          "key": "agenda_portfolio_button",
+          "label": "BEKIJK ONZE FOTOREPORTAGES",
+          "type": "text",
+          "value": "BEKIJK ONZE FOTOREPORTAGES",
+          "maxLength": 1000
+        },
+        {
+          "key": "seo_agenda_title",
+          "label": "Agenda — KAIJUCLUB",
+          "type": "text",
+          "value": "Agenda — KAIJUCLUB",
+          "maxLength": 1000
+        },
+        {
+          "key": "seo_agenda_description",
+          "label": "Ontdek op welke events Kaijuclub aanwezig is. Datums, locaties en",
+          "type": "text",
+          "value": "Ontdek op welke events Kaijuclub aanwezig is. Datums, locaties en praktische informatie over onze volgende stops.",
+          "maxLength": 1000
         }
       ]
     }

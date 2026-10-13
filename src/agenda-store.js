@@ -1,0 +1,3 @@
+import {validateEvents,validateEvent,updateEvent,publicEvents} from './agenda-model.js';
+export const previewEvent=event=>structuredClone(validateEvent(event));
+export async function saveEvent(store,manager,event,action){validateEvents(manager);validateEvent(event,action==='publish');const next=updateEvent(manager,event,action);const commit=await store.saveFiles({'cms/agenda.json':next,'public/data/agenda.json':publicEvents(next)},`${action==='publish'?'Publish':action==='archive'?'Hide':'Save'} agenda event ${event.id} from site editor`);return {manager:next,event:structuredClone(next.events.find(item=>item.id===event.id)),commit};}

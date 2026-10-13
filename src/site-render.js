@@ -17,7 +17,7 @@ export function siteAssetURL(source, base = '/') {
 export function siteLinkURL(value, {base = '/', page = 'home'} = {}) {
   const prefix = base.replace(/\/?$/, '/');
   if (value === '/') return prefix;
-  if (value.startsWith('/partners/') || value.startsWith('/events/')) return prefix + value.slice(1);
+  if (value.startsWith('/partners/') || value.startsWith('/events/') || value.startsWith('/agenda/')) return prefix + value.slice(1);
   if (value.startsWith('/#')) return page === 'home' ? value.slice(1) : prefix + value.slice(1);
   if (value.startsWith('#') && page !== 'home' && ['garage','culture','journal','events','connect','top'].includes(value.slice(1))) return prefix + value;
   return value;
@@ -70,7 +70,7 @@ export function hiddenSiteAnchor(link, content, {base = '/', page = 'home', orig
   else if (link.startsWith(base + '#')) hash = link.slice(base.length + 1);
   else if (link.startsWith(base + 'partners/#')) hash = link.split('#')[1];
   else if (origin) {
-    try { const url = new URL(link, origin); if (url.origin === origin && [base,base+'partners/',base+'events/'].includes(url.pathname)) hash=url.hash.slice(1); } catch {}
+    try { const url = new URL(link, origin); if (url.origin === origin && [base,base+'partners/',base+'events/',base+'agenda/'].includes(url.pathname)) hash=url.hash.slice(1); } catch {}
   }
   const group = hash==='partner-grid'?CONTENT_GROUPS.find(item=>item.id==='partnerCollection'):CONTENT_GROUPS.find(item => item.selector === '#' + hash);
   return Boolean(group && content['visible_' + group.id] === false);
