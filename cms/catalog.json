@@ -1,6 +1,53 @@
 {
   "schemaVersion": 1,
-  "revision": 0,
-  "updatedAt": null,
-  "vehicles": []
+  "revision": 1,
+  "updatedAt": "2026-10-13T07:36:33.070Z",
+  "vehicles": [
+    {
+      "id": "club-179187225387544098",
+      "name": "Nissan S13",
+      "category": "stance",
+      "series": "",
+      "origin": "",
+      "story": "",
+      "specs": [],
+      "photos": [
+        {
+          "path": "cms/media/179187225387544098/89f963108479625ceb3419f2feee7c2f6a17e23db4f0d7a5f26dfa00320e07c8.webp",
+          "digest": "89f963108479625ceb3419f2feee7c2f6a17e23db4f0d7a5f26dfa00320e07c8",
+          "extension": "webp",
+          "width": 1290,
+          "height": 1351,
+          "alt": "",
+          "blobSha": "f14ab18b1fbedb1dce18c69c346e613a48412aae"
+        }
+      ],
+      "featured": false,
+      "position": "50% 50%",
+      "published": {
+        "id": "club-179187225387544098",
+        "name": "Nissan S13",
+        "category": "stance",
+        "series": "",
+        "origin": "",
+        "story": "",
+        "specs": [],
+        "photos": [
+          {
+            "path": "cms/media/179187225387544098/89f963108479625ceb3419f2feee7c2f6a17e23db4f0d7a5f26dfa00320e07c8.webp",
+            "digest": "89f963108479625ceb3419f2feee7c2f6a17e23db4f0d7a5f26dfa00320e07c8",
+            "extension": "webp",
+            "width": 1290,
+            "height": 1351,
+            "alt": "",
+            "blobSha": "f14ab18b1fbedb1dce18c69c346e613a48412aae"
+          }
+        ],
+        "featured": false,
+        "position": "50% 50%"
+      },
+      "archived": false,
+      "updatedAt": "2026-10-13T07:36:33.070Z"
+    }
+  ]
 }

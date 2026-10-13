@@ -1,6 +1,38 @@
 {
   "schemaVersion": 1,
-  "mode": "reference",
-  "updatedAt": null,
-  "vehicles": []
+  "mode": "managed",
+  "source": "site-editor",
+  "updatedAt": "2026-10-13T07:36:33.070Z",
+  "vehicles": [
+    {
+      "id": "club-179187225387544098",
+      "name": "Nissan S13",
+      "category": "stance",
+      "series": "",
+      "origin": "",
+      "model": "STANCE",
+      "featured": false,
+      "position": "50% 50%",
+      "gallery": [
+        {
+          "src": "/images/vehicles/179187225387544098/89f963108479625ceb3419f2feee7c2f6a17e23db4f0d7a5f26dfa00320e07c8.webp",
+          "alt": "Nissan S13 — foto 1",
+          "width": 1290,
+          "height": 1351
+        }
+      ],
+      "image": "/images/vehicles/179187225387544098/89f963108479625ceb3419f2feee7c2f6a17e23db4f0d7a5f26dfa00320e07c8.webp",
+      "alt": "Nissan S13 — foto 1",
+      "width": 1290,
+      "height": 1351,
+      "title": "Nissan S13",
+      "intro": "",
+      "paragraphs": [],
+      "specs": [],
+      "teaser": "Ontdek deze clubwagen van dichtbij.",
+      "credit": "",
+      "focus": [],
+      "reference": false
+    }
+  ]
 }
