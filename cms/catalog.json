@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": 1,
-  "updatedAt": "2026-10-13T07:36:33.070Z",
+  "revision": 2,
+  "updatedAt": "2026-10-13T07:43:48.314Z",
   "vehicles": [
     {
       "id": "club-179187225387544098",
@@ -47,7 +47,7 @@
         "position": "50% 50%"
       },
       "archived": false,
-      "updatedAt": "2026-10-13T07:36:33.070Z"
+      "updatedAt": "2026-10-13T07:43:48.314Z"
     }
   ]
 }
