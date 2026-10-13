@@ -27,11 +27,6 @@ const previewNonce=previewParameters.get('nonce');
 const isAdminPreview=previewParameters.get('preview')==='beheer'&&window.parent!==window&&!!previewNonce;
 if(isAdminPreview)document.body.classList.add('admin-preview','preview-waiting');
 const disciplines = {drift:true,stance:true,track:true,street:true};
-const stories = {
-  attention:{image:'/images/culture.jpg',alt:'Regendruppels op het koetswerk van een klassieke Porsche',frame:'KC / THE DETAILS',caption:'HET VERSCHIL ZIT IN WAT JE ZIET.',counter:'01 / 03'},
-  character:{image:'/images/porsche-993.jpg',alt:'Zilveren Porsche 993 in rood en blauw licht',frame:'KC / THE CHARACTER',caption:'JE HERKENT KARAKTER VANZELF.',counter:'02 / 03'},
-  passion:{image:'/images/porsche-duo.jpg',alt:'Twee klassieke Porsche wagens op het circuit',frame:'KC / SHARED PASSION',caption:'DE WAGENS BRENGEN ONS SAMEN.',counter:'03 / 03'},
-};
 const notes = {
   details:{number:'01',title:'Het zit in de details.',kicker:'THE DETAILS',image:'/images/culture.jpg',alt:'Regendruppels op het koetswerk van een klassieke Porsche',credit:'Alexander / Unsplash',category:'stance',lead:'Je ziet een wagen. En dan zie je iets dat je laat blijven kijken.',paragraphs:['Een lijn die het licht anders vangt. De overgang tussen twee vormen. De manier waarop een geheel tot rust komt. Kwaliteit hoeft niet luid te zijn om je aandacht vast te houden.','Voor ons hoort die aandacht bij automotive cultuur. Juist in de kleine keuzes krijgt een wagen zijn eigen karakter. Het is geen lijstje met onderdelen, maar het gevoel dat ontstaat wanneer het geheel klopt.','Misschien merk je dat bij je eigen wagen. Of bij een build waar je onverwacht voor stil blijft staan. Dat is het perspectief dat we hier willen delen.']},
   perspective:{number:'02',title:'Nog één keer kijken.',kicker:'THE PERSPECTIVE',image:'/images/porsche-993.jpg',alt:'Klassieke Porsche 993 met blauwe en rode garageverlichting',credit:'Yrka Pictured / Unsplash',category:'street',lead:'Dezelfde wagen. Een ander licht. Een detail dat je eerder niet zag.',paragraphs:['De manier waarop je naar een wagen kijkt, verandert wat je ziet. Een silhouet kan vertrouwd zijn en toch iets nieuws laten zien zodra het licht of je positie verandert.','Dat maakt automotive fotografie meer dan een beeld van een object. Ze kan je even laten kijken zoals iemand anders kijkt: met aandacht, met nieuwsgierigheid, met een eigen obsessie.','Neem die tijd. Bekijk de lijnen. Kijk nog eens. Het is vaak precies dat kleine moment dat een wagen je bijblijft.']},
@@ -46,7 +41,6 @@ const mobileNav = document.querySelector('#mobile-nav');
 let activeCar;
 let activeNote;
 let activeFilter='all';
-let activeStory='attention';
 let carFocus;
 let noteFocus;
 let carReturnHash = '#garage';
@@ -177,23 +171,6 @@ function syncRoute(){
 }
 window.addEventListener('popstate',syncRoute);window.addEventListener('hashchange',syncRoute);
 
-function selectStory(id,{focus=false}={}){
-  const story=stories[id];if(!story)return;activeStory=id;
-  for(const button of document.querySelectorAll('[data-story]')){const active=button.dataset.story===id;button.setAttribute('aria-selected',String(active));button.tabIndex=active?0:-1;document.querySelector(`#panel-${button.dataset.story}`).hidden=!active;}
-  const image=document.querySelector('#story-image');image.dataset.cmsImage=`story_${id}_image`;applySiteImage(image,`story_${id}_image`);
-  document.querySelector('#story-frame').textContent=story.frame;document.querySelector('#story-caption').textContent=story.caption;document.querySelector('#story-counter').textContent=story.counter;
-  if(focus)document.querySelector(`[data-story="${id}"]`).focus();
-}
-for(const button of document.querySelectorAll('[data-story]')){
-  button.addEventListener('click',()=>selectStory(button.dataset.story));
-  button.addEventListener('keydown',event=>{
-    const ids=Object.keys(stories);let index=ids.indexOf(button.dataset.story);
-    if(event.key==='ArrowRight')index=(index+1)%ids.length;
-    else if(event.key==='ArrowLeft')index=(index-1+ids.length)%ids.length;
-    else if(event.key==='Home')index=0;else if(event.key==='End')index=ids.length-1;else return;
-    event.preventDefault();selectStory(ids[index],{focus:true});
-  });
-}
 function closeMenu(){menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label',siteText('menu_open'));mobileNav.hidden=true;}
 menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));menuButton.setAttribute('aria-label',siteText(open?'menu_open':'menu_close'));mobileNav.hidden=open;});
 mobileNav.addEventListener('click',event=>{if(event.target.closest('a'))closeMenu();});
@@ -254,15 +231,10 @@ function updateCollectionCopy(){
   }
 }
 function updateDynamicContent(){
-  for(const [id,story] of Object.entries(stories)){
-    const photo=siteImage(`story_${id}_image`);
-    Object.assign(story,{image:photo.src,alt:photo.alt,frame:siteText(`story_${id}_frame`),caption:siteText(`story_${id}_caption`)});
-  }
   for(const [id,note] of Object.entries(notes)){
     const photo=siteImage(`note_${id}_image`);
     Object.assign(note,{image:photo.src,alt:photo.alt,title:siteText(`note_${id}_title`),kicker:siteText(`note_${id}_kicker`),credit:photo.credit||siteText(`note_${id}_credit`),category:siteText(`note_${id}_category`),lead:siteText(`note_${id}_lead`),paragraphs:siteText(`note_${id}_body`).split(/\n\s*\n/).filter(text=>text.trim())});
   }
-  selectStory(activeStory);
   updateCollectionCopy();
   render(activeFilter);
   if(dialog.open&&activeCar){

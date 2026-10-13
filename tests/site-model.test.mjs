@@ -1,6 +1,7 @@
+import legacyStory from '../src/story-legacy.json' with {type:'json'};
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {CONTENT_GROUPS,SECTION_IDS,SITE_FIELDS,defaultSiteContent,newSiteManager,validateContent,validateImage,validateSiteManager,updateSiteManager,publicSiteContent,safeSiteLink} from '../src/site-model.js';
+import {CONTENT_GROUPS,SECTION_IDS,SITE_FIELDS,defaultSiteContent,newSiteManager,validateContent,validateImage,validateSiteManager,updateSiteManager,publicSiteContent,safeSiteLink,upgradeSiteContent} from '../src/site-model.js';
 
 test('the whole-site schema provides complete defaults and independent new editors',()=>{
  assert.ok(CONTENT_GROUPS.some(group=>group.id==='hero'));
@@ -82,4 +83,13 @@ test('calendar timestamps reject normalized impossible dates and preserve valid 
  for(const updatedAt of ['2026-02-31T10:00:00Z','2026-02-29T10:00:00.000Z','2026-04-31T10:00:00Z','2026-10-13T25:00:00Z'])assert.throws(()=>validateSiteManager({...structuredClone(manager),updatedAt}));
  assert.doesNotThrow(()=>validateSiteManager({...structuredClone(manager),updatedAt:'2024-02-29T10:00:00Z'}));
  assert.doesNotThrow(()=>validateSiteManager({...structuredClone(manager),updatedAt:'2024-02-29T10:00:00.123Z'}));
+});
+
+
+test('old three-part stories become one body without losing customized copy, titles or images',()=>{
+ const old={...structuredClone(defaultSiteContent),...structuredClone(legacyStory),culture_text_5:'Aandacht\nverbindt.',story_attention_image:{...defaultSiteContent.story_attention_image,src:'/images/culture.jpg'}};
+ const upgraded=upgradeSiteContent(old);validateContent(upgraded);assert.equal(upgraded.culture_text_10,defaultSiteContent.culture_text_10);assert.deepEqual(upgraded.story_attention_image,defaultSiteContent.story_attention_image);assert.ok(Object.hasOwn(old,'culture_text_11'));assert.ok(!Object.hasOwn(upgraded,'culture_text_11'));
+ const custom={...old,culture_text_10:'Eigen eerste tekst.',culture_text_13:'Eigen tweede tekst.',culture_text_16:'Eigen derde tekst.',culture_text_12:'Onze eigen titel.',culture_text_5:'Ons eigen verhaal',story_attention_image:structuredClone(defaultSiteContent.hero_image_1)};
+ const recovered=upgradeSiteContent(custom);validateContent(recovered);for(const text of ['Eigen eerste tekst.','Eigen tweede tekst.','Eigen derde tekst.','Onze eigen titel.'])assert.ok(recovered.culture_text_10.includes(text));assert.equal(recovered.culture_text_5,'Ons eigen verhaal');assert.deepEqual(recovered.story_attention_image,custom.story_attention_image);assert.deepEqual(upgradeSiteContent(recovered),recovered);
+ const fields=CONTENT_GROUPS.find(group=>group.id==='culture').fields;assert.equal(fields.filter(field=>field.key==='culture_text_10').length,1);assert.ok(!fields.some(field=>field.key.startsWith('story_character_')||field.key.startsWith('story_passion_')));
 });

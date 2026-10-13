@@ -741,9 +741,9 @@
         },
         {
           "key": "culture_text_3",
-          "label": "Label: VISUAL REFERENCE",
+          "label": "Klein label op de clubfoto",
           "type": "text",
-          "value": "VISUAL REFERENCE",
+          "value": "CLUB CAR / クラブ",
           "maxLength": 500
         },
         {
@@ -755,94 +755,17 @@
         },
         {
           "key": "culture_text_5",
-          "label": "Titel: Aandacht verbindt.",
+          "label": "Titel van ons verhaal",
           "type": "textarea",
-          "value": "Aandacht\nverbindt.",
+          "value": "Wagens met\nkarakter.",
           "maxLength": 3000
-        },
-        {
-          "key": "culture_text_6",
-          "label": "Knop: 01 / Aandacht",
-          "type": "text",
-          "value": "01 / Aandacht",
-          "maxLength": 500
-        },
-        {
-          "key": "culture_text_7",
-          "label": "Knop: 02 / Karakter",
-          "type": "text",
-          "value": "02 / Karakter",
-          "maxLength": 500
-        },
-        {
-          "key": "culture_text_8",
-          "label": "Knop: 03 / Passie",
-          "type": "text",
-          "value": "03 / Passie",
-          "maxLength": 500
-        },
-        {
-          "key": "culture_text_9",
-          "label": "Titel: Kwaliteit zie je. Aandacht voel je.",
-          "type": "text",
-          "value": "Kwaliteit zie je. Aandacht voel je.",
-          "maxLength": 500
         },
         {
           "key": "culture_text_10",
-          "label": "Tekst: Kaijuclub draait om kwalitatieve wagens. Om builds die een eigen ",
+          "label": "Ons verhaal — één doorlopende tekst",
           "type": "textarea",
-          "value": "Kaijuclub draait om kwalitatieve wagens. Om builds die een eigen karakter hebben en de aandacht die ze verdienen.",
-          "maxLength": 3000
-        },
-        {
-          "key": "culture_text_11",
-          "label": "Tekst: Misschien herken je dat. Nog één keer kijken naar de lijn van het",
-          "type": "textarea",
-          "value": "Misschien herken je dat. Nog één keer kijken naar de lijn van het koetswerk. Een detail dat voor jou het verschil maakt. Dat gevoel delen we.",
-          "maxLength": 3000
-        },
-        {
-          "key": "culture_text_12",
-          "label": "Titel: Vier disciplines. Geen standaardverhaal.",
-          "type": "text",
-          "value": "Vier disciplines. Geen standaardverhaal.",
-          "maxLength": 500
-        },
-        {
-          "key": "culture_text_13",
-          "label": "Tekst: Drift, stance, track en street. Vier manieren om een wagen te bel",
-          "type": "textarea",
-          "value": "Drift, stance, track en street. Vier manieren om een wagen te beleven. Dezelfde aandacht, telkens vanuit een ander perspectief.",
-          "maxLength": 3000
-        },
-        {
-          "key": "culture_text_14",
-          "label": "Tekst: Een build hoeft niet op een andere te lijken om erbij te horen. H",
-          "type": "textarea",
-          "value": "Een build hoeft niet op een andere te lijken om erbij te horen. Het is de passie erachter die automotive cultuur bijzonder maakt.",
-          "maxLength": 3000
-        },
-        {
-          "key": "culture_text_15",
-          "label": "Titel: Jij herkent het gevoel.",
-          "type": "text",
-          "value": "Jij herkent het gevoel.",
-          "maxLength": 500
-        },
-        {
-          "key": "culture_text_16",
-          "label": "Tekst: De rit waarvoor je de lange weg kiest. Het geluid waar je even vo",
-          "type": "textarea",
-          "value": "De rit waarvoor je de lange weg kiest. Het geluid waar je even voor stopt. Die ene keer omkijken na het parkeren.",
-          "maxLength": 3000
-        },
-        {
-          "key": "culture_text_17",
-          "label": "Tekst: Je hoeft ons nog niet te kennen om iets te herkennen in wat we do",
-          "type": "textarea",
-          "value": "Je hoeft ons nog niet te kennen om iets te herkennen in wat we doen. Kijk rond, ontdek de builds en vind de discipline die jou raakt.",
-          "maxLength": 3000
+          "value": "Kaijuclub brengt mensen samen rond kwalitatieve wagens. Van drift en stance tot track en street: elke build heeft een eigen karakter, met aandacht voor de lijnen, de afwerking en de details. De Japanse autocultuur van de jaren 90 geeft onze wereld haar sfeer. Het zijn de wagens en de mensen erachter die onze club maken. Dat gevoel delen we hier, in onze garage, onze foto’s en de events waar we samenkomen. Kijk rond, ontdek de builds en kom ons ontmoeten. Dezelfde passie herken je van dichtbij.",
+          "maxLength": 20000
         },
         {
           "key": "culture_text_18",
@@ -867,86 +790,30 @@
         },
         {
           "key": "story_attention_image",
-          "label": "Verhaal Aandacht: foto",
+          "label": "Clubfoto",
           "type": "image",
           "value": {
-            "src": "/images/culture.jpg",
-            "alt": "Regendruppels op het koetswerk van een klassieke Porsche",
-            "width": 3024,
-            "height": 3186,
-            "positionDesktop": "50% 50%",
-            "positionMobile": "50% 50%",
+            "src": "/images/vehicles/179187225387544098/89f963108479625ceb3419f2feee7c2f6a17e23db4f0d7a5f26dfa00320e07c8.webp",
+            "alt": "Nissan S13 — foto 1",
+            "width": 1290,
+            "height": 1351,
+            "positionDesktop": "50% 65%",
+            "positionMobile": "50% 65%",
             "credit": ""
           }
         },
         {
           "key": "story_attention_frame",
-          "label": "Verhaal Aandacht: fotolabel",
+          "label": "Fotolabel",
           "type": "text",
-          "value": "KC / THE DETAILS",
+          "value": "KC / THE GARAGE",
           "maxLength": 500
         },
         {
           "key": "story_attention_caption",
-          "label": "Verhaal Aandacht: foto-onderschrift",
+          "label": "Onderschrift van de clubfoto",
           "type": "text",
-          "value": "HET VERSCHIL ZIT IN WAT JE ZIET.",
-          "maxLength": 500
-        },
-        {
-          "key": "story_character_image",
-          "label": "Verhaal Karakter: foto",
-          "type": "image",
-          "value": {
-            "src": "/images/porsche-993.jpg",
-            "alt": "Zilveren Porsche 993 in rood en blauw licht",
-            "width": 5000,
-            "height": 5000,
-            "positionDesktop": "50% 50%",
-            "positionMobile": "50% 50%",
-            "credit": ""
-          }
-        },
-        {
-          "key": "story_character_frame",
-          "label": "Verhaal Karakter: fotolabel",
-          "type": "text",
-          "value": "KC / THE CHARACTER",
-          "maxLength": 500
-        },
-        {
-          "key": "story_character_caption",
-          "label": "Verhaal Karakter: foto-onderschrift",
-          "type": "text",
-          "value": "JE HERKENT KARAKTER VANZELF.",
-          "maxLength": 500
-        },
-        {
-          "key": "story_passion_image",
-          "label": "Verhaal Passie: foto",
-          "type": "image",
-          "value": {
-            "src": "/images/porsche-duo.jpg",
-            "alt": "Twee klassieke Porsche wagens op het circuit",
-            "width": 3072,
-            "height": 3072,
-            "positionDesktop": "50% 50%",
-            "positionMobile": "50% 50%",
-            "credit": ""
-          }
-        },
-        {
-          "key": "story_passion_frame",
-          "label": "Verhaal Passie: fotolabel",
-          "type": "text",
-          "value": "KC / SHARED PASSION",
-          "maxLength": 500
-        },
-        {
-          "key": "story_passion_caption",
-          "label": "Verhaal Passie: foto-onderschrift",
-          "type": "text",
-          "value": "DE WAGENS BRENGEN ONS SAMEN.",
+          "value": "QUALITY BUILDS. SHARED PASSION.",
           "maxLength": 500
         }
       ]

@@ -21,13 +21,14 @@ test('published text and metadata are escaped before browser JavaScript runs',()
  assert.ok(!html.includes('<script>bad</script>'));
 });
 
-test('editable labels retain buttons, nested SVGs, native fields and accessible tab structures',()=>{
- const changed=content({hero_text_8:'Bekijk onze wagens',events_text_8:'Volledige naam',culture_text_6:'01 / Onze aandacht'});
+test('editable labels retain buttons, nested SVGs, native fields and one semantic club story',()=>{
+ const changed=content({hero_text_8:'Bekijk onze wagens',events_text_8:'Volledige naam',culture_text_10:'Ons verhaal in één doorlopende tekst.'});
  const html=renderSiteHTML(home,changed,options);
  assert.match(html,/data-cms-text="hero_text_8">Bekijk onze wagens <\/span><svg aria-hidden="true" class="arrow" viewBox="0 0 24 24"><path d="M5 19 19 5M5 5h14v14"><\/path><\/svg>/);
  assert.match(html,/<label><span data-cms-text="events_text_8">Volledige naam<\/span><input autocomplete="name" maxlength="120" name="naam" required="">/);
- assert.ok(openingTag(html,'tab-attention').includes('aria-controls="panel-attention"'));
- assert.ok(openingTag(html,'panel-attention').includes('role="tabpanel"'));
+ assert.ok(html.includes('class="culture-story" data-cms-text="culture_text_10">Ons verhaal in één doorlopende tekst.</p>'));
+ assert.ok(!html.includes('data-story=')&&!html.includes('role="tabpanel"'));
+ assert.ok(openingTag(html,'culture').includes('aria-labelledby="culture-title"'));
  assert.ok(openingTag(html,'mobile-nav').includes('hidden=""'));
  assert.ok(openingTag(html,'car-dialog'));
  assert.ok(html.includes('<script src="/src/main.js" type="module"></script>'));

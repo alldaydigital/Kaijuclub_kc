@@ -1,9 +1,25 @@
 import schema from './site-schema.json' with {type:'json'};
+import legacyStory from './story-legacy.json' with {type:'json'};
 export const CONTENT_GROUPS=schema.groups;
 export const SECTION_IDS=schema.sections;
 export const SITE_FIELDS=CONTENT_GROUPS.flatMap(group=>group.fields);
 export const defaultSiteContent=Object.fromEntries(SITE_FIELDS.map(field=>[field.key,structuredClone(field.value)]));
-export function upgradeSiteContent(content){const next=structuredClone(content);if(!next||typeof next!=='object'||Array.isArray(next))return next;for(const field of CONTENT_GROUPS.filter(group=>['eventsArchive','agenda'].includes(group.id)).flatMap(group=>group.fields).concat(SITE_FIELDS.filter(field=>['nav_4_label','nav_4_link'].includes(field.key))))if(!Object.hasOwn(next,field.key))next[field.key]=structuredClone(field.value);if(next.nav_2_link==='/#events'||next.nav_2_link==='#events')next.nav_2_link='/events/';return next;}
+export function upgradeSiteContent(content){
+ const next=structuredClone(content);if(!next||typeof next!=='object'||Array.isArray(next))return next;
+ for(const field of CONTENT_GROUPS.filter(group=>['eventsArchive','agenda'].includes(group.id)).flatMap(group=>group.fields).concat(SITE_FIELDS.filter(field=>['nav_4_label','nav_4_link'].includes(field.key))))if(!Object.hasOwn(next,field.key))next[field.key]=structuredClone(field.value);
+ if(next.nav_2_link==='/#events'||next.nav_2_link==='#events')next.nav_2_link='/events/';
+ const removed=Object.keys(legacyStory).filter(key=>key!=='culture_text_10');
+ if(removed.some(key=>Object.hasOwn(next,key))){
+  const paragraphs=['culture_text_10','culture_text_11','culture_text_13','culture_text_14','culture_text_16','culture_text_17'];
+  const customized=paragraphs.some(key=>Object.hasOwn(next,key)&&next[key]!==legacyStory[key])||['culture_text_9','culture_text_12','culture_text_15'].some(key=>Object.hasOwn(next,key)&&next[key]!==legacyStory[key]);
+  if(customized){const sequence=['culture_text_9','culture_text_10','culture_text_11','culture_text_12','culture_text_13','culture_text_14','culture_text_15','culture_text_16','culture_text_17'];next.culture_text_10=sequence.filter(key=>typeof next[key]==='string'&&next[key].trim()&&(![9,12,15].some(n=>key==='culture_text_'+n)||next[key]!==legacyStory[key])).map(key=>next[key].trim()).join('\n\n');}
+  else next.culture_text_10=defaultSiteContent.culture_text_10;
+  for(const key of removed)delete next[key];
+  if(next.culture_text_5==='Aandacht\nverbindt.')next.culture_text_5=defaultSiteContent.culture_text_5;
+  if(next.story_attention_image?.src==='/images/culture.jpg'){next.story_attention_image=structuredClone(defaultSiteContent.story_attention_image);for(const key of ['culture_text_3','story_attention_frame','story_attention_caption'])next[key]=defaultSiteContent[key];}
+ }
+ return next;
+}
 const fail=message=>{throw new Error(message);};
 export function safeSiteLink(value){
  if(typeof value!=='string'||value.length>500||/[\u0000-\u0020\\]/.test(value))return false;

@@ -111,3 +111,8 @@ De algemene teksten en de uitstraling van de Events-pagina pas je aan bij **Webs
 Komende events staan automatisch op datum. Een event blijft tot en met de einddatum zichtbaar als komend event en verschuift daarna naar **Eerdere events**, op basis van de Belgische datum. Voor een meerdaags event vul je ook de einddatum in. Bij een nacht-event loopt die einddatum door naar de volgende dag. Tijden zijn lokale Belgische tijden en mogen leeg blijven. **Verberg op de website** haalt een gepubliceerd event weg; opnieuw publiceren maakt het weer zichtbaar.
 
 Agenda is voor jullie aanwezigheid; **Events & fotoportfolio** blijft de plek voor foto's en reportages. De teksten boven en onder de agenda zijn aanpasbaar via **Website → Agenda & aanwezigheid**. Er staan nog geen geplande events in de agenda: voeg jullie echte datums toe. Niet-opgeslagen werk wordt waar mogelijk in deze browser hersteld. Opgeslagen concepten zijn leesbaar in de openbare GitHub-repository.
+
+
+## Ons verhaal aanpassen
+
+Open **Website → Ons verhaal**. **Ons verhaal — één doorlopende tekst** bevat het volledige clubverhaal. Pas de titel, clubfoto, uitsnede en onderschrift aan in hetzelfde onderdeel. Het voorbeeld toont direct het resultaat. Bewaar als concept of publiceer zoals bij de andere websiteteksten. Het verhaal heeft één vaste foto en één tekst; er zijn geen aparte tabbladen meer.

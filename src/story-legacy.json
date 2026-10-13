@@ -1,0 +1,36 @@
+{
+  "culture_text_6": "01 / Aandacht",
+  "culture_text_7": "02 / Karakter",
+  "culture_text_8": "03 / Passie",
+  "culture_text_9": "Kwaliteit zie je. Aandacht voel je.",
+  "culture_text_11": "Misschien herken je dat. Nog één keer kijken naar de lijn van het koetswerk. Een detail dat voor jou het verschil maakt. Dat gevoel delen we.",
+  "culture_text_12": "Vier disciplines. Geen standaardverhaal.",
+  "culture_text_13": "Drift, stance, track en street. Vier manieren om een wagen te beleven. Dezelfde aandacht, telkens vanuit een ander perspectief.",
+  "culture_text_14": "Een build hoeft niet op een andere te lijken om erbij te horen. Het is de passie erachter die automotive cultuur bijzonder maakt.",
+  "culture_text_15": "Jij herkent het gevoel.",
+  "culture_text_16": "De rit waarvoor je de lange weg kiest. Het geluid waar je even voor stopt. Die ene keer omkijken na het parkeren.",
+  "culture_text_17": "Je hoeft ons nog niet te kennen om iets te herkennen in wat we doen. Kijk rond, ontdek de builds en vind de discipline die jou raakt.",
+  "story_character_image": {
+    "src": "/images/porsche-993.jpg",
+    "alt": "Zilveren Porsche 993 in rood en blauw licht",
+    "width": 5000,
+    "height": 5000,
+    "positionDesktop": "50% 50%",
+    "positionMobile": "50% 50%",
+    "credit": ""
+  },
+  "story_character_frame": "KC / THE CHARACTER",
+  "story_character_caption": "JE HERKENT KARAKTER VANZELF.",
+  "story_passion_image": {
+    "src": "/images/porsche-duo.jpg",
+    "alt": "Twee klassieke Porsche wagens op het circuit",
+    "width": 3072,
+    "height": 3072,
+    "positionDesktop": "50% 50%",
+    "positionMobile": "50% 50%",
+    "credit": ""
+  },
+  "story_passion_frame": "KC / SHARED PASSION",
+  "story_passion_caption": "DE WAGENS BRENGEN ONS SAMEN.",
+  "culture_text_10": "Kaijuclub draait om kwalitatieve wagens. Om builds die een eigen karakter hebben en de aandacht die ze verdienen."
+}
