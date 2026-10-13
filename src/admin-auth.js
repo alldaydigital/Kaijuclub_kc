@@ -1,6 +1,6 @@
 export function normalizeConnectionToken(value) {
   const token=String(value??'').trim();
-  if(!/^(github_pat_|ghp_)[A-Za-z0-9_]+$/.test(token))throw new Error('Gebruik een GitHub personal access token: fine-grained (github_pat_) of klassiek (ghp_). Een SSH-sleutel of beheerwachtwoord werkt niet in dit veld.');
+  if(!/^(github_pat_|ghp_)[A-Za-z0-9_]+$/.test(token))throw new Error('Deze tekst is geen herkenbare GitHub-beheersleutel. Klik op Beheersleutel aanmaken en kopieer de volledige sleutel die GitHub na Generate token toont (github_pat_ of ghp_). Je beheerwachtwoord hoort in het aparte wachtwoordveld.');
   return token;
 }
 export function connectionTokenKind(value){return normalizeConnectionToken(value).startsWith('ghp_')?'classic':'fine-grained';}
