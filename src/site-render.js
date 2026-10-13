@@ -19,7 +19,7 @@ export function siteLinkURL(value, {base = '/', page = 'home'} = {}) {
   if (value === '/') return prefix;
   if (value.startsWith('/partners/') || value.startsWith('/events/') || value.startsWith('/agenda/')) return prefix + value.slice(1);
   if (value.startsWith('/#')) return page === 'home' ? value.slice(1) : prefix + value.slice(1);
-  if (value.startsWith('#') && page !== 'home' && ['garage','culture','journal','events','connect','top'].includes(value.slice(1))) return prefix + value;
+  if (value.startsWith('#') && page !== 'home' && ['garage','culture','events','connect','top'].includes(value.slice(1))) return prefix + value;
   return value;
 }
 
@@ -52,7 +52,6 @@ export const sharedSiteCSS = `
 .cms-photo-credit{position:absolute;z-index:2;right:16px;bottom:14px;max-width:min(70%,360px);padding:6px 8px;background:#0b0b0abf;color:#fff;font:8px/1.5 var(--mono);text-align:right;overflow-wrap:anywhere;pointer-events:none}
 .hero-photo-frame>.cms-photo-credit{right:4.6%}
 .culture-visual>.cms-photo-credit{left:23px;right:auto;top:64px;bottom:auto;text-align:left}
-.journal-photo>.cms-photo-credit{left:16px;right:72px;max-width:none;text-align:left}
 .culture-interlude>.cms-photo-credit{top:22px;bottom:auto;right:4.6%}
 @media(max-width:700px){.cms-photo-credit{font-size:7px;padding:5px 7px}.culture-visual>.cms-photo-credit{left:17px;top:50px}}
 [data-cms-hidden]{display:none!important}

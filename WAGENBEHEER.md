@@ -116,3 +116,6 @@ Agenda is voor jullie aanwezigheid; **Events & fotoportfolio** blijft de plek vo
 ## Ons verhaal aanpassen
 
 Open **Website → Ons verhaal**. **Ons verhaal — één doorlopende tekst** bevat het volledige clubverhaal. Pas de titel, clubfoto, uitsnede en onderschrift aan in hetzelfde onderdeel. Het voorbeeld toont direct het resultaat. Bewaar als concept of publiceer zoals bij de andere websiteteksten. Het verhaal heeft één vaste foto en één tekst; er zijn geen aparte tabbladen meer.
+
+
+Het albumoverzicht op de eventpagina toont drie albums per rij op desktop, twee op tablet en één op telefoon. Elk album heeft één thumbnail en de naam eronder. De gekozen cover is de eerste foto van het album. Bij een klik op de foto of naam opent de volledige galerij op de site; bezoekers kunnen de foto's vervolgens vergroten.

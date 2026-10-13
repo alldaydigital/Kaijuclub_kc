@@ -5,7 +5,7 @@ import '@fontsource/barlow-condensed/800.css';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/600.css';
 import '@fontsource/inter/800.css';
-import {siteText,siteImage,applySiteImage,onSiteContentChange,isSitePreview} from './site-content.js';
+import {siteText,onSiteContentChange,isSitePreview} from './site-content.js';
 
 const imageUrl = path => globalThis.__KAIJU_OFFLINE_ASSETS__?.[path] || (path.startsWith('/') && !path.startsWith(import.meta.env.BASE_URL) ? import.meta.env.BASE_URL + path.slice(1) : path);
 const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
@@ -27,24 +27,15 @@ const previewNonce=previewParameters.get('nonce');
 const isAdminPreview=previewParameters.get('preview')==='beheer'&&window.parent!==window&&!!previewNonce;
 if(isAdminPreview)document.body.classList.add('admin-preview','preview-waiting');
 const disciplines = {drift:true,stance:true,track:true,street:true};
-const notes = {
-  details:{number:'01',title:'Het zit in de details.',kicker:'THE DETAILS',image:'/images/culture.jpg',alt:'Regendruppels op het koetswerk van een klassieke Porsche',credit:'Alexander / Unsplash',category:'stance',lead:'Je ziet een wagen. En dan zie je iets dat je laat blijven kijken.',paragraphs:['Een lijn die het licht anders vangt. De overgang tussen twee vormen. De manier waarop een geheel tot rust komt. Kwaliteit hoeft niet luid te zijn om je aandacht vast te houden.','Voor ons hoort die aandacht bij automotive cultuur. Juist in de kleine keuzes krijgt een wagen zijn eigen karakter. Het is geen lijstje met onderdelen, maar het gevoel dat ontstaat wanneer het geheel klopt.','Misschien merk je dat bij je eigen wagen. Of bij een build waar je onverwacht voor stil blijft staan. Dat is het perspectief dat we hier willen delen.']},
-  perspective:{number:'02',title:'Nog één keer kijken.',kicker:'THE PERSPECTIVE',image:'/images/porsche-993.jpg',alt:'Klassieke Porsche 993 met blauwe en rode garageverlichting',credit:'Yrka Pictured / Unsplash',category:'street',lead:'Dezelfde wagen. Een ander licht. Een detail dat je eerder niet zag.',paragraphs:['De manier waarop je naar een wagen kijkt, verandert wat je ziet. Een silhouet kan vertrouwd zijn en toch iets nieuws laten zien zodra het licht of je positie verandert.','Dat maakt automotive fotografie meer dan een beeld van een object. Ze kan je even laten kijken zoals iemand anders kijkt: met aandacht, met nieuwsgierigheid, met een eigen obsessie.','Neem die tijd. Bekijk de lijnen. Kijk nog eens. Het is vaak precies dat kleine moment dat een wagen je bijblijft.']},
-  together:{number:'03',title:'Dezelfde taal.',kicker:'THE CONNECTION',image:'/images/porsche-duo.jpg',alt:'Twee klassieke Porsche wagens samen op het circuit',credit:'Nika Qufarashvili / Unsplash',category:'track',lead:'Niet dezelfde wagen. Wel hetzelfde gevoel.',paragraphs:['Automotive cultuur brengt verschillende perspectieven samen. De één ziet een perfecte fitment. Een ander denkt aan de volgende bocht. Weer iemand anders kiest gewoon de lange weg naar huis.','Bij Kaijuclub komen drift, stance, track en street samen. Vier disciplines met een eigen karakter, verbonden door aandacht voor kwalitatieve wagens.','Je hoeft geen identieke smaak te hebben om die passie te herkennen. Misschien herken je jezelf in één discipline. Misschien in allemaal. Dat gesprek begint bij de manier waarop je kijkt.']},
-};
 
 const cars = document.querySelector('#cars');
 const dialog = document.querySelector('#car-dialog');
-const noteDialog = document.querySelector('#note-dialog');
 const menuButton = document.querySelector('.menu-toggle');
 const mobileNav = document.querySelector('#mobile-nav');
 let activeCar;
-let activeNote;
 let activeFilter='all';
 let carFocus;
-let noteFocus;
 let carReturnHash = '#garage';
-let noteReturnHash = '#journal';
 
 function render(filter = 'all') {
   const shown = builds.filter(car => filter === 'all' || car.category === filter);
@@ -69,7 +60,7 @@ function setFilter(filter) {
 }
 for (const button of document.querySelectorAll('[data-filter]')) button.addEventListener('click',()=>setFilter(button.dataset.filter));
 
-function updateScrollLock() { document.body.classList.toggle('dialog-open',dialog.open||noteDialog.open); }
+function updateScrollLock() { document.body.classList.toggle('dialog-open',dialog.open); }
 function renderCar(car,focusControl) {
   const index = builds.indexOf(car);
   selectedPhoto=0;
@@ -146,28 +137,14 @@ dialog.addEventListener('close',()=>{
   (carFocus?.isConnected&&carFocus.getClientRects().length?carFocus:fallback)?.focus({preventScroll:true});
 });
 
-function openNote(id,{fromHash=false}={}) {
-  const note=notes[id];if(!note)return;activeNote=id;
-  if(!noteDialog.open){noteFocus=fromHash?document.querySelector(`[data-note="${id}"]`):document.activeElement;noteReturnHash=location.hash.startsWith('#note-')?'#journal':(location.hash||'#journal');}
-  if(!fromHash)history.pushState(null,'',`#note-${id}`);
-  document.querySelector('#note-detail').innerHTML=`<div class="dossier-top"><span>${escapeHtml(siteText('ui_essayEyebrow'))}</span><span>${note.number} / 03</span></div><img class="note-image" src="${imageUrl(note.image)}" alt="${escapeHtml(note.alt)}"><div class="note-copy"><span class="eyebrow">${escapeHtml(note.kicker)}</span><h2 id="note-title">${escapeHtml(note.title)}</h2><p class="note-lead">${escapeHtml(note.lead)}</p>${note.paragraphs.map(text=>`<p>${escapeHtml(text)}</p>`).join('')}<p class="disclaimer">${escapeHtml(siteText('journal_disclaimer',{credit:note.credit}))}</p><button class="text-link" data-related-builds="${note.category}">${escapeHtml(siteText('journal_related_cta',{category:note.category.toUpperCase()}))} ${arrow}</button></div>`;
-  applySiteImage(noteDialog.querySelector('.note-image'),`note_${id}_image`);
-  noteDialog.setAttribute('aria-labelledby','note-title');
-  if(!noteDialog.open)noteDialog.showModal();updateScrollLock();
-}
-for(const button of document.querySelectorAll('[data-note],[data-open-note]'))button.addEventListener('click',()=>openNote(button.dataset.note||button.dataset.openNote));
-noteDialog.addEventListener('click',event=>{const button=event.target.closest('[data-related-builds]');if(button){noteDialog.close();setFilter(button.dataset.relatedBuilds);location.hash='garage';}});
-noteDialog.addEventListener('close',()=>{if(location.hash.startsWith('#note-'))history.replaceState(null,'',noteReturnHash);updateScrollLock();if(noteFocus?.isConnected)noteFocus.focus({preventScroll:true});});
-for(const modal of [dialog,noteDialog]){
+for(const modal of [dialog]){
   modal.querySelector('.close').addEventListener('click',()=>modal.close());
   modal.addEventListener('click',event=>{if(event.target!==modal)return;const r=modal.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)modal.close();});
 }
 function syncRoute(){
   const carId=location.hash.startsWith('#build-')?location.hash.slice(7):null;
-  const noteId=location.hash.startsWith('#note-')?location.hash.slice(6):null;
-  if(carId&&builds.some(car=>car.id===carId)){if(noteDialog.open)noteDialog.close();if(!dialog.open||activeCar?.id!==carId)openCar(carId,{fromHash:true});return;}
-  if(noteId&&notes[noteId]){if(dialog.open)dialog.close();if(!noteDialog.open)openNote(noteId,{fromHash:true});return;}
-  if(dialog.open)dialog.close();if(noteDialog.open)noteDialog.close();
+  if(carId&&builds.some(car=>car.id===carId)){if(!dialog.open||activeCar?.id!==carId)openCar(carId,{fromHash:true});return;}
+  if(dialog.open)dialog.close();
 }
 window.addEventListener('popstate',syncRoute);window.addEventListener('hashchange',syncRoute);
 
@@ -177,7 +154,7 @@ mobileNav.addEventListener('click',event=>{if(event.target.closest('a'))closeMen
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!mobileNav.hidden){closeMenu();menuButton.focus();}});
 window.matchMedia('(min-width:1001px)').addEventListener('change',event=>{if(event.matches)closeMenu();});
 
-const navSections=['garage','culture','journal','events'].map(id=>document.getElementById(id)).filter(Boolean);
+const navSections=['garage','culture','events'].map(id=>document.getElementById(id)).filter(Boolean);
 let scrollQueued=false;
 function updateScrollUI(){
   const height=document.documentElement.scrollHeight-innerHeight;
@@ -231,10 +208,6 @@ function updateCollectionCopy(){
   }
 }
 function updateDynamicContent(){
-  for(const [id,note] of Object.entries(notes)){
-    const photo=siteImage(`note_${id}_image`);
-    Object.assign(note,{image:photo.src,alt:photo.alt,title:siteText(`note_${id}_title`),kicker:siteText(`note_${id}_kicker`),credit:photo.credit||siteText(`note_${id}_credit`),category:siteText(`note_${id}_category`),lead:siteText(`note_${id}_lead`),paragraphs:siteText(`note_${id}_body`).split(/\n\s*\n/).filter(text=>text.trim())});
-  }
   updateCollectionCopy();
   render(activeFilter);
   if(dialog.open&&activeCar){
@@ -243,7 +216,6 @@ function updateDynamicContent(){
     renderCar(activeCar);selectPhoto(photo);dialog.scrollTop=scroll;
     if(focusedGallery!==undefined)dialog.querySelector(`[data-gallery-index="${focusedGallery}"]`)?.focus({preventScroll:true});
   }
-  if(noteDialog.open&&activeNote){const scroll=noteDialog.scrollTop;openNote(activeNote,{fromHash:true});noteDialog.scrollTop=scroll;}
   menuButton.setAttribute('aria-label',siteText(mobileNav.hidden?'menu_open':'menu_close'));
   updateScrollUI();
 }
@@ -266,7 +238,7 @@ if(isAdminPreview){
     try{
       const {catalog,view,id}=event.data;
       if(catalog?.schemaVersion!==1||catalog.mode!=='managed'||!Array.isArray(catalog.vehicles))return;
-      if(dialog.open)dialog.close();if(noteDialog.open)noteDialog.close();
+      if(dialog.open)dialog.close();
       appliedCollection='';applyCollection(catalog);
       document.body.classList.remove('preview-waiting','preview-card','preview-dossier');
       if(view==='card'){document.body.classList.add('preview-card');document.querySelector('.car-card')?.classList.toggle('car-card-featured',!!event.data.cardFeatured);}

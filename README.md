@@ -81,7 +81,7 @@ python3 scripts/export-preview.py
 
 ## Events and photo portfolio
 
-`/events/` is the separate Events navigation page. Reports open on the site with a cover, date/location when provided, paragraphs, a responsive photograph portfolio and an accessible fullscreen lightbox. Photo arrows, keyboard navigation, Escape, focus restoration and deep links keep visitors inside the experience. The request CTA links to the existing organizer form on the homepage; it does not replace that form.
+`/events/` is the separate Events navigation page. The album overview shows three equal cards per desktop row, two on tablets and one on phones. Each album shows exactly its first photograph as the thumbnail and its title underneath; the entire card opens the album on the site. Reports open on the site with a cover, date/location when provided, paragraphs, a responsive photograph portfolio and an accessible fullscreen lightbox. Photo arrows, keyboard navigation, Escape, focus restoration and deep links keep visitors inside the experience. The request CTA links to the existing organizer form on the homepage; it does not replace that form.
 
 `/beheer/events/` supports multi-image upload (up to24 raster images,10MB each), automatic WebP preparation, cover selection, photo order, captions, alternative text, photo credits and desktop/mobile cover crop. Its iframe uses the actual public report renderer at1440/390 logical pixels, with expanded preview. Optional encrypted shared connection, local IndexedDB recovery, explicit/idle locking and safe GitHub transport match the existing CMS. Saving a draft preserves the immutable published report; publication/hiding atomically commits metadata/public projection/media with a fresh-ref check and force:false. New media stays in cms/event-media until publication. The public repository also exposes unpublished drafts/photos.
 
@@ -96,3 +96,6 @@ python3 scripts/export-preview.py
 
 
 The homepage club story is one semantic text block and one club photograph, without tabs or hidden story panels. Website → Ons verhaal edits its full copy in `culture_text_10`, with title/image/crop/caption/signature controls. `upgradeSiteContent` merges legacy story paragraphs and customized headings into this one body for local recovery, removes only known retired fields and preserves custom titles/photos; published manager/history/public snapshots receive the same migration. The default story photograph reuses the already-published Nissan S13 club-car photo.
+
+
+The retired homepage Journal / Between the lines block and its essay dialogs are removed from the public page and website editor. The interlude links to the single club story. Local recovery and stored snapshots discard only the known retired journal fields and remove journal from section order; custom links to the removed anchor route to the photo portfolio.

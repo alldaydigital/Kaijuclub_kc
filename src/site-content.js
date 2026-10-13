@@ -27,7 +27,6 @@ export function applySiteImage(element, key) {
   element.style.setProperty('--cms-image-mobile',image.positionMobile);
   element.setAttribute('data-cms-dynamic-image','');
   element.dataset.cmsImage=key;
-  if(element.classList.contains('note-image'))return; // Its full credit already appears in the essay disclosure.
   const parent=element.parentElement;
   if(!parent)return;
   let credit=[...parent.children].find(child=>child.classList?.contains('cms-photo-credit'));
