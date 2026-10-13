@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "mode": "managed",
   "source": "site-editor",
-  "updatedAt": "2026-10-13T07:43:48.314Z",
+  "updatedAt": "2026-10-13T19:16:01.039Z",
   "vehicles": [
     {
       "id": "club-179187225387544098",
@@ -25,6 +25,36 @@
       "alt": "Nissan S13 — foto 1",
       "width": 1290,
       "height": 1351,
+      "title": "Nissan S13",
+      "intro": "",
+      "paragraphs": [],
+      "specs": [],
+      "teaser": "Ontdek deze clubwagen van dichtbij.",
+      "credit": "",
+      "focus": [],
+      "reference": false
+    },
+    {
+      "id": "club-179183510682275032",
+      "name": "Nissan S13",
+      "category": "street",
+      "series": "",
+      "origin": "JAPAN",
+      "model": "STREET",
+      "featured": false,
+      "position": "72% 50%",
+      "gallery": [
+        {
+          "src": "/images/vehicles/179183510682275032/9b715d63f2cc8e4c8db8e0bfe3c963879525d318e6840d58c94095a9e2da04cb.png",
+          "alt": "Nissan S13 — foto 1",
+          "width": 1362,
+          "height": 2047
+        }
+      ],
+      "image": "/images/vehicles/179183510682275032/9b715d63f2cc8e4c8db8e0bfe3c963879525d318e6840d58c94095a9e2da04cb.png",
+      "alt": "Nissan S13 — foto 1",
+      "width": 1362,
+      "height": 2047,
       "title": "Nissan S13",
       "intro": "",
       "paragraphs": [],

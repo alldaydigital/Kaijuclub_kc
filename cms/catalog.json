@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": 2,
-  "updatedAt": "2026-10-13T07:43:48.314Z",
+  "revision": 3,
+  "updatedAt": "2026-10-13T19:16:01.039Z",
   "vehicles": [
     {
       "id": "club-179187225387544098",
@@ -48,6 +48,52 @@
       },
       "archived": false,
       "updatedAt": "2026-10-13T07:43:48.314Z"
+    },
+    {
+      "id": "club-179183510682275032",
+      "name": "Nissan S13",
+      "category": "street",
+      "series": "",
+      "origin": "JAPAN",
+      "story": "",
+      "specs": [],
+      "photos": [
+        {
+          "path": "cms/media/179183510682275032/9b715d63f2cc8e4c8db8e0bfe3c963879525d318e6840d58c94095a9e2da04cb.png",
+          "digest": "9b715d63f2cc8e4c8db8e0bfe3c963879525d318e6840d58c94095a9e2da04cb",
+          "extension": "png",
+          "width": 1362,
+          "height": 2047,
+          "alt": "",
+          "blobSha": "ef2869caf473e6f32b7a5e68ab82a522da732d34"
+        }
+      ],
+      "featured": false,
+      "position": "72% 50%",
+      "published": {
+        "id": "club-179183510682275032",
+        "name": "Nissan S13",
+        "category": "street",
+        "series": "",
+        "origin": "JAPAN",
+        "story": "",
+        "specs": [],
+        "photos": [
+          {
+            "path": "cms/media/179183510682275032/9b715d63f2cc8e4c8db8e0bfe3c963879525d318e6840d58c94095a9e2da04cb.png",
+            "digest": "9b715d63f2cc8e4c8db8e0bfe3c963879525d318e6840d58c94095a9e2da04cb",
+            "extension": "png",
+            "width": 1362,
+            "height": 2047,
+            "alt": "",
+            "blobSha": "ef2869caf473e6f32b7a5e68ab82a522da732d34"
+          }
+        ],
+        "featured": false,
+        "position": "72% 50%"
+      },
+      "archived": false,
+      "updatedAt": "2026-10-13T19:16:01.039Z"
     }
   ]
 }
