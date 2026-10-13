@@ -24,3 +24,5 @@
 @media(max-width:700px){.field input,.field select,.field textarea,.collection-search input{font-size:16px}}
 
 .connection-check{margin-top:20px;border-top:1px solid var(--line);padding-top:12px}.connection-check .field-help{line-height:1.8}.connection-check .text-link{font-size:10px;line-height:1.7}
+
+.token-fallback{display:grid;gap:9px;padding:12px 0 5px;border-top:1px solid var(--line)}.token-fallback .text-link{font-size:11px;text-decoration:underline;text-underline-offset:3px;min-height:36px;display:inline-flex;align-items:center;line-height:1.7}.token-fallback .field-help{line-height:1.8}
