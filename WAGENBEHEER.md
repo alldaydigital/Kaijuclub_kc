@@ -1,76 +1,86 @@
-# Je garage beheren op de website
+# Je Kaijuclub-website beheren
 
-**[Open het Kaijuclub-beheer](https://alldaydigital.github.io/Kaijuclub_kc/beheer/)**
+| Wat wil je aanpassen? | Open het beheer |
+| --- | --- |
+| Teksten, foto's, knoppen en uitstraling | [Website bewerken](https://alldaydigital.github.io/Kaijuclub_kc/beheer/website/) |
+| Clubwagens en hun dossiers | [Garage](https://alldaydigital.github.io/Kaijuclub_kc/beheer/) |
+| Partners, sponsors en logo's | [Partners & sponsors](https://alldaydigital.github.io/Kaijuclub_kc/beheer/partners/) |
 
-Je voegt wagens, foto's en informatie toe in de website zelf. De rechterkant toont de echte bezoekerswebsite: volledige site, garagekaart of wagenfiche. Je kunt wisselen tussen desktop en mobiel en het voorbeeld vergroten. Ontwerpen en bekijken kan meteen; verbinden is nodig om te bewaren.
+De drie beheerders gebruiken dezelfde GitHub-koppeling. Je hoeft geen code of GitHub-formulieren te gebruiken om inhoud toe te voegen. GitHub verzorgt achterliggend de opslag en publicatie.
 
-## Eerste keer: je beheer verbinden
+## De website bewerken
 
-1. Klik in het beheer op **Verbind beheer**, daarna **Eerste keer verbinden?**.
-2. Open **Beheersleutel aanmaken** en log in met een GitHub-account dat schrijfrechten heeft op `alldaydigital/Kaijuclub_kc`.
-3. Kies **Resource owner → alldaydigital** en een fine-grained personal access token met **Repository access → Only select repositories → Kaijuclub_kc**. Geef **Repository permissions → Contents → Read and write**. Metadata wordt automatisch toegevoegd. Je hebt geen andere rechten nodig.
-4. Maak de sleutel aan en plak hem uitsluitend in het afgeschermde veld op de beheerpagina. Deel de sleutel niet in chat of in een wagenfiche.
-5. Vink **Onthoud deze verbinding op dit toestel** aan en kies een eigen beheerwachtwoord van minimaal 12 tekens. De sleutel wordt lokaal versleuteld opgeslagen; later open je het beheer op dit toestel met dat wachtwoord.
+1. Open **Website bewerken** en kies links een onderdeel. Je kunt zoeken naar een tekst of rechtstreeks op een onderdeel in het websitevoorbeeld klikken.
+2. Pas de teksten, knoppen of links aan. Het voorbeeld volgt meteen. Ook de partnerpagina, navigatie, voettekst, contactgegevens en zoekmachineteksten hebben eigen velden.
+3. Upload een foto vanaf je telefoon of computer. JPG, PNG en WebP worden automatisch webklaar gemaakt; HEIC wordt niet ondersteund. Geef de foto een omschrijving en stel de uitsnede apart in voor desktop en mobiel.
+4. Onder de website-instellingen kun je de accentkleur, achtergrondkleuren en kopstijl aanpassen. Je kunt de homepage-onderdelen herschikken of verbergen. De header blijft bovenaan staan.
+5. Wissel het voorbeeld tussen **Homepage**, **Partners & sponsors**, **Desktop** en **Mobiel**. Met de vergrootknop bekijk je het op een groter scherm. Op een telefoon wissel je tussen **Bewerken** en **Voorbeeld bekijken**.
+6. Kies **Bewaar concept** om later verder te werken of **Publiceer website** om je wijzigingen zichtbaar te maken.
 
-De koppeling wordt gecontroleerd op echte schrijfrechten. Een verkeerde of verlopen sleutel geeft een foutmelding. Het wachtwoord ontgrendelt de koppeling op deze browser; op een ander toestel moet je de koppeling opnieuw maken. Bij een verlopen GitHub-sleutel kies je **Opnieuw koppelen**. De aanmaaklink stelt 90 dagen geldigheid voor; GitHub toont de gekozen vervaldatum.
+Het voorbeeld toont de echte website met jouw wijzigingen. Formulieren in het voorbeeld kunnen geen aanvragen versturen. Wagengegevens wijzig je onder **Garage**; partnerkaarten en logo's onder **Partners**.
 
-Je hoeft geen GitHub-formulieren of code te gebruiken om een wagen toe te voegen of te wijzigen. GitHub verzorgt achterliggend de opslag en publicatie.
+**Bewaar concept** verandert je live website niet. Ook als je een bestaande tekst of foto bewerkt, blijft de gepubliceerde versie staan tot je publiceert. Een opgeslagen concept kun je op een ander toestel openen na verbinden. Niet-bewaarde wijzigingen krijgen daarnaast een lokale herstelkopie in deze browser.
 
-## Een wagen toevoegen
+Met **Herstel** zet je het gekozen onderdeel terug naar de laatst opgeslagen inhoud; andere onderdelen blijven behouden. **Versies** laat eerdere publicaties zien. Een versie terugzetten maakt eerst een nieuw concept. Publiceer wanneer je die versie weer live wilt zetten. Er blijven maximaal vijf vorige publicaties beschikbaar.
 
-1. Klik **Wagen toevoegen**.
+## Eerste keer: het beheer verbinden
+
+1. Klik op **Verbind beheer** en open de uitleg om eenmalig je GitHub-account te koppelen.
+2. Open **Beheersleutel aanmaken**. Je GitHub-account moet schrijfrechten hebben op `alldaydigital/Kaijuclub_kc`.
+3. Kies een fine-grained personal access token met **Resource owner → alldaydigital**, **Repository access → Only select repositories → Kaijuclub_kc** en **Repository permissions → Contents → Read and write**. Metadata wordt automatisch toegevoegd.
+4. Klik **Generate token** en plak de volledige sleutel uitsluitend in het afgeschermde veld op de beheerpagina. Deel hem nooit in chat of website-inhoud.
+5. In website- of garagebeheer kun je **Onthoud de koppeling in deze browser** aanvinken. Kies een eigen beheerwachtwoord van minimaal 12 tekens. Later open je de drie beheerders op dit toestel met dat wachtwoord.
+
+De koppeling controleert echte schrijfrechten. Het wachtwoord ontgrendelt versleutelde opslag in deze browser; op een ander toestel maak je de koppeling opnieuw. Bij een verlopen sleutel koppel je opnieuw. GitHub toont de vervaldatum bij het aanmaken.
+
+Kun je `alldaydigital` niet kiezen als Resource owner, of ben je een externe bijdrager aan deze persoonlijke repository? GitHub ondersteunt de fine-grained route dan mogelijk niet. Gebruik **Klassieke beheersleutel aanmaken**, selecteer alleen `public_repo` en plak de volledige `ghp_`-waarde. Je account moet zelf schrijftoegang hebben. Een klassieke sleutel kan meerdere openbare repositories van je account bereiken; een tot deze repository beperkte sleutel heeft de voorkeur wanneer GitHub die ondersteunt. Zie de [GitHub-beperkingen](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens-limitations).
+
+## Wagens toevoegen en aanpassen
+
+1. Open **Garage** en kies **Wagen toevoegen**.
 2. Vul de naam en discipline in. Serie, herkomst, verhaal en details zijn optioneel.
-3. Sleep foto's in het fotovak, of kies ze van je telefoon/computer. JPG, PNG en WebP zijn ondersteund: maximaal 12 foto's, 10 MB en 40 megapixels per bronfoto. HEIC wordt niet ondersteund.
-4. Foto's worden automatisch verkleind tot maximaal 2400 pixels en webklaar gemaakt. Je bronbestand blijft op je toestel behouden. De eerste foto is de omslag; gebruik de pijlen of sleep de miniaturen om de volgorde te wijzigen. Je kunt een beschrijving per foto toevoegen en de zichtbare uitsnede van de omslag bijstellen.
-5. Bekijk je kaart, fiche en volledige website op desktop en mobiel.
-6. Kies **Concept bewaren** om later verder te werken, of **Publiceren** om de wagen zichtbaar te maken.
+3. Sleep foto's in het fotovak of selecteer ze. JPG, PNG en WebP zijn ondersteund: maximaal 12 foto's, 10 MB en 40 megapixels per bronfoto. Foto's worden verkleind tot maximaal 2400 pixels; je bronbestand blijft op je toestel.
+4. De eerste foto is de omslag. Gebruik de pijlen of sleep miniaturen om de volgorde te wijzigen. Voeg foto-omschrijvingen toe en stel de omslaguitsnede in.
+5. Bekijk de garagekaart, wagenfiche en volledige website op desktop en mobiel. Kies **Concept bewaren** of **Publiceren**.
 
-Concepten worden echt in de repository opgeslagen en kunnen na opnieuw inloggen ook op een ander toestel worden geopend. Niet-bewaarde wijzigingen krijgen aanvullend een lokale herstelkopie in de browser. De editor geeft aan wanneer werk nog niet bewaard is.
+Een bestaande wagen selecteer je in de collectie. **Concept bewaren** behoudt de live gegevens; **Wijzigingen publiceren** vervangt ze. Een uitgelichte wagen krijgt voorrang. De headerfoto wordt beheerd in de website-editor en blijft onafhankelijk van de garage.
 
-## Een bestaande wagen aanpassen
-
-Selecteer de wagen in de garage. Bewerk foto's, verhaal of details. Met **Concept bewaren** blijven bestaande live gegevens en foto's behouden; pas **Wijzigingen publiceren** vervangt de live versie. Een uitgelichte wagen krijgt voorrang in de collectie. De headerfoto blijft onafhankelijk van de garagecollectie.
-
-**Verbergen** haalt de wagen van de website, maar bewaart de fiche en foto's. **Terug publiceren** zet hem terug. De website herstelt nooit voorbeeldwagens wanneer alle eigen wagens verborgen zijn.
-
-## Bewaren en publiceren
-
-Foto's, concepten en de publieke collectie worden samen in één wijziging bewaard. Een gelijktijdige wijziging door iemand anders geeft een conflictmelding en overschrijft geen werk. Klik **Vernieuwen** om de actuele collectie te laden; je lokale wijzigingen blijven in de editor staan.
-
-Na publiceren wordt de website automatisch gecontroleerd en gebouwd. Dit duurt doorgaans enkele minuten. De editor toont eerst dat de gegevens bewaard zijn en vervolgens de publicatiestatus. Een mislukte controle behoudt de eerdere website. Corrigeer de fiche en publiceer opnieuw; ook een ongewijzigde wagen kan opnieuw worden gepubliceerd.
-
-De controle valideert alle foto's en collectiegegevens voordat de site live gaat. De beheersleutel staat nooit in de repository of in de publieke website. Vergrendelen wist de ontsleutelde sleutel uit het beheer; de lokaal versleutelde koppeling blijft beschikbaar. Het beheer vergrendelt ook na 30 minuten zonder activiteit.
-
-## Openbare opslag
-
-De GitHub-repository is openbaar. **Opgeslagen conceptgegevens en foto's zijn daar ook zichtbaar**, hoewel concepten buiten de bezoekerswebsite blijven. Verbergen verwijdert foto's niet uit de repository of versiegeschiedenis. Gebruik dit beheer voor openbare portfolio-informatie.
-
-De huidige bezoekerscollectie bevat nog duidelijk gemarkeerde referentiewagens. Je eigen gepubliceerde wagens vervangen die collectie. De oude GitHub Issue Form-route is vervangen door dit beheer en verwerkt geen automatische wijzigingen meer.
+**Verbergen** haalt een wagen van de website, maar bewaart de fiche en foto's. **Terug publiceren** zet hem terug. Je eerste eigen publicatie vervangt de gemarkeerde referentiewagens. Als je alle eigen wagens verbergt, verschijnen de voorbeelden niet opnieuw.
 
 ## Partners en sponsors
 
-Open **Partners & sponsors** in de zijbalk of `/beheer/partners/`. De opgeslagen, versleutelde GitHub-koppeling uit het garagebeheer werkt met hetzelfde beheerwachtwoord. Je kunt ook dezelfde fine-grained beheersleutel opnieuw invoeren.
+Open **Partners & sponsors**, kies **Partner toevoegen** en vul naam, type, introductie en eventueel een HTTPS-website en logo in. Rasterlogo's worden automatisch verkleind met behoud van transparantie. Het directe voorbeeld gebruikt dezelfde kaartvormgeving als de bezoekerspagina.
 
-Kies **Partner toevoegen**, vul naam, type, introductie en eventueel een https-website en logo in. Het directe voorbeeld gebruikt de echte kaartvormgeving. Logo’s worden automatisch verkleind met behoud van transparantie. **Bewaar concept** verandert een bestaande gepubliceerde kaart niet. **Publiceer** plaatst de kaart na de GitHub Pages-publicatie op `/partners/`. **Verberg op de site** haalt de kaart van de partnerpagina. Concepten en logo’s zijn zichtbaar in de openbare GitHub-repository.
+**Bewaar concept** verandert een gepubliceerde kaart niet. **Publiceer** plaatst de kaart na de websitepublicatie op de partnerpagina. **Verberg op de site** haalt de kaart daar weg. De omliggende teksten en het aanvraagformulier pas je aan via **Website bewerken → Partners & sponsors**.
+
+## Bewaren en publiceren
+
+Gegevens en bijbehorende foto's worden samen in één wijziging bewaard. Een gelijktijdige wijziging door iemand anders geeft een conflictmelding en overschrijft je lokale werk niet. Laad of verbind opnieuw om de actuele versie op te halen; bewaar je eigen werk voordat je wijzigingen vervangt.
+
+Na publiceren wordt de website gecontroleerd en gebouwd. Dit duurt doorgaans enkele minuten. Het beheer meldt eerst dat de inhoud is opgeslagen en daarna de publicatiestatus. Een mislukte controle houdt de eerdere website online. Controleer de melding en corrigeer de inhoud voordat je opnieuw publiceert.
+
+Je beheersleutel staat nooit in de repository of het websitevoorbeeld. **Vergrendel** wist de actieve koppeling uit het geheugen. De versleutelde lokale koppeling blijft beschikbaar. Het beheer vergrendelt ook na 30 minuten zonder activiteit.
+
+## Openbare opslag
+
+De GitHub-repository is openbaar. **Opgeslagen concepten en foto's zijn daar ook zichtbaar**, hoewel alleen gepubliceerde inhoud op de bezoekerswebsite verschijnt. Verbergen verwijdert inhoud niet uit de repository of GitHub-versiegeschiedenis. Gebruik het beheer voor openbare portfolio-informatie.
+
+De lokale herstelkopie is een extra reserve op dit toestel. Kies **Bewaar concept** om je werk in GitHub op te slaan en op andere toestellen te kunnen openen.
 
 ## Event- en partneraanvragen
 
-De formulieren bezorgen aanvragen via FormSubmit aan **kaijuclub.be@gmail.com**. Bij het eerste gebruik stuurt FormSubmit een activatiemail: bevestig die in deze mailbox voordat je op de bezorging vertrouwt. Controleer ook spam en test daarna met een eigen aanvraag. Zonder die bevestiging is de daadwerkelijke mailboxbezorging niet geverifieerd. Bij een onzekere verzending blijft de ingevulde aanvraag in het formulier staan. Aanvragen komen niet in de openbare repository terecht.
+Het ontvangstadres stel je in via de website-editor. Het huidige adres is **kaijuclub.be@gmail.com**. FormSubmit stuurt bij het eerste gebruik een activatiemail: bevestig die in de mailbox, controleer spam en test daarna met een eigen aanvraag. Als je het adres wijzigt, activeer je ook de nieuwe mailbox.
+
+De echte mailboxbezorging is nog niet geverifieerd. Bij een onzekere verzending blijven de ingevulde velden staan. Aanvragen worden niet in de openbare repository opgeslagen.
 
 ## Als verbinden niet lukt
 
-Beide beheerders accepteren fine-grained sleutels (`github_pat_`) en klassieke sleutels (`ghp_`). GitHub ondersteunt fine-grained tokens niet voor bepaalde externe/repository-bijdragers. Kun je `alldaydigital` niet kiezen als Resource owner? Maak dan een klassieke personal access token met alleen `public_repo`. Je GitHub-account moet zelf schrijfrechten hebben. Een klassieke sleutel kan meerdere openbare repositories van dat account bereiken; de voorkeur blijft een sleutel beperkt tot deze repository als GitHub dat toestaat. Zie de [GitHub-beperkingen](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens-limitations).
+Het afgeschermde veld accepteert een fine-grained sleutel (`github_pat_`) of klassieke sleutel (`ghp_`). Een SSH-sleutel en je lokale beheerwachtwoord zijn geen GitHub-token. Deel de sleutel alleen via dit veld.
 
-Kies **Controleer verbinding met GitHub** in het inlogvenster. Dit test bereikbaarheid zonder je sleutel te versturen. Bij een blokkade: open het beheer met de link **Open beheer in een apart tabblad**, controleer privacy-extensies voor `api.github.com` of probeer een ander netwerk. Een ongeldige/verlopen sleutel, ontbrekende Contents-rechten, een verkeerde repositoryselectie, SSO of een tijdelijke GitHub-limiet krijgen elk een aparte melding. Een SSH-sleutel en het lokale beheerwachtwoord zijn geen GitHub personal access token. Deel sleutels uitsluitend via het afgeschermde veld op de beheerpagina.
+**Controleer verbinding met GitHub** test bereikbaarheid zonder je sleutel te versturen. Open het beheer rechtstreeks via een van de HTTPS-links hierboven. Controleer bij blokkades privacy-extensies voor `api.github.com` of probeer een ander netwerk. Ongeldige of verlopen sleutels, ontbrekende rechten, verkeerde repositoryselectie, SSO en GitHub-limieten krijgen een eigen melding. Bij een netwerkfout wordt ook de mislukte stap vermeld.
 
-Kan de browser de versleutelde koppeling niet onthouden, dan blijft de werkende sessie open en verschijnt een aparte melding. In partnerbeheer wordt de gevraagde bewaar-/publicatieactie na succesvol verbinden automatisch uitgevoerd.
+Verschijnt **“We failed to generate the API credential, please try again”** op GitHub na **Generate token**, dan is daar nog geen sleutel aangemaakt. Gebruik de klassieke aanmaaklink met alleen `public_repo` wanneer de fine-grained route niet werkt. Als ook die generatie mislukt, controleer je GitHub-sessie en probeer de aanmaakpagina opnieuw; het websitebeheer kan geen persoonlijke sleutel namens je account uitgeven.
 
-### GitHub kan de sleutel niet aanmaken
+De verbinding gebruikt de standaard HTTP-client van de browser met actuele versiecontroles. Dat geldt ook voor Edge. Vernieuw de beheerpagina om de nieuwste versie te laden. Werking met je eigen Edge-instellingen en persoonlijke sleutel moet op je toestel worden bevestigd.
 
-Verschijnt **“We failed to generate the API credential, please try again”** op GitHub na **Generate token**, dan is er nog geen sleutel aangemaakt. Dit is een fout van de GitHub-aanmaakroute, niet een melding van het Kaijuclub-beheer. Beide beheerders tonen naast de fine-grained aanmaaklink ook **Klassieke beheersleutel aanmaken**. Selecteer alleen `public_repo`, genereer de token en kopieer de volledige `ghp_`-waarde naar het gemaskeerde beheerveld. Een klassieke sleutel kan meerdere openbare repositories van dat account bereiken.
-
-De repository behoort tot de persoonlijke GitHub-account `alldaydigital`. Een andere account met externe schrijftoegang kan volgens GitHub de fine-grained route voor deze repository niet gebruiken; dan is de klassieke token de ondersteunde optie. Een token geeft nooit extra rechten die je account zelf niet heeft. Als ook de klassieke generatie op GitHub mislukt, controleer je GitHub-sessie in een gewone browsertab en probeer de GitHub-aanmaakpagina opnieuw; de website kan geen persoonlijke tokens namens je account uitgeven.
-
-### Verbinden in Edge
-
-De opslagverbinding gebruikt de standaard HTTP-client van de browser en controleert repositorytoegang, werkelijke schrijfrechten en de collectie. Je persoonlijke GitHub-profiel is niet nodig. Bij een netwerkfout vermeldt de melding ook de stap, zoals repositorytoegang of schrijfrechten. Je huidige sleutel kan blijven worden gebruikt; vernieuw de beheerpagina om de laatste versie te laden. Ook deze verbinding blijft afhankelijk van bereikbaarheid en geldige GitHub-toegang vanuit je browser.
+Kan de browser de koppeling niet onthouden, dan blijft de werkende sessie open en verschijnt een aparte melding. Opnieuw verbinden herstelt geen ontbrekende GitHub-rechten; een sleutel geeft nooit meer toegang dan je account zelf heeft.

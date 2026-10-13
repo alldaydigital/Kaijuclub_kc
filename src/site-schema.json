@@ -1,0 +1,2124 @@
+{
+  "schemaVersion": 1,
+  "sections": [
+    "manifesto",
+    "garage",
+    "culture",
+    "interlude",
+    "journal",
+    "events",
+    "partnerTeaser",
+    "connect"
+  ],
+  "groups": [
+    {
+      "id": "identity",
+      "label": "Identiteit & contact",
+      "page": "global",
+      "selector": ".header",
+      "fields": [
+        {
+          "key": "contact_email",
+          "label": "E-mailadres voor aanvragen",
+          "type": "email",
+          "value": "kaijuclub.be@gmail.com",
+          "maxLength": 254
+        },
+        {
+          "key": "social_instagram",
+          "label": "Instagram-link",
+          "type": "url",
+          "value": "https://www.instagram.com/kaijuclub_kc/",
+          "maxLength": 500
+        },
+        {
+          "key": "brand_name",
+          "label": "Clubnaam voor copyrights en toegankelijkheid",
+          "type": "text",
+          "value": "KAIJUCLUB",
+          "maxLength": 500
+        },
+        {
+          "key": "brand_prefix",
+          "label": "Logo: eerste deel",
+          "type": "text",
+          "value": "kaiju",
+          "maxLength": 500
+        },
+        {
+          "key": "brand_suffix",
+          "label": "Logo: tweede deel",
+          "type": "text",
+          "value": "club",
+          "maxLength": 500
+        },
+        {
+          "key": "brand_kanji",
+          "label": "Japans logo-accent",
+          "type": "text",
+          "value": "怪獣",
+          "maxLength": 500
+        }
+      ]
+    },
+    {
+      "id": "navigation",
+      "label": "Menu & knoppen",
+      "page": "global",
+      "selector": ".header",
+      "fields": [
+        {
+          "key": "nav_0_label",
+          "label": "Garage: menutekst",
+          "type": "text",
+          "value": "Garage",
+          "maxLength": 500
+        },
+        {
+          "key": "nav_1_label",
+          "label": "Ons verhaal: menutekst",
+          "type": "text",
+          "value": "Ons verhaal",
+          "maxLength": 500
+        },
+        {
+          "key": "nav_2_label",
+          "label": "Events: menutekst",
+          "type": "text",
+          "value": "Events",
+          "maxLength": 500
+        },
+        {
+          "key": "nav_3_label",
+          "label": "Partners: menutekst",
+          "type": "text",
+          "value": "Partners",
+          "maxLength": 500
+        },
+        {
+          "key": "navigation_text_1",
+          "label": "Knop: NODIG ONS UIT",
+          "type": "text",
+          "value": "NODIG ONS UIT",
+          "maxLength": 500
+        },
+        {
+          "key": "nav_0_link",
+          "label": "Link: Garage",
+          "type": "url",
+          "value": "/#garage",
+          "maxLength": 500
+        },
+        {
+          "key": "nav_1_link",
+          "label": "Link: Ons verhaal",
+          "type": "url",
+          "value": "/#culture",
+          "maxLength": 500
+        },
+        {
+          "key": "nav_2_link",
+          "label": "Link: Events",
+          "type": "url",
+          "value": "/#events",
+          "maxLength": 500
+        },
+        {
+          "key": "nav_3_link",
+          "label": "Link: Partners",
+          "type": "url",
+          "value": "/partners/",
+          "maxLength": 500
+        },
+        {
+          "key": "navigation_link_5",
+          "label": "Link: NODIG ONS UIT",
+          "type": "url",
+          "value": "/#events",
+          "maxLength": 500
+        },
+        {
+          "key": "navigation_link_6",
+          "label": "Link: NODIG ONS UIT",
+          "type": "url",
+          "value": "/#events",
+          "maxLength": 500
+        },
+        {
+          "key": "menu_open",
+          "label": "Menu open",
+          "type": "text",
+          "value": "Menu openen",
+          "maxLength": 500
+        },
+        {
+          "key": "menu_close",
+          "label": "Menu close",
+          "type": "text",
+          "value": "Menu sluiten",
+          "maxLength": 500
+        }
+      ]
+    },
+    {
+      "id": "theme",
+      "label": "Kleuren & stijl",
+      "page": "global",
+      "selector": "body",
+      "fields": [
+        {
+          "key": "theme_accent",
+          "label": "Accentkleur",
+          "type": "color",
+          "value": "#ff4d31"
+        },
+        {
+          "key": "theme_ink",
+          "label": "Donkere kleur",
+          "type": "color",
+          "value": "#0b0b0a"
+        },
+        {
+          "key": "theme_paper",
+          "label": "Lichte kleur",
+          "type": "color",
+          "value": "#f0efe8"
+        },
+        {
+          "key": "theme_heading",
+          "label": "Lettertype voor titels",
+          "type": "select",
+          "value": "condensed",
+          "options": [
+            {
+              "value": "condensed",
+              "label": "Japanse magazine-stijl"
+            },
+            {
+              "value": "racing",
+              "label": "Racing"
+            },
+            {
+              "value": "clean",
+              "label": "Strak"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "seo",
+      "label": "Zoekresultaten & delen",
+      "page": "global",
+      "selector": "head",
+      "fields": [
+        {
+          "key": "seo_home_title",
+          "label": "Homepage: paginatitel",
+          "type": "text",
+          "value": "KAIJUCLUB — Voor wie écht kijkt.",
+          "maxLength": 500
+        },
+        {
+          "key": "seo_home_description",
+          "label": "Homepage: zoekomschrijving",
+          "type": "textarea",
+          "value": "Kaijuclub is een automotive club met kwalitatieve wagens. Ontdek onze wereld van drift, stance, track en street. Vier disciplines, dezelfde aandacht.",
+          "maxLength": 3000
+        },
+        {
+          "key": "seo_partners_title",
+          "label": "Partnerpagina: paginatitel",
+          "type": "text",
+          "value": "Partners & sponsors — KAIJUCLUB",
+          "maxLength": 500
+        },
+        {
+          "key": "seo_partners_description",
+          "label": "Partnerpagina: zoekomschrijving",
+          "type": "textarea",
+          "value": "Partners en sponsors van Kaijuclub. Automotive samenwerkingen met dezelfde aandacht voor kwaliteit.",
+          "maxLength": 3000
+        }
+      ]
+    },
+    {
+      "id": "hero",
+      "label": "Header & eerste indruk",
+      "page": "home",
+      "selector": ".hero",
+      "fields": [
+        {
+          "key": "hero_text_1",
+          "label": "Label: QUALITY BUILDS. SHARED PASSION.",
+          "type": "text",
+          "value": "QUALITY BUILDS. SHARED PASSION.",
+          "maxLength": 500
+        },
+        {
+          "key": "hero_text_2",
+          "label": "Label: 車文化 / INDEPENDENT AUTOMOTIVE CLUB",
+          "type": "text",
+          "value": "車文化 / INDEPENDENT AUTOMOTIVE CLUB",
+          "maxLength": 500
+        },
+        {
+          "key": "hero_text_3",
+          "label": "Titel: Kaijuclub — automotive club. Drift, stance, track, street.",
+          "type": "text",
+          "value": "Kaijuclub — automotive club. Drift, stance, track, street.",
+          "maxLength": 500
+        },
+        {
+          "key": "hero_image_1",
+          "label": "Headerfoto",
+          "type": "image",
+          "value": {
+            "src": "/images/kaiju-club-header.png",
+            "alt": "Twee witte Kaijuclub-wagens met blauwe en zwarte tribal-livery naast elkaar",
+            "width": 1672,
+            "height": 941,
+            "positionDesktop": "50% 100%",
+            "positionMobile": "50% 50%",
+            "credit": ""
+          }
+        },
+        {
+          "key": "hero_text_4",
+          "label": "Label: 怪獣 / KAIJUCLUB",
+          "type": "text",
+          "value": "怪獣 / KAIJUCLUB",
+          "maxLength": 500
+        },
+        {
+          "key": "hero_text_5",
+          "label": "Label: DRIFT · STANCE · TRACK · STREET",
+          "type": "text",
+          "value": "DRIFT · STANCE · TRACK · STREET",
+          "maxLength": 500
+        },
+        {
+          "key": "hero_text_6",
+          "label": "Label: VIER DISCIPLINES. HETZELFDE GEVOEL.",
+          "type": "text",
+          "value": "VIER DISCIPLINES. HETZELFDE GEVOEL.",
+          "maxLength": 500
+        },
+        {
+          "key": "hero_text_7",
+          "label": "Tekst: Voor wie het verschil ziet. En de passie erachter herkent.",
+          "type": "textarea",
+          "value": "Voor wie het verschil ziet.\nEn de passie erachter herkent.",
+          "maxLength": 3000
+        },
+        {
+          "key": "hero_text_8",
+          "label": "Knop: ONTDEK DE WAGENS",
+          "type": "text",
+          "value": "ONTDEK DE WAGENS",
+          "maxLength": 500
+        },
+        {
+          "key": "hero_text_9",
+          "label": "Knop: Dit zijn wij",
+          "type": "text",
+          "value": "Dit zijn wij",
+          "maxLength": 500
+        },
+        {
+          "key": "hero_text_10",
+          "label": "Tekst: ATTENTION IS EVERYTHING. KAIJU / 車文化",
+          "type": "textarea",
+          "value": "ATTENTION IS EVERYTHING.\nKAIJU / 車文化",
+          "maxLength": 3000
+        },
+        {
+          "key": "hero_link_1",
+          "label": "Link: ONTDEK DE WAGENS",
+          "type": "url",
+          "value": "#garage",
+          "maxLength": 500
+        },
+        {
+          "key": "hero_link_2",
+          "label": "Link: Dit zijn wij ↓",
+          "type": "url",
+          "value": "#culture",
+          "maxLength": 500
+        }
+      ]
+    },
+    {
+      "id": "disciplines",
+      "label": "Disciplines",
+      "page": "home",
+      "selector": ".discipline-strip",
+      "fields": [
+        {
+          "key": "disciplines_text_1",
+          "label": "Label: DRIFT",
+          "type": "text",
+          "value": "DRIFT",
+          "maxLength": 500
+        },
+        {
+          "key": "disciplines_text_2",
+          "label": "Label: STANCE",
+          "type": "text",
+          "value": "STANCE",
+          "maxLength": 500
+        },
+        {
+          "key": "disciplines_text_3",
+          "label": "Label: TRACK",
+          "type": "text",
+          "value": "TRACK",
+          "maxLength": 500
+        },
+        {
+          "key": "disciplines_text_4",
+          "label": "Label: STREET",
+          "type": "text",
+          "value": "STREET",
+          "maxLength": 500
+        },
+        {
+          "key": "disciplines_text_5",
+          "label": "Label: 怪獣",
+          "type": "text",
+          "value": "怪獣",
+          "maxLength": 500
+        }
+      ]
+    },
+    {
+      "id": "manifesto",
+      "label": "Clubintroductie",
+      "page": "home",
+      "selector": ".manifesto",
+      "fields": [
+        {
+          "key": "visible_manifesto",
+          "label": "Dit onderdeel tonen",
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "key": "manifesto_text_1",
+          "label": "Label: THE KAIJU MINDSET",
+          "type": "text",
+          "value": "THE KAIJU MINDSET",
+          "maxLength": 500
+        },
+        {
+          "key": "manifesto_text_2",
+          "label": "Titel: Kwaliteit. Geen toeval.",
+          "type": "textarea",
+          "value": "Kwaliteit.\nGeen toeval.",
+          "maxLength": 3000
+        },
+        {
+          "key": "manifesto_text_3",
+          "label": "Tekst: Kaijuclub is een automotive club met kwalitatieve wagens. Maar wa",
+          "type": "textarea",
+          "value": "Kaijuclub is een automotive club met kwalitatieve wagens. Maar wat ons verbindt, gaat verder dan het metaal.",
+          "maxLength": 3000
+        },
+        {
+          "key": "manifesto_text_4",
+          "label": "Tekst: Het is de aandacht voor een detail. De eigenheid van een build. D",
+          "type": "textarea",
+          "value": "Het is de aandacht voor een detail. De eigenheid van een build. De passie die je herkent, ook als je elkaar nog niet kent.",
+          "maxLength": 3000
+        },
+        {
+          "key": "manifesto_text_5",
+          "label": "Knop: LEER ONS KENNEN",
+          "type": "text",
+          "value": "LEER ONS KENNEN",
+          "maxLength": 500
+        },
+        {
+          "key": "manifesto_link_1",
+          "label": "Link: LEER ONS KENNEN",
+          "type": "url",
+          "value": "#culture",
+          "maxLength": 500
+        }
+      ]
+    },
+    {
+      "id": "garage",
+      "label": "Garage & wagenfiches",
+      "page": "home",
+      "selector": "#garage",
+      "fields": [
+        {
+          "key": "visible_garage",
+          "label": "Dit onderdeel tonen",
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "key": "garage_text_1",
+          "label": "Label: ONZE COLLECTIE",
+          "type": "text",
+          "value": "ONZE COLLECTIE",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_text_2",
+          "label": "Label: AANDACHT VOOR ELKE BUILD.",
+          "type": "text",
+          "value": "AANDACHT VOOR ELKE BUILD.",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_text_3",
+          "label": "Titel: The garage.",
+          "type": "text",
+          "value": "The garage.",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_text_4",
+          "label": "Tekst: Neem de tijd. Kijk nog eens. Ontdek de wagen én het gevoel eracht",
+          "type": "textarea",
+          "value": "Neem de tijd. Kijk nog eens.\nOntdek de wagen én het gevoel erachter.",
+          "maxLength": 3000
+        },
+        {
+          "key": "garage_text_5",
+          "label": "Knop: ALLE BUILDS",
+          "type": "text",
+          "value": "ALLE BUILDS",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_text_6",
+          "label": "Label: 04",
+          "type": "text",
+          "value": "04",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_text_7",
+          "label": "Knop: DRIFT",
+          "type": "text",
+          "value": "DRIFT",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_text_8",
+          "label": "Knop: STANCE",
+          "type": "text",
+          "value": "STANCE",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_text_9",
+          "label": "Knop: TRACK",
+          "type": "text",
+          "value": "TRACK",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_text_10",
+          "label": "Knop: STREET",
+          "type": "text",
+          "value": "STREET",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_text_12",
+          "label": "Knop: ACHTER DE BUILDS",
+          "type": "text",
+          "value": "ACHTER DE BUILDS",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_link_1",
+          "label": "Link: ACHTER DE BUILDS",
+          "type": "url",
+          "value": "#culture",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_reference_note",
+          "label": "Garage: tekst bij voorbeeldwagens",
+          "type": "textarea",
+          "value": "Deze collectie gebruikt referentiewagens en stockfotografie. De echte clubwagens, eigen foto's en persoonlijke buildverhalen krijgen hier hun plek.",
+          "maxLength": 3000
+        },
+        {
+          "key": "garage_live_note",
+          "label": "Garage: tekst bij clubwagens",
+          "type": "text",
+          "value": "Eigen wagens. Eigen verhalen. Ontdek de details achter elke clubbuild.",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_empty_note",
+          "label": "Garage: tekst zonder wagens",
+          "type": "text",
+          "value": "De eerste clubwagens krijgen hier binnenkort hun plek.",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_card_cta",
+          "label": "Knop: open wagenfiche",
+          "type": "text",
+          "value": "BEKIJK DE FICHE",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_empty_filter",
+          "label": "Garage empty filter",
+          "type": "text",
+          "value": "Er staat nog geen wagen in deze discipline. Ontdek de andere builds.",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_empty_all",
+          "label": "Garage empty all",
+          "type": "text",
+          "value": "De eerste wagenfiches krijgen hier binnenkort hun plek.",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_results",
+          "label": "Aantal gevonden wagens ({number})",
+          "type": "text",
+          "value": "{number} wagens weergegeven",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_status_live",
+          "label": "Garage status live",
+          "type": "text",
+          "value": "CLUB BUILDS",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_status_reference",
+          "label": "Garage status reference",
+          "type": "text",
+          "value": "REFERENCE BUILDS",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_dossier_label",
+          "label": "Garage dossier label",
+          "type": "text",
+          "value": "KC / BUILD DOSSIER",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_reference_label",
+          "label": "Garage reference label",
+          "type": "text",
+          "value": "VISUAL REFERENCE",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_live_label",
+          "label": "Garage live label",
+          "type": "text",
+          "value": "CLUB BUILD",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_series_label",
+          "label": "Garage series label",
+          "type": "text",
+          "value": "Serie",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_origin_label",
+          "label": "Garage origin label",
+          "type": "text",
+          "value": "Herkomst",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_category_label",
+          "label": "Garage category label",
+          "type": "text",
+          "value": "Discipline",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_focus_label",
+          "label": "Garage focus label",
+          "type": "text",
+          "value": "WAT JE LAAT KIJKEN",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_share_label",
+          "label": "Garage share label",
+          "type": "text",
+          "value": "KOPIEER DE LINK",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_share_success",
+          "label": "Garage share success",
+          "type": "text",
+          "value": "Link gekopieerd.",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_share_fallback",
+          "label": "Garage share fallback",
+          "type": "text",
+          "value": "Selecteer en kopieer deze link.",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_prev_label",
+          "label": "Garage prev label",
+          "type": "text",
+          "value": "VORIGE BUILD",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_next_label",
+          "label": "Garage next label",
+          "type": "text",
+          "value": "VOLGENDE BUILD",
+          "maxLength": 500
+        },
+        {
+          "key": "garage_reference_disclaimer",
+          "label": "Garage reference disclaimer",
+          "type": "textarea",
+          "value": "Dit is een referentiewagen, geen bevestigde clubbuild. Eigen foto's, specificaties en het persoonlijke verhaal vervangen deze fiche zodra ze beschikbaar zijn.",
+          "maxLength": 3000
+        }
+      ]
+    },
+    {
+      "id": "culture",
+      "label": "Ons verhaal",
+      "page": "home",
+      "selector": "#culture",
+      "fields": [
+        {
+          "key": "visible_culture",
+          "label": "Dit onderdeel tonen",
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "key": "culture_text_1",
+          "label": "Label: ONS VERHAAL",
+          "type": "text",
+          "value": "ONS VERHAAL",
+          "maxLength": 500
+        },
+        {
+          "key": "culture_text_2",
+          "label": "Label: DE WAGENS BRENGEN ONS SAMEN.",
+          "type": "text",
+          "value": "DE WAGENS BRENGEN ONS SAMEN.",
+          "maxLength": 500
+        },
+        {
+          "key": "culture_text_3",
+          "label": "Label: VISUAL REFERENCE",
+          "type": "text",
+          "value": "VISUAL REFERENCE",
+          "maxLength": 500
+        },
+        {
+          "key": "culture_text_4",
+          "label": "Label: AUTOMOTIVE CLUB / QUALITY FIRST",
+          "type": "text",
+          "value": "AUTOMOTIVE CLUB / QUALITY FIRST",
+          "maxLength": 500
+        },
+        {
+          "key": "culture_text_5",
+          "label": "Titel: Aandacht verbindt.",
+          "type": "textarea",
+          "value": "Aandacht\nverbindt.",
+          "maxLength": 3000
+        },
+        {
+          "key": "culture_text_6",
+          "label": "Knop: 01 / Aandacht",
+          "type": "text",
+          "value": "01 / Aandacht",
+          "maxLength": 500
+        },
+        {
+          "key": "culture_text_7",
+          "label": "Knop: 02 / Karakter",
+          "type": "text",
+          "value": "02 / Karakter",
+          "maxLength": 500
+        },
+        {
+          "key": "culture_text_8",
+          "label": "Knop: 03 / Passie",
+          "type": "text",
+          "value": "03 / Passie",
+          "maxLength": 500
+        },
+        {
+          "key": "culture_text_9",
+          "label": "Titel: Kwaliteit zie je. Aandacht voel je.",
+          "type": "text",
+          "value": "Kwaliteit zie je. Aandacht voel je.",
+          "maxLength": 500
+        },
+        {
+          "key": "culture_text_10",
+          "label": "Tekst: Kaijuclub draait om kwalitatieve wagens. Om builds die een eigen ",
+          "type": "textarea",
+          "value": "Kaijuclub draait om kwalitatieve wagens. Om builds die een eigen karakter hebben en de aandacht die ze verdienen.",
+          "maxLength": 3000
+        },
+        {
+          "key": "culture_text_11",
+          "label": "Tekst: Misschien herken je dat. Nog één keer kijken naar de lijn van het",
+          "type": "textarea",
+          "value": "Misschien herken je dat. Nog één keer kijken naar de lijn van het koetswerk. Een detail dat voor jou het verschil maakt. Dat gevoel delen we.",
+          "maxLength": 3000
+        },
+        {
+          "key": "culture_text_12",
+          "label": "Titel: Vier disciplines. Geen standaardverhaal.",
+          "type": "text",
+          "value": "Vier disciplines. Geen standaardverhaal.",
+          "maxLength": 500
+        },
+        {
+          "key": "culture_text_13",
+          "label": "Tekst: Drift, stance, track en street. Vier manieren om een wagen te bel",
+          "type": "textarea",
+          "value": "Drift, stance, track en street. Vier manieren om een wagen te beleven. Dezelfde aandacht, telkens vanuit een ander perspectief.",
+          "maxLength": 3000
+        },
+        {
+          "key": "culture_text_14",
+          "label": "Tekst: Een build hoeft niet op een andere te lijken om erbij te horen. H",
+          "type": "textarea",
+          "value": "Een build hoeft niet op een andere te lijken om erbij te horen. Het is de passie erachter die automotive cultuur bijzonder maakt.",
+          "maxLength": 3000
+        },
+        {
+          "key": "culture_text_15",
+          "label": "Titel: Jij herkent het gevoel.",
+          "type": "text",
+          "value": "Jij herkent het gevoel.",
+          "maxLength": 500
+        },
+        {
+          "key": "culture_text_16",
+          "label": "Tekst: De rit waarvoor je de lange weg kiest. Het geluid waar je even vo",
+          "type": "textarea",
+          "value": "De rit waarvoor je de lange weg kiest. Het geluid waar je even voor stopt. Die ene keer omkijken na het parkeren.",
+          "maxLength": 3000
+        },
+        {
+          "key": "culture_text_17",
+          "label": "Tekst: Je hoeft ons nog niet te kennen om iets te herkennen in wat we do",
+          "type": "textarea",
+          "value": "Je hoeft ons nog niet te kennen om iets te herkennen in wat we doen. Kijk rond, ontdek de builds en vind de discipline die jou raakt.",
+          "maxLength": 3000
+        },
+        {
+          "key": "culture_text_18",
+          "label": "Label: DIFFERENT BUILDS.",
+          "type": "text",
+          "value": "DIFFERENT BUILDS.",
+          "maxLength": 500
+        },
+        {
+          "key": "culture_text_19",
+          "label": "Label: SHARED PASSION.",
+          "type": "text",
+          "value": "SHARED PASSION.",
+          "maxLength": 500
+        },
+        {
+          "key": "culture_text_20",
+          "label": "Label: 怪獣",
+          "type": "text",
+          "value": "怪獣",
+          "maxLength": 500
+        },
+        {
+          "key": "story_attention_image",
+          "label": "Verhaal Aandacht: foto",
+          "type": "image",
+          "value": {
+            "src": "/images/culture.jpg",
+            "alt": "Regendruppels op het koetswerk van een klassieke Porsche",
+            "width": 3024,
+            "height": 3186,
+            "positionDesktop": "50% 50%",
+            "positionMobile": "50% 50%",
+            "credit": ""
+          }
+        },
+        {
+          "key": "story_attention_frame",
+          "label": "Verhaal Aandacht: fotolabel",
+          "type": "text",
+          "value": "KC / THE DETAILS",
+          "maxLength": 500
+        },
+        {
+          "key": "story_attention_caption",
+          "label": "Verhaal Aandacht: foto-onderschrift",
+          "type": "text",
+          "value": "HET VERSCHIL ZIT IN WAT JE ZIET.",
+          "maxLength": 500
+        },
+        {
+          "key": "story_character_image",
+          "label": "Verhaal Karakter: foto",
+          "type": "image",
+          "value": {
+            "src": "/images/porsche-993.jpg",
+            "alt": "Zilveren Porsche 993 in rood en blauw licht",
+            "width": 5000,
+            "height": 5000,
+            "positionDesktop": "50% 50%",
+            "positionMobile": "50% 50%",
+            "credit": ""
+          }
+        },
+        {
+          "key": "story_character_frame",
+          "label": "Verhaal Karakter: fotolabel",
+          "type": "text",
+          "value": "KC / THE CHARACTER",
+          "maxLength": 500
+        },
+        {
+          "key": "story_character_caption",
+          "label": "Verhaal Karakter: foto-onderschrift",
+          "type": "text",
+          "value": "JE HERKENT KARAKTER VANZELF.",
+          "maxLength": 500
+        },
+        {
+          "key": "story_passion_image",
+          "label": "Verhaal Passie: foto",
+          "type": "image",
+          "value": {
+            "src": "/images/porsche-duo.jpg",
+            "alt": "Twee klassieke Porsche wagens op het circuit",
+            "width": 3072,
+            "height": 3072,
+            "positionDesktop": "50% 50%",
+            "positionMobile": "50% 50%",
+            "credit": ""
+          }
+        },
+        {
+          "key": "story_passion_frame",
+          "label": "Verhaal Passie: fotolabel",
+          "type": "text",
+          "value": "KC / SHARED PASSION",
+          "maxLength": 500
+        },
+        {
+          "key": "story_passion_caption",
+          "label": "Verhaal Passie: foto-onderschrift",
+          "type": "text",
+          "value": "DE WAGENS BRENGEN ONS SAMEN.",
+          "maxLength": 500
+        }
+      ]
+    },
+    {
+      "id": "interlude",
+      "label": "Sfeerbeeld",
+      "page": "home",
+      "selector": ".culture-interlude",
+      "fields": [
+        {
+          "key": "visible_interlude",
+          "label": "Dit onderdeel tonen",
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "key": "interlude_image_1",
+          "label": "Groot sfeerbeeld",
+          "type": "image",
+          "value": {
+            "src": "/images/porsche-duo.jpg",
+            "alt": "Twee klassieke Porsche wagens op het circuit, referentiefotografie",
+            "width": 3072,
+            "height": 3072,
+            "positionDesktop": "50% 65%",
+            "positionMobile": "57% 64%",
+            "credit": ""
+          }
+        },
+        {
+          "key": "interlude_text_1",
+          "label": "Label: KC / SHARED PASSION",
+          "type": "text",
+          "value": "KC / SHARED PASSION",
+          "maxLength": 500
+        },
+        {
+          "key": "interlude_text_2",
+          "label": "Titel: Different lines. Same feeling.",
+          "type": "textarea",
+          "value": "Different lines.\nSame feeling.",
+          "maxLength": 3000
+        },
+        {
+          "key": "interlude_text_3",
+          "label": "Knop: ONTDEK WAT ONS VERBINDT",
+          "type": "text",
+          "value": "ONTDEK WAT ONS VERBINDT",
+          "maxLength": 500
+        },
+        {
+          "key": "interlude_text_4",
+          "label": "Label: NIKA QUFARASHVILI / UNSPLASH · VISUAL REFERENCE",
+          "type": "text",
+          "value": "NIKA QUFARASHVILI / UNSPLASH · VISUAL REFERENCE",
+          "maxLength": 500
+        }
+      ]
+    },
+    {
+      "id": "journal",
+      "label": "Journal & verhalen",
+      "page": "home",
+      "selector": "#journal",
+      "fields": [
+        {
+          "key": "visible_journal",
+          "label": "Dit onderdeel tonen",
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "key": "journal_text_1",
+          "label": "Label: VAN DICHTBIJ",
+          "type": "text",
+          "value": "VAN DICHTBIJ",
+          "maxLength": 500
+        },
+        {
+          "key": "journal_text_2",
+          "label": "Label: EEN ANDER PERSPECTIEF.",
+          "type": "text",
+          "value": "EEN ANDER PERSPECTIEF.",
+          "maxLength": 500
+        },
+        {
+          "key": "journal_text_3",
+          "label": "Titel: Between the lines.",
+          "type": "text",
+          "value": "Between the lines.",
+          "maxLength": 500
+        },
+        {
+          "key": "journal_text_4",
+          "label": "Tekst: Niet alleen de wagen. Ook de Details die je laten stilstaan.",
+          "type": "textarea",
+          "value": "Niet alleen de wagen.\nOok de details die je laten stilstaan.",
+          "maxLength": 3000
+        },
+        {
+          "key": "note_details_image",
+          "label": "Verhaal Details: foto",
+          "type": "image",
+          "value": {
+            "src": "/images/culture.jpg",
+            "alt": "Detail van regendruppels en het koetswerk van een klassieke Porsche",
+            "width": 3024,
+            "height": 3186,
+            "positionDesktop": "50% 50%",
+            "positionMobile": "50% 50%",
+            "credit": ""
+          }
+        },
+        {
+          "key": "journal_text_5",
+          "label": "Label: 01 / THE DETAILS",
+          "type": "text",
+          "value": "01 / THE DETAILS",
+          "maxLength": 500
+        },
+        {
+          "key": "journal_text_7",
+          "label": "Tekst: Waarom kleine dingen een build eigen maken.",
+          "type": "textarea",
+          "value": "Waarom kleine dingen een build eigen maken.",
+          "maxLength": 3000
+        },
+        {
+          "key": "note_perspective_image",
+          "label": "Verhaal Perspectief: foto",
+          "type": "image",
+          "value": {
+            "src": "/images/porsche-993.jpg",
+            "alt": "Zilveren Porsche in rood en blauw licht",
+            "width": 5000,
+            "height": 5000,
+            "positionDesktop": "50% 50%",
+            "positionMobile": "50% 50%",
+            "credit": ""
+          }
+        },
+        {
+          "key": "journal_text_8",
+          "label": "Label: 02 / THE PERSPECTIVE",
+          "type": "text",
+          "value": "02 / THE PERSPECTIVE",
+          "maxLength": 500
+        },
+        {
+          "key": "journal_text_10",
+          "label": "Tekst: Het moment waarop je iets nieuws ziet.",
+          "type": "textarea",
+          "value": "Het moment waarop je iets nieuws ziet.",
+          "maxLength": 3000
+        },
+        {
+          "key": "note_together_image",
+          "label": "Verhaal Samen: foto",
+          "type": "image",
+          "value": {
+            "src": "/images/porsche-duo.jpg",
+            "alt": "Twee klassieke Porsche wagens naast elkaar op het circuit",
+            "width": 3072,
+            "height": 3072,
+            "positionDesktop": "50% 50%",
+            "positionMobile": "50% 50%",
+            "credit": ""
+          }
+        },
+        {
+          "key": "journal_text_11",
+          "label": "Label: 03 / THE CONNECTION",
+          "type": "text",
+          "value": "03 / THE CONNECTION",
+          "maxLength": 500
+        },
+        {
+          "key": "journal_text_13",
+          "label": "Tekst: Automotive cultuur begint bij herkenning.",
+          "type": "textarea",
+          "value": "Automotive cultuur begint bij herkenning.",
+          "maxLength": 3000
+        },
+        {
+          "key": "journal_text_14",
+          "label": "Tekst: Visuele essays met referentiefotografie, geen verslagen van cluba",
+          "type": "textarea",
+          "value": "Visuele essays met referentiefotografie, geen verslagen van clubactiviteiten.",
+          "maxLength": 3000
+        },
+        {
+          "key": "note_details_title",
+          "label": "Details: Titel",
+          "type": "text",
+          "value": "Het zit in de details.",
+          "maxLength": 500
+        },
+        {
+          "key": "note_details_kicker",
+          "label": "Details: Label",
+          "type": "text",
+          "value": "THE DETAILS",
+          "maxLength": 500
+        },
+        {
+          "key": "note_details_credit",
+          "label": "Details: Fotograaf",
+          "type": "text",
+          "value": "Alexander / Unsplash",
+          "maxLength": 500
+        },
+        {
+          "key": "note_details_category",
+          "label": "Details: Bijhorende discipline",
+          "type": "select",
+          "value": "stance",
+          "options": [
+            {
+              "value": "drift",
+              "label": "DRIFT"
+            },
+            {
+              "value": "stance",
+              "label": "STANCE"
+            },
+            {
+              "value": "track",
+              "label": "TRACK"
+            },
+            {
+              "value": "street",
+              "label": "STREET"
+            }
+          ]
+        },
+        {
+          "key": "note_details_lead",
+          "label": "Details: Inleiding",
+          "type": "textarea",
+          "value": "Je ziet een wagen. En dan zie je iets dat je laat blijven kijken.",
+          "maxLength": 3000
+        },
+        {
+          "key": "note_details_body",
+          "label": "Details: Volledig verhaal",
+          "type": "textarea",
+          "value": "Een lijn die het licht anders vangt. De overgang tussen twee vormen. De manier waarop een geheel tot rust komt. Kwaliteit hoeft niet luid te zijn om je aandacht vast te houden.\n\nVoor ons hoort die aandacht bij automotive cultuur. Juist in de kleine keuzes krijgt een wagen zijn eigen karakter. Het is geen lijstje met onderdelen, maar het gevoel dat ontstaat wanneer het geheel klopt.\n\nMisschien merk je dat bij je eigen wagen. Of bij een build waar je onverwacht voor stil blijft staan. Dat is het perspectief dat we hier willen delen.",
+          "maxLength": 12000
+        },
+        {
+          "key": "note_perspective_title",
+          "label": "Perspectief: Titel",
+          "type": "text",
+          "value": "Nog één keer kijken.",
+          "maxLength": 500
+        },
+        {
+          "key": "note_perspective_kicker",
+          "label": "Perspectief: Label",
+          "type": "text",
+          "value": "THE PERSPECTIVE",
+          "maxLength": 500
+        },
+        {
+          "key": "note_perspective_credit",
+          "label": "Perspectief: Fotograaf",
+          "type": "text",
+          "value": "Yrka Pictured / Unsplash",
+          "maxLength": 500
+        },
+        {
+          "key": "note_perspective_category",
+          "label": "Perspectief: Bijhorende discipline",
+          "type": "select",
+          "value": "street",
+          "options": [
+            {
+              "value": "drift",
+              "label": "DRIFT"
+            },
+            {
+              "value": "stance",
+              "label": "STANCE"
+            },
+            {
+              "value": "track",
+              "label": "TRACK"
+            },
+            {
+              "value": "street",
+              "label": "STREET"
+            }
+          ]
+        },
+        {
+          "key": "note_perspective_lead",
+          "label": "Perspectief: Inleiding",
+          "type": "textarea",
+          "value": "Dezelfde wagen. Een ander licht. Een detail dat je eerder niet zag.",
+          "maxLength": 3000
+        },
+        {
+          "key": "note_perspective_body",
+          "label": "Perspectief: Volledig verhaal",
+          "type": "textarea",
+          "value": "De manier waarop je naar een wagen kijkt, verandert wat je ziet. Een silhouet kan vertrouwd zijn en toch iets nieuws laten zien zodra het licht of je positie verandert.\n\nDat maakt automotive fotografie meer dan een beeld van een object. Ze kan je even laten kijken zoals iemand anders kijkt: met aandacht, met nieuwsgierigheid, met een eigen obsessie.\n\nNeem die tijd. Bekijk de lijnen. Kijk nog eens. Het is vaak precies dat kleine moment dat een wagen je bijblijft.",
+          "maxLength": 12000
+        },
+        {
+          "key": "note_together_title",
+          "label": "Samen: Titel",
+          "type": "text",
+          "value": "Dezelfde taal.",
+          "maxLength": 500
+        },
+        {
+          "key": "note_together_kicker",
+          "label": "Samen: Label",
+          "type": "text",
+          "value": "THE CONNECTION",
+          "maxLength": 500
+        },
+        {
+          "key": "note_together_credit",
+          "label": "Samen: Fotograaf",
+          "type": "text",
+          "value": "Nika Qufarashvili / Unsplash",
+          "maxLength": 500
+        },
+        {
+          "key": "note_together_category",
+          "label": "Samen: Bijhorende discipline",
+          "type": "select",
+          "value": "track",
+          "options": [
+            {
+              "value": "drift",
+              "label": "DRIFT"
+            },
+            {
+              "value": "stance",
+              "label": "STANCE"
+            },
+            {
+              "value": "track",
+              "label": "TRACK"
+            },
+            {
+              "value": "street",
+              "label": "STREET"
+            }
+          ]
+        },
+        {
+          "key": "note_together_lead",
+          "label": "Samen: Inleiding",
+          "type": "textarea",
+          "value": "Niet dezelfde wagen. Wel hetzelfde gevoel.",
+          "maxLength": 3000
+        },
+        {
+          "key": "note_together_body",
+          "label": "Samen: Volledig verhaal",
+          "type": "textarea",
+          "value": "Automotive cultuur brengt verschillende perspectieven samen. De één ziet een perfecte fitment. Een ander denkt aan de volgende bocht. Weer iemand anders kiest gewoon de lange weg naar huis.\n\nBij Kaijuclub komen drift, stance, track en street samen. Vier disciplines met een eigen karakter, verbonden door aandacht voor kwalitatieve wagens.\n\nJe hoeft geen identieke smaak te hebben om die passie te herkennen. Misschien herken je jezelf in één discipline. Misschien in allemaal. Dat gesprek begint bij de manier waarop je kijkt.",
+          "maxLength": 12000
+        },
+        {
+          "key": "journal_disclaimer",
+          "label": "Journal disclaimer",
+          "type": "text",
+          "value": "Visueel essay met referentiefotografie. Foto: {credit}. Dit is geen verslag van een clubactiviteit.",
+          "maxLength": 500
+        },
+        {
+          "key": "journal_related_cta",
+          "label": "Journal related cta",
+          "type": "text",
+          "value": "ONTDEK DE {category}-BUILDS",
+          "maxLength": 500
+        }
+      ]
+    },
+    {
+      "id": "events",
+      "label": "Eventaanvragen",
+      "page": "home",
+      "selector": "#events",
+      "fields": [
+        {
+          "key": "visible_events",
+          "label": "Dit onderdeel tonen",
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "key": "events_text_1",
+          "label": "Label: KAIJUCLUB / OP JOUW EVENT",
+          "type": "text",
+          "value": "KAIJUCLUB / OP JOUW EVENT",
+          "maxLength": 500
+        },
+        {
+          "key": "events_text_2",
+          "label": "Titel: Jouw event. Onze wagens.",
+          "type": "textarea",
+          "value": "Jouw event.\nOnze wagens.",
+          "maxLength": 3000
+        },
+        {
+          "key": "events_text_3",
+          "label": "Tekst: Een line-up met karakter. Een club die dezelfde passie deelt als ",
+          "type": "textarea",
+          "value": "Een line-up met karakter. Een club die dezelfde passie deelt als jouw bezoekers. Vertel ons wat je organiseert, dan bekijken we samen hoe Kaijuclub erbij past.",
+          "maxLength": 3000
+        },
+        {
+          "key": "events_text_4",
+          "label": "Label: MEETS / SHOWS / AUTOMOTIVE EVENTS",
+          "type": "text",
+          "value": "MEETS / SHOWS / AUTOMOTIVE EVENTS",
+          "maxLength": 500
+        },
+        {
+          "key": "events_text_5",
+          "label": "Tekst: Je aanvraag is vrijblijvend. We stemmen beschikbaarheid, de selec",
+          "type": "textarea",
+          "value": "Je aanvraag is vrijblijvend. We stemmen beschikbaarheid, de selectie van wagens en praktische afspraken persoonlijk met je af.",
+          "maxLength": 3000
+        },
+        {
+          "key": "events_text_6",
+          "label": "Label: 車文化",
+          "type": "text",
+          "value": "車文化",
+          "maxLength": 500
+        },
+        {
+          "key": "events_text_7",
+          "label": "Label: VERTEL ONS OVER JOUW EVENT",
+          "type": "text",
+          "value": "VERTEL ONS OVER JOUW EVENT",
+          "maxLength": 500
+        },
+        {
+          "key": "events_text_8",
+          "label": "Veldnaam: Jouw naam",
+          "type": "text",
+          "value": "Jouw naam",
+          "maxLength": 500
+        },
+        {
+          "key": "events_text_9",
+          "label": "Veldnaam: Organisatie",
+          "type": "text",
+          "value": "Organisatie",
+          "maxLength": 500
+        },
+        {
+          "key": "events_text_10",
+          "label": "Veldnaam: E-mailadres",
+          "type": "text",
+          "value": "E-mailadres",
+          "maxLength": 500
+        },
+        {
+          "key": "events_text_11",
+          "label": "Veldnaam: Naam van het event",
+          "type": "text",
+          "value": "Naam van het event",
+          "maxLength": 500
+        },
+        {
+          "key": "events_text_12",
+          "label": "Veldnaam: Datum",
+          "type": "text",
+          "value": "Datum",
+          "maxLength": 500
+        },
+        {
+          "key": "events_text_13",
+          "label": "Veldnaam: Locatie",
+          "type": "text",
+          "value": "Locatie",
+          "maxLength": 500
+        },
+        {
+          "key": "events_text_14",
+          "label": "Veldnaam: Wat heb je in gedachten?",
+          "type": "text",
+          "value": "Wat heb je in gedachten?",
+          "maxLength": 500
+        },
+        {
+          "key": "events_text_15",
+          "label": "Label: Kaijuclub mag mijn gegevens gebruiken om deze aanvraag te beantwo",
+          "type": "textarea",
+          "value": "Kaijuclub mag mijn gegevens gebruiken om deze aanvraag te beantwoorden. Het formulier wordt via FormSubmit bezorgd aan {email}.",
+          "maxLength": 3000
+        },
+        {
+          "key": "events_text_16",
+          "label": "Knop: VERSTUUR JE AANVRAAG",
+          "type": "text",
+          "value": "VERSTUUR JE AANVRAAG",
+          "maxLength": 500
+        },
+        {
+          "key": "events_text_17",
+          "label": "Label: Een aanvraag bevestigt nog geen deelname. Liever mailen?",
+          "type": "text",
+          "value": "Een aanvraag bevestigt nog geen deelname. Liever mailen?",
+          "maxLength": 500
+        },
+        {
+          "key": "events_placeholder_locatie",
+          "label": "Voorbeeldtekst: locatie",
+          "type": "text",
+          "value": "Stad / terrein",
+          "maxLength": 500
+        },
+        {
+          "key": "events_placeholder_bericht",
+          "label": "Voorbeeldtekst: bericht",
+          "type": "text",
+          "value": "Vertel ons over de sfeer, gewenste wagens, bezoekers en praktische voorzieningen.",
+          "maxLength": 500
+        },
+        {
+          "key": "request_event_subject",
+          "label": "Request event subject",
+          "type": "text",
+          "value": "Kaijuclub — eventaanvraag",
+          "maxLength": 500
+        },
+        {
+          "key": "request_partner_subject",
+          "label": "Request partner subject",
+          "type": "text",
+          "value": "Kaijuclub — partneraanvraag",
+          "maxLength": 500
+        },
+        {
+          "key": "request_sending",
+          "label": "Request sending",
+          "type": "text",
+          "value": "Je aanvraag wordt verstuurd…",
+          "maxLength": 500
+        },
+        {
+          "key": "request_success",
+          "label": "Request success",
+          "type": "textarea",
+          "value": "De e-maildienst heeft je aanvraag aangenomen. Bedankt! We nemen persoonlijk contact op. Deelname is pas bevestigd na onze reactie.",
+          "maxLength": 3000
+        },
+        {
+          "key": "request_error",
+          "label": "Request error",
+          "type": "textarea",
+          "value": "We konden de verzending niet bevestigen. Je gegevens staan nog in het formulier. Probeer opnieuw of mail naar {email}.",
+          "maxLength": 3000
+        }
+      ]
+    },
+    {
+      "id": "partnerTeaser",
+      "label": "Partnerverwijzing",
+      "page": "home",
+      "selector": ".partner-teaser",
+      "fields": [
+        {
+          "key": "visible_partnerTeaser",
+          "label": "Dit onderdeel tonen",
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "key": "partnerTeaser_text_1",
+          "label": "Label: DEZELFDE STANDAARD. GEDEELDE PASSIE.",
+          "type": "text",
+          "value": "DEZELFDE STANDAARD. GEDEELDE PASSIE.",
+          "maxLength": 500
+        },
+        {
+          "key": "partnerTeaser_text_2",
+          "label": "Titel: Built Samen.",
+          "type": "text",
+          "value": "Built together.",
+          "maxLength": 500
+        },
+        {
+          "key": "partnerTeaser_text_3",
+          "label": "Tekst: Een sterke automotive community groeit door mensen en merken die ",
+          "type": "textarea",
+          "value": "Een sterke automotive community groeit door mensen en merken die elkaar versterken.",
+          "maxLength": 3000
+        },
+        {
+          "key": "partnerTeaser_text_4",
+          "label": "Knop: PARTNERS & SPONSORS",
+          "type": "text",
+          "value": "PARTNERS & SPONSORS",
+          "maxLength": 500
+        },
+        {
+          "key": "partnerTeaser_link_1",
+          "label": "Link: PARTNERS & SPONSORS ↗",
+          "type": "url",
+          "value": "/partners/",
+          "maxLength": 500
+        }
+      ]
+    },
+    {
+      "id": "connect",
+      "label": "Laatste ontdekking",
+      "page": "home",
+      "selector": "#connect",
+      "fields": [
+        {
+          "key": "visible_connect",
+          "label": "Dit onderdeel tonen",
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "key": "connect_text_1",
+          "label": "Label: YOUR NEXT DISCOVERY",
+          "type": "text",
+          "value": "YOUR NEXT DISCOVERY",
+          "maxLength": 500
+        },
+        {
+          "key": "connect_text_2",
+          "label": "Label: YOU'RE IN GOOD COMPANY.",
+          "type": "text",
+          "value": "YOU'RE IN GOOD COMPANY.",
+          "maxLength": 500
+        },
+        {
+          "key": "connect_text_3",
+          "label": "Label: DE AANDACHT DIE JIJ HERKENT.",
+          "type": "text",
+          "value": "DE AANDACHT DIE JIJ HERKENT.",
+          "maxLength": 500
+        },
+        {
+          "key": "connect_text_4",
+          "label": "Titel: Eén build. Duizend Details.",
+          "type": "textarea",
+          "value": "Eén build.\nDuizend details.",
+          "maxLength": 3000
+        },
+        {
+          "key": "connect_text_5",
+          "label": "Tekst: Ontdek een wagen van dichtbij. Het verhaal blijft hier.",
+          "type": "textarea",
+          "value": "Ontdek een wagen van dichtbij. Het verhaal blijft hier.",
+          "maxLength": 3000
+        },
+        {
+          "key": "connect_reference_cta",
+          "label": "Knop bij voorbeeldwagens",
+          "type": "text",
+          "value": "BEKIJK DE R34-FICHE",
+          "maxLength": 500
+        },
+        {
+          "key": "connect_live_cta",
+          "label": "Knop bij clubwagens",
+          "type": "text",
+          "value": "ONTDEK DE EERSTE BUILDFICHE",
+          "maxLength": 500
+        },
+        {
+          "key": "connect_empty_cta",
+          "label": "Knop zonder wagens",
+          "type": "text",
+          "value": "ONTDEK ONZE GARAGE",
+          "maxLength": 500
+        }
+      ]
+    },
+    {
+      "id": "footer",
+      "label": "Voettekst",
+      "page": "global",
+      "selector": ".footer",
+      "fields": [
+        {
+          "key": "footer_text_1",
+          "label": "Tekst: Automotive club. Kwalitatieve wagens. Drift / stance / track / st",
+          "type": "textarea",
+          "value": "Automotive club. Kwalitatieve wagens.\nDrift / stance / track / street.",
+          "maxLength": 3000
+        },
+        {
+          "key": "footer_text_2",
+          "label": "Knop: De garage",
+          "type": "text",
+          "value": "De garage",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_text_3",
+          "label": "Knop: Ons verhaal",
+          "type": "text",
+          "value": "Ons verhaal",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_text_4",
+          "label": "Knop: Eventaanvraag",
+          "type": "text",
+          "value": "Eventaanvraag",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_text_5",
+          "label": "Knop: Partners & sponsors",
+          "type": "text",
+          "value": "Partners & sponsors",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_text_6",
+          "label": "Knop: Instagram",
+          "type": "text",
+          "value": "Instagram",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_text_7",
+          "label": "Label: ©",
+          "type": "text",
+          "value": "©",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_text_9",
+          "label": "Label: QUALITY BUILDS. SHARED PASSION.",
+          "type": "text",
+          "value": "QUALITY BUILDS. SHARED PASSION.",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_text_10",
+          "label": "Knop: Clubbeheer",
+          "type": "text",
+          "value": "Clubbeheer",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_text_11",
+          "label": "Knop: TERUG NAAR BOVEN ↑",
+          "type": "text",
+          "value": "TERUG NAAR BOVEN ↑",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_link_1",
+          "label": "Link: De garage",
+          "type": "url",
+          "value": "/#garage",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_link_2",
+          "label": "Link: Ons verhaal",
+          "type": "url",
+          "value": "/#culture",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_link_3",
+          "label": "Link: Eventaanvraag",
+          "type": "url",
+          "value": "/#events",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_link_4",
+          "label": "Link: Partners & sponsors",
+          "type": "url",
+          "value": "/partners/",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_link_5",
+          "label": "Link: TERUG NAAR BOVEN ↑",
+          "type": "url",
+          "value": "/#top",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_link_6",
+          "label": "Link: De garage",
+          "type": "url",
+          "value": "/#garage",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_link_7",
+          "label": "Link: Ons verhaal",
+          "type": "url",
+          "value": "/#culture",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_link_8",
+          "label": "Link: Eventaanvraag",
+          "type": "url",
+          "value": "/#events",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_link_9",
+          "label": "Link: Partners & sponsors",
+          "type": "url",
+          "value": "/partners/",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_link_10",
+          "label": "Link: TERUG NAAR BOVEN ↑",
+          "type": "url",
+          "value": "/#top",
+          "maxLength": 500
+        }
+      ]
+    },
+    {
+      "id": "partnerIntro",
+      "label": "Partnerpagina: introductie",
+      "page": "partners",
+      "selector": ".partner-intro",
+      "fields": [
+        {
+          "key": "partnerIntro_text_1",
+          "label": "Label: KAIJUCLUB / PARTNERS & SPONSORS",
+          "type": "text",
+          "value": "KAIJUCLUB / PARTNERS & SPONSORS",
+          "maxLength": 500
+        },
+        {
+          "key": "partnerIntro_text_2",
+          "label": "Titel: Built together.",
+          "type": "textarea",
+          "value": "Built\ntogether.",
+          "maxLength": 3000
+        },
+        {
+          "key": "partnerIntro_text_3",
+          "label": "Tekst: Dezelfde passie. Dezelfde aandacht voor kwaliteit. Ontdek de mens",
+          "type": "textarea",
+          "value": "Dezelfde passie. Dezelfde aandacht voor kwaliteit.\nOntdek de mensen en merken die naast ons staan.",
+          "maxLength": 3000
+        },
+        {
+          "key": "partnerIntro_text_4",
+          "label": "Label: 怪獣 / 車文化",
+          "type": "text",
+          "value": "怪獣 / 車文化",
+          "maxLength": 500
+        }
+      ]
+    },
+    {
+      "id": "partnerCollection",
+      "label": "Partnerpagina: collectie",
+      "page": "partners",
+      "selector": ".partner-collection",
+      "fields": [
+        {
+          "key": "visible_partnerCollection",
+          "label": "Dit onderdeel tonen",
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "key": "partnerCollection_text_1",
+          "label": "Label: RUIMTE VOOR EEN GOEDE CONNECTIE",
+          "type": "text",
+          "value": "RUIMTE VOOR EEN GOEDE CONNECTIE",
+          "maxLength": 500
+        },
+        {
+          "key": "partnerCollection_text_2",
+          "label": "Titel: Jouw merk. Ons volgende hoofdstuk.",
+          "type": "textarea",
+          "value": "Jouw merk.\nOns volgende hoofdstuk.",
+          "maxLength": 3000
+        },
+        {
+          "key": "partnerCollection_text_3",
+          "label": "Tekst: We staan open voor samenwerkingen die bij Kaijuclub passen. Deel ",
+          "type": "textarea",
+          "value": "We staan open voor samenwerkingen die bij Kaijuclub passen. Deel je idee hieronder.",
+          "maxLength": 3000
+        },
+        {
+          "key": "partnerCollection_text_4",
+          "label": "Knop: WORD PARTNER ↗",
+          "type": "text",
+          "value": "WORD PARTNER ↗",
+          "maxLength": 500
+        },
+        {
+          "key": "partnerCollection_link_1",
+          "label": "Link: WORD PARTNER ↗",
+          "type": "url",
+          "value": "#samenwerken",
+          "maxLength": 500
+        },
+        {
+          "key": "partner_badge",
+          "label": "Partner badge",
+          "type": "text",
+          "value": "PARTNER",
+          "maxLength": 500
+        },
+        {
+          "key": "sponsor_badge",
+          "label": "Sponsor badge",
+          "type": "text",
+          "value": "SPONSOR",
+          "maxLength": 500
+        },
+        {
+          "key": "partner_website_cta",
+          "label": "Partnerwebsite-knop ({name})",
+          "type": "text",
+          "value": "WEBSITE VAN {name} ↗",
+          "maxLength": 500
+        },
+        {
+          "key": "partner_load_error",
+          "label": "Partner load error",
+          "type": "text",
+          "value": "De partnercollectie is tijdelijk niet beschikbaar. Voor samenwerkingen: {email}.",
+          "maxLength": 500
+        }
+      ]
+    },
+    {
+      "id": "partnerRequest",
+      "label": "Partnerpagina: aanvragen",
+      "page": "partners",
+      "selector": "#samenwerken",
+      "fields": [
+        {
+          "key": "visible_partnerRequest",
+          "label": "Dit onderdeel tonen",
+          "type": "boolean",
+          "value": true
+        },
+        {
+          "key": "partnerRequest_text_1",
+          "label": "Label: SAMENWERKEN MET KAIJUCLUB",
+          "type": "text",
+          "value": "SAMENWERKEN MET KAIJUCLUB",
+          "maxLength": 500
+        },
+        {
+          "key": "partnerRequest_text_2",
+          "label": "Titel: Een goede connectie.",
+          "type": "textarea",
+          "value": "Een goede\nconnectie.",
+          "maxLength": 3000
+        },
+        {
+          "key": "partnerRequest_text_3",
+          "label": "Tekst: Een product, een event of een idee dat onze passie voor kwalitati",
+          "type": "textarea",
+          "value": "Een product, een event of een idee dat onze passie voor kwalitatieve wagens deelt? We horen graag hoe we elkaar kunnen versterken.",
+          "maxLength": 3000
+        },
+        {
+          "key": "partnerRequest_text_4",
+          "label": "Tekst: Elke samenwerking begint met een gesprek. Vertel ons wie jullie z",
+          "type": "textarea",
+          "value": "Elke samenwerking begint met een gesprek. Vertel ons wie jullie zijn en wat jullie willen bouwen.",
+          "maxLength": 3000
+        },
+        {
+          "key": "partnerRequest_text_5",
+          "label": "Veldnaam: Jouw naam",
+          "type": "text",
+          "value": "Jouw naam",
+          "maxLength": 500
+        },
+        {
+          "key": "partnerRequest_text_6",
+          "label": "Veldnaam: Bedrijf / merk",
+          "type": "text",
+          "value": "Bedrijf / merk",
+          "maxLength": 500
+        },
+        {
+          "key": "partnerRequest_text_7",
+          "label": "Veldnaam: E-mailadres",
+          "type": "text",
+          "value": "E-mailadres",
+          "maxLength": 500
+        },
+        {
+          "key": "partnerRequest_text_8",
+          "label": "Veldnaam: Vertel ons over je idee",
+          "type": "text",
+          "value": "Vertel ons over je idee",
+          "maxLength": 500
+        },
+        {
+          "key": "partnerRequest_text_9",
+          "label": "Label: Kaijuclub mag mijn gegevens gebruiken voor deze aanvraag. FormSub",
+          "type": "text",
+          "value": "Kaijuclub mag mijn gegevens gebruiken voor deze aanvraag. FormSubmit bezorgt het formulier aan {email}.",
+          "maxLength": 500
+        },
+        {
+          "key": "partnerRequest_text_10",
+          "label": "Knop: LATEN WE PRATEN ↗",
+          "type": "text",
+          "value": "LATEN WE PRATEN ↗",
+          "maxLength": 500
+        },
+        {
+          "key": "partnerRequest_text_11",
+          "label": "Label: Of mail naar",
+          "type": "text",
+          "value": "Of mail naar",
+          "maxLength": 500
+        },
+        {
+          "key": "partnerRequest_text_12",
+          "label": "Label: .",
+          "type": "text",
+          "value": ".",
+          "maxLength": 500
+        },
+        {
+          "key": "partnerRequest_placeholder_bericht",
+          "label": "Voorbeeldtekst: bericht",
+          "type": "text",
+          "value": "Wat doen jullie en welke samenwerking heb je in gedachten?",
+          "maxLength": 500
+        }
+      ]
+    },
+    {
+      "id": "layout",
+      "label": "Volgorde & zichtbaarheid",
+      "page": "home",
+      "selector": "main",
+      "fields": [
+        {
+          "key": "home_order",
+          "label": "Volgorde van onderdelen",
+          "type": "sectionOrder",
+          "value": [
+            "manifesto",
+            "garage",
+            "culture",
+            "interlude",
+            "journal",
+            "events",
+            "partnerTeaser",
+            "connect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "interface",
+      "label": "Interface & toegankelijkheid",
+      "page": "global",
+      "selector": "#garage",
+      "fields": [
+        {
+          "key": "ui_carAria",
+          "label": "Toegankelijke wagenkaart",
+          "type": "text",
+          "value": "Bekijk de wagenfiche van {name}, {series}, {category}, {kind}",
+          "maxLength": 500
+        },
+        {
+          "key": "ui_referenceKind",
+          "label": "Wagentype: referentie",
+          "type": "text",
+          "value": "referentiewagen",
+          "maxLength": 500
+        },
+        {
+          "key": "ui_clubKind",
+          "label": "Wagentype: clubwagen",
+          "type": "text",
+          "value": "clubwagen",
+          "maxLength": 500
+        },
+        {
+          "key": "ui_photoCreditFallback",
+          "label": "Fotocredit zonder vermelde fotograaf",
+          "type": "text",
+          "value": "Clubcollectie",
+          "maxLength": 500
+        },
+        {
+          "key": "ui_galleryAria",
+          "label": "Toegankelijke naam fotogalerij",
+          "type": "text",
+          "value": "Foto’s van deze wagen",
+          "maxLength": 500
+        },
+        {
+          "key": "ui_photoAria",
+          "label": "Toegankelijke fotoknop",
+          "type": "text",
+          "value": "Foto {number} van {total}",
+          "maxLength": 500
+        },
+        {
+          "key": "ui_shareAria",
+          "label": "Toegankelijke deel-link",
+          "type": "text",
+          "value": "Link naar deze wagenfiche",
+          "maxLength": 500
+        },
+        {
+          "key": "ui_previousAria",
+          "label": "Toegankelijke knop vorige wagen",
+          "type": "text",
+          "value": "Vorige wagen",
+          "maxLength": 500
+        },
+        {
+          "key": "ui_nextAria",
+          "label": "Toegankelijke knop volgende wagen",
+          "type": "text",
+          "value": "Volgende wagen",
+          "maxLength": 500
+        },
+        {
+          "key": "ui_essayEyebrow",
+          "label": "Label boven een geopend journalartikel",
+          "type": "text",
+          "value": "KC / VISUAL ESSAY",
+          "maxLength": 500
+        },
+        {
+          "key": "ui_defaultVehicleTitle",
+          "label": "Standaardtitel wagenverhaal",
+          "type": "text",
+          "value": "De details van deze build.",
+          "maxLength": 500
+        },
+        {
+          "key": "ui_defaultVehicleTeaser",
+          "label": "Standaardintroductie clubwagen",
+          "type": "text",
+          "value": "Ontdek deze clubwagen van dichtbij.",
+          "maxLength": 500
+        },
+        {
+          "key": "ui_openBuildAria",
+          "label": "Toegankelijke link naar eerste wagenfiche",
+          "type": "text",
+          "value": "Ontdek {name}",
+          "maxLength": 500
+        },
+        {
+          "key": "ui_referenceUnavailable",
+          "label": "Status als collectie niet bereikbaar is",
+          "type": "text",
+          "value": "REFERENTIECOLLECTIE",
+          "maxLength": 500
+        },
+        {
+          "key": "request_preview",
+          "label": "Formuliermelding in het beheervoorbeeld",
+          "type": "text",
+          "value": "Dit is een voorbeeld. Aanvragen worden hier niet verstuurd.",
+          "maxLength": 500
+        }
+      ]
+    }
+  ]
+}

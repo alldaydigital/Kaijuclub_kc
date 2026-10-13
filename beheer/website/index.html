@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex,nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://raw.githubusercontent.com; connect-src 'self' https://api.github.com; frame-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <title>Website bewerken — KAIJUCLUB</title>
+  <link rel="stylesheet" href="/src/site-admin.css">
+</head>
+<body>
+  <a class="skip-link" href="#content-editor">Naar de inhoud</a>
+  <div class="site-admin-shell">
+    <aside class="site-sidebar">
+      <a class="site-admin-brand" href="../../" aria-label="Kaijuclub website">kaijuclub<small>CLUB CONTROL / 怪獣</small></a>
+      <nav class="management-nav" aria-label="Clubbeheer">
+        <a href="../"><span class="nav-symbol" aria-hidden="true">▱</span><span>Garage</span></a>
+        <a href="../partners/"><span class="nav-symbol" aria-hidden="true">◇</span><span>Partners</span></a>
+        <a href="./" class="active" aria-current="page"><span class="nav-symbol" aria-hidden="true">▦</span><span>Website</span></a>
+      </nav>
+      <div class="sidebar-foot"><p>YOUR CLUB.<br>YOUR STORY.</p><a href="../../" target="_blank" rel="noopener">Bekijk website <span aria-hidden="true">↗︎</span></a></div>
+    </aside>
+    <main class="site-admin-main">
+      <header class="site-topbar">
+        <div class="site-page-title"><span class="section-kicker">WEBSITE EDITOR</span><h1>Maak het van jullie.</h1></div>
+        <div class="site-topbar-actions"><span id="site-connection-status" class="site-connection-status"><i></i>Niet verbonden</span><button id="site-connect" class="button button-outline button-small" type="button">Verbind beheer</button><button id="site-lock" class="button button-quiet button-small" type="button" hidden>Vergrendel</button></div>
+      </header>
+      <div class="site-actionbar">
+        <div class="site-save-status"><span id="site-dirty-indicator" class="status-dot"></span><p id="site-save-state">Je kunt meteen beginnen.</p><button id="site-refresh" class="text-button" type="button" title="Actuele versie laden">Vernieuwen</button><button id="site-history" class="text-button" type="button">Versies</button></div>
+        <div class="site-save-actions"><button id="site-save-draft" type="button" class="button button-outline">Bewaar concept</button><button id="site-publish" type="button" class="button button-accent">Publiceer website <span aria-hidden="true">↗︎</span></button></div>
+      </div>
+      <p id="site-notice" class="site-notice" role="status" aria-live="polite" hidden></p>
+      <div class="mobile-workspace-tabs" role="group" aria-label="Werkruimte"><button type="button" data-workspace="edit" class="active" aria-pressed="true">Bewerken</button><button type="button" data-workspace="preview" aria-pressed="false">Voorbeeld bekijken</button></div>
+      <div class="site-workspace" data-workspace="edit">
+        <aside class="site-sections-panel" aria-label="Websiteonderdelen">
+          <div class="sections-heading"><span class="section-kicker">KIES EEN ONDERDEEL</span><h2>Jouw website.</h2><p>Tekst, beeld en details. Op één plek.</p></div>
+          <label class="site-search"><span aria-hidden="true">⌕</span><input id="site-section-search" type="search" placeholder="Zoek tekst of onderdeel…" aria-label="Zoek een websiteonderdeel"></label>
+          <nav id="site-group-list" class="site-group-list" aria-label="Websiteonderdelen"></nav>
+          <div class="sections-footer"><span class="status-dot"></span><p>Klik ook rechtstreeks op een onderdeel in het voorbeeld.</p></div>
+        </aside>
+        <section class="site-fields-panel" aria-labelledby="site-group-title">
+          <header class="site-fields-heading"><div><span id="site-group-page" class="section-kicker">HOMEPAGE</span><h2 id="site-group-title">Header</h2></div><button id="site-reset-group" type="button" class="text-button" title="Herstel de laatst opgeslagen inhoud van dit onderdeel">Herstel</button></header>
+          <p id="site-group-description" class="site-fields-intro">Je wijzigingen verschijnen meteen in het voorbeeld.</p>
+          <form id="content-editor" class="site-content-form" novalidate></form>
+          <footer class="site-editor-foot"><p>Een concept verandert je live website pas als je publiceert.</p><p>Concepten en beelden worden opgeslagen in de openbare GitHub-repository.</p></footer>
+        </section>
+        <section class="site-preview-panel" aria-label="Direct websitevoorbeeld">
+          <header class="site-preview-heading"><div><span class="section-kicker">JOUW WIJZIGINGEN, DIRECT IN BEELD</span><h2>Zo ziet het eruit.</h2></div><span class="preview-indicator"><i></i>VOORBEELD</span></header>
+          <div class="site-preview-toolbar"><label class="sr-only" for="site-preview-page">Voorbeeldpagina</label><select id="site-preview-page"><option value="home">Homepage</option><option value="partners">Partners &amp; sponsors</option></select><div class="device-buttons" role="group" aria-label="Schermformaat"><button type="button" data-device="desktop" class="active" aria-pressed="true" title="Desktop">Desktop</button><button type="button" data-device="mobile" aria-pressed="false" title="Mobiel">Mobiel</button></div><button type="button" id="site-expand-preview" class="preview-expand" aria-label="Vergroot voorbeeld" title="Vergroot voorbeeld">⛶</button></div>
+          <div id="site-preview-canvas" class="site-preview-canvas" data-device="desktop"><div class="site-preview-screen"><div class="site-preview-browser"><span class="browser-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>KAIJUCLUB / LIVE VOORBEELD</span><span aria-hidden="true">↗︎</span></div><div id="site-frame-wrap" class="site-frame-wrap"><iframe id="site-preview-frame" src="about:blank" title="Kaijuclub websitevoorbeeld"></iframe><div id="site-preview-loading" class="site-preview-loading"><span class="preview-loader"></span><strong>Je website laden…</strong><p>Het voorbeeld gebruikt de vormgeving van de echte website.</p></div></div></div></div>
+          <footer class="site-preview-footer"><p>Alleen jij ziet deze wijzigingen tot je publiceert.</p><span id="site-preview-dimensions">1440 PX</span></footer>
+        </section>
+      </div>
+    </main>
+  </div>
+  <dialog id="site-login" class="site-dialog">
+    <form method="dialog"><button class="dialog-close" aria-label="Sluiten" type="submit">×</button></form>
+    <span class="section-kicker">KAIJUCLUB / BEHEERKOPPELING</span><h2>Jouw club.<br>Jouw controle.</h2><p class="dialog-intro">Gebruik dezelfde koppeling als voor wagens en partners. Je sleutel blijft in dit beheer en wordt nooit met het websitevoorbeeld gedeeld.</p>
+    <form id="site-login-form">
+      <div id="site-unlock-fields" hidden><div class="field"><label for="site-password">Beheerwachtwoord</label><input id="site-password" type="password" autocomplete="current-password"></div><button type="button" id="site-use-token" class="text-button">Gebruik een GitHub-beheersleutel</button></div>
+      <div id="site-token-fields"><div class="field"><label for="site-token">GitHub-beheersleutel</label><input id="site-token" type="password" spellcheck="false" autocapitalize="off" autocorrect="off" autocomplete="off" placeholder="github_pat_… of ghp_…"><span class="field-help">Selecteer alldaydigital / Kaijuclub_kc met Contents: Read and write.</span></div><label class="remember-control"><input id="site-remember" type="checkbox"><span>Onthoud de koppeling in deze browser</span></label><div id="site-remember-fields" class="field" hidden><label for="site-new-password">Kies een beheerwachtwoord</label><input id="site-new-password" type="password" autocomplete="new-password" minlength="12"><span class="field-help">Minimaal 12 tekens. Dit wachtwoord versleutelt je sleutel in deze browser en werkt ook in het wagen- en partnerbeheer.</span></div><details class="connection-help"><summary>Eenmalig je GitHub-account koppelen</summary><ol><li>Maak een fine-grained personal access token aan.</li><li>Kies resource owner <strong>alldaydigital</strong> en repository <strong>Kaijuclub_kc</strong>.</li><li>Geef <strong>Contents: Read and write</strong>, klik Generate token en kopieer de volledige sleutel.</li></ol><a class="text-link" href="https://github.com/settings/personal-access-tokens/new?name=Kaijuclub%20websitebeheer&amp;target_name=alldaydigital&amp;contents=write&amp;expires_in=90" target="_blank" rel="noopener">Beheersleutel aanmaken ↗︎</a><p>Werkt deze aanmaakroute niet? Maak een klassieke sleutel met alleen public_repo. Die heeft ook toegang tot andere openbare repositories waarvoor jouw account schrijfrechten heeft.</p><a class="text-link" href="https://github.com/settings/tokens/new?scopes=public_repo&amp;description=Kaijuclub%20websitebeheer" target="_blank" rel="noopener">Klassieke beheersleutel aanmaken ↗︎</a></details></div>
+      <p id="site-login-error" class="login-error" role="alert" hidden></p><button type="submit" class="button button-dark connection-submit">Open beheer <span aria-hidden="true">→</span></button>
+    </form>
+    <div class="connection-check"><button id="site-check-connection" class="text-button" type="button">Controleer verbinding met GitHub</button><p id="site-connection-result" class="field-help" role="status" aria-live="polite"></p></div>
+  </dialog>
+  <dialog id="site-expanded-preview" class="expanded-preview"><header class="expanded-toolbar"><strong>Websitevoorbeeld</strong><div class="device-buttons" role="group" aria-label="Schermformaat van vergroot voorbeeld"><button type="button" data-device="desktop" class="active" aria-pressed="true">Desktop</button><button type="button" data-device="mobile" aria-pressed="false">Mobiel</button></div><button type="button" id="site-close-expanded" class="button button-outline button-small">Sluiten ×</button></header><div id="site-expanded-wrap" class="site-frame-wrap"><iframe id="site-expanded-frame" src="about:blank" title="Vergroot Kaijuclub websitevoorbeeld"></iframe></div></dialog>
+  <dialog id="site-history-dialog" class="site-dialog"><form method="dialog"><button class="dialog-close" aria-label="Sluiten" type="submit">×</button></form><span class="section-kicker">EEN VORIGE VERSIE</span><h2>Altijd een<br>stap terug.</h2><p class="dialog-intro">Bekijk een eerdere publicatie. Terugzetten maakt een nieuw concept; je live website verandert pas wanneer je publiceert. De laatste vijf publicaties blijven bewaard.</p><div id="site-history-list" class="site-history-list"></div></dialog>
+  <script type="module" src="/src/site-admin.js"></script>
+</body>
+</html>

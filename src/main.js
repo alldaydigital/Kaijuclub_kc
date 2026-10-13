@@ -5,8 +5,9 @@ import '@fontsource/barlow-condensed/800.css';
 import '@fontsource/inter/400.css';
 import '@fontsource/inter/600.css';
 import '@fontsource/inter/800.css';
+import {siteText,siteImage,applySiteImage,onSiteContentChange,isSitePreview} from './site-content.js';
 
-const imageUrl = path => path.startsWith('/') ? import.meta.env.BASE_URL + path.slice(1) : path;
+const imageUrl = path => globalThis.__KAIJU_OFFLINE_ASSETS__?.[path] || (path.startsWith('/') && !path.startsWith(import.meta.env.BASE_URL) ? import.meta.env.BASE_URL + path.slice(1) : path);
 const escapeHtml = value => String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
 const arrow = '<svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg>';
 
@@ -43,6 +44,9 @@ const noteDialog = document.querySelector('#note-dialog');
 const menuButton = document.querySelector('.menu-toggle');
 const mobileNav = document.querySelector('#mobile-nav');
 let activeCar;
+let activeNote;
+let activeFilter='all';
+let activeStory='attention';
 let carFocus;
 let noteFocus;
 let carReturnHash = '#garage';
@@ -52,16 +56,17 @@ function render(filter = 'all') {
   const shown = builds.filter(car => filter === 'all' || car.category === filter);
   cars.classList.toggle('filtered', filter !== 'all');
   cars.innerHTML = shown.map((car,index) => `
-    <button class="car-card ${filter==='all'&&index===0?'car-card-featured':''}" data-car="${car.id}" aria-label="Bekijk de wagenfiche van ${escapeHtml(car.name)}, ${escapeHtml(car.series)}, ${car.category}, ${car.reference?'referentiewagen':'clubwagen'}">
+    <button class="car-card ${filter==='all'&&index===0?'car-card-featured':''}" data-car="${car.id}" aria-label="${escapeHtml(siteText('ui_carAria',{name:car.name,series:car.series,category:car.category,kind:siteText(car.reference?'ui_referenceKind':'ui_clubKind')}))}">
       <div class="car-photo"><img src="${imageUrl(car.image)}" alt="${escapeHtml(car.alt)}" width="${car.width}" height="${car.height}" loading="lazy" style="object-position:${car.position}"><span class="car-category">${car.category.toUpperCase()}</span><span class="car-open">${arrow}</span></div>
-      <div class="car-info"><div class="car-meta"><small>${escapeHtml(car.model)}</small><span class="car-number">/${car.number}</span></div><h3>${escapeHtml(car.name)}</h3><p class="car-teaser">${escapeHtml(car.teaser)}</p><div class="car-bottom"><span>${escapeHtml(car.series||car.category)}${car.origin?' / '+escapeHtml(car.origin):''}</span><span>BEKIJK DE FICHE ${arrow}</span></div></div>
+      <div class="car-info"><div class="car-meta"><small>${escapeHtml(car.model)}</small><span class="car-number">/${car.number}</span></div><h3>${escapeHtml(car.name)}</h3><p class="car-teaser">${escapeHtml(car.teaser)}</p><div class="car-bottom"><span>${escapeHtml(car.series||car.category)}${car.origin?' / '+escapeHtml(car.origin):''}</span><span>${escapeHtml(siteText('garage_card_cta'))} ${arrow}</span></div></div>
     </button>`).join('');
-  if(!shown.length)cars.innerHTML='<div class="empty-collection">'+(builds.length?'Er staat nog geen wagen in deze discipline. Ontdek de andere builds.':'De eerste wagenfiches krijgen hier binnenkort hun plek.')+'</div>';
-  document.querySelector('[data-filter="all"] span').textContent=String(builds.length).padStart(2,'0');
-  document.querySelector('#result-count').textContent = `${shown.length} wagens weergegeven`;
-  document.querySelector('#collection-status').textContent = `${String(shown.length).padStart(2,'0')} / ${collectionMode==='managed'?'CLUB BUILDS':'REFERENCE BUILDS'}`;
+  if(!shown.length)cars.innerHTML='<div class="empty-collection">'+escapeHtml(siteText(builds.length?'garage_empty_filter':'garage_empty_all'))+'</div>';
+  document.querySelector('[data-filter="all"] [data-garage-count], [data-filter="all"] > span:last-child').textContent=String(builds.length).padStart(2,'0');
+  document.querySelector('#result-count').textContent = siteText('garage_results',{number:shown.length});
+  document.querySelector('#collection-status').textContent = `${String(shown.length).padStart(2,'0')} / ${siteText(collectionMode==='managed'?'garage_status_live':'garage_status_reference')}`;
 }
 function setFilter(filter) {
+  activeFilter=filter;
   for (const button of document.querySelectorAll('[data-filter]')) {
     button.classList.toggle('active', button.dataset.filter === filter);
     button.setAttribute('aria-pressed', String(button.dataset.filter === filter));
@@ -75,9 +80,9 @@ function renderCar(car,focusControl) {
   const index = builds.indexOf(car);
   selectedPhoto=0;
   document.querySelector('#car-detail').innerHTML = `
-    <div class="dossier-top"><span>KC / BUILD DOSSIER</span><span>${car.number} / ${String(builds.length).padStart(2,'0')}</span></div>
-    <div class="dossier-layout"><figure class="dossier-visual"><img class="detail-image" src="${imageUrl(car.image)}" alt="${escapeHtml(car.alt)}" width="${car.width}" height="${car.height}" style="object-position:${car.position}"><figcaption>${escapeHtml(car.credit||'Clubcollectie')} <span>${car.reference?'VISUAL REFERENCE':'CLUB BUILD'}</span></figcaption>${car.gallery?.length>1?`<div class="dossier-gallery" role="group" aria-label="Foto’s van deze wagen">${car.gallery.map((photo,i)=>`<button data-gallery-index="${i}" aria-label="Foto ${i+1} van ${car.gallery.length}" aria-pressed="${i===0}"><img src="${imageUrl(photo.src)}" alt="" width="${photo.width}" height="${photo.height}"></button>`).join('')}</div>`:''}</figure><div class="detail-copy"><span class="eyebrow">${car.category.toUpperCase()} / ${car.reference?'REFERENCE BUILD':'CLUB BUILD'}</span><h2 id="detail-title">${escapeHtml(car.name)}</h2><dl class="build-facts">${car.series?`<div><dt>Serie</dt><dd>${escapeHtml(car.series)}</dd></div>`:''}${car.origin?`<div><dt>Herkomst</dt><dd>${escapeHtml(car.origin)}</dd></div>`:''}<div><dt>Discipline</dt><dd>${car.category}</dd></div></dl>${car.title!==car.name?`<h3>${escapeHtml(car.title)}</h3>`:''}${car.intro?`<p class="dossier-lead">${escapeHtml(car.intro)}</p>`:''}${car.paragraphs.map(text=>`<p>${escapeHtml(text)}</p>`).join('')}${car.specs?.length?`<dl class="vehicle-specs">${car.specs.map(spec=>`<div><dt>${escapeHtml(spec.label)}</dt><dd>${escapeHtml(spec.value)}</dd></div>`).join('')}</dl>`:''}${car.focus.length?`<div class="build-focus"><span class="eyebrow">WAT JE LAAT KIJKEN</span><ul>${car.focus.map(text=>`<li>${escapeHtml(text)}</li>`).join('')}</ul></div>`:''}${car.reference?`<p class="disclaimer">Dit is een referentiewagen, geen bevestigde clubbuild. Eigen foto's, specificaties en het persoonlijke verhaal vervangen deze fiche zodra ze beschikbaar zijn.</p>`:''}<div class="share-area"><button class="text-link" data-share-build="${car.id}">KOPIEER DE LINK ${arrow}</button><span class="share-status" aria-live="polite"></span><input class="share-fallback" aria-label="Link naar deze wagenfiche" readonly hidden></div></div></div>
-    <div class="dossier-navigation"><button data-build-step="-1" class="dossier-previous" aria-label="Vorige wagen"><span>←</span><span><small>VORIGE BUILD</small>${escapeHtml(builds[(index-1+builds.length)%builds.length].name)}</span></button><span class="dossier-counter">${car.number} / ${String(builds.length).padStart(2,'0')}</span><button data-build-step="1" class="dossier-next" aria-label="Volgende wagen"><span><small>VOLGENDE BUILD</small>${escapeHtml(builds[(index+1)%builds.length].name)}</span><span>→</span></button></div>`;
+    <div class="dossier-top"><span>${escapeHtml(siteText('garage_dossier_label'))}</span><span>${car.number} / ${String(builds.length).padStart(2,'0')}</span></div>
+    <div class="dossier-layout"><figure class="dossier-visual"><img class="detail-image" src="${imageUrl(car.image)}" alt="${escapeHtml(car.alt)}" width="${car.width}" height="${car.height}" style="object-position:${car.position}"><figcaption>${escapeHtml(car.credit||siteText('ui_photoCreditFallback'))} <span>${escapeHtml(siteText(car.reference?'garage_reference_label':'garage_live_label'))}</span></figcaption>${car.gallery?.length>1?`<div class="dossier-gallery" role="group" aria-label="${escapeHtml(siteText('ui_galleryAria'))}">${car.gallery.map((photo,i)=>`<button data-gallery-index="${i}" aria-label="${escapeHtml(siteText('ui_photoAria',{number:i+1,total:car.gallery.length}))}" aria-pressed="${i===0}"><img src="${imageUrl(photo.src)}" alt="" width="${photo.width}" height="${photo.height}"></button>`).join('')}</div>`:''}</figure><div class="detail-copy"><span class="eyebrow">${car.category.toUpperCase()} / ${escapeHtml(siteText(car.reference?'garage_status_reference':'garage_live_label'))}</span><h2 id="detail-title">${escapeHtml(car.name)}</h2><dl class="build-facts">${car.series?`<div><dt>${escapeHtml(siteText('garage_series_label'))}</dt><dd>${escapeHtml(car.series)}</dd></div>`:''}${car.origin?`<div><dt>${escapeHtml(siteText('garage_origin_label'))}</dt><dd>${escapeHtml(car.origin)}</dd></div>`:''}<div><dt>${escapeHtml(siteText('garage_category_label'))}</dt><dd>${car.category}</dd></div></dl>${car.title!==car.name?`<h3>${escapeHtml(car.title)}</h3>`:''}${car.intro?`<p class="dossier-lead">${escapeHtml(car.intro)}</p>`:''}${car.paragraphs.map(text=>`<p>${escapeHtml(text)}</p>`).join('')}${car.specs?.length?`<dl class="vehicle-specs">${car.specs.map(spec=>`<div><dt>${escapeHtml(spec.label)}</dt><dd>${escapeHtml(spec.value)}</dd></div>`).join('')}</dl>`:''}${car.focus.length?`<div class="build-focus"><span class="eyebrow">${escapeHtml(siteText('garage_focus_label'))}</span><ul>${car.focus.map(text=>`<li>${escapeHtml(text)}</li>`).join('')}</ul></div>`:''}${car.reference?`<p class="disclaimer">${escapeHtml(siteText('garage_reference_disclaimer'))}</p>`:''}<div class="share-area"><button class="text-link" data-share-build="${car.id}">${escapeHtml(siteText('garage_share_label'))} ${arrow}</button><span class="share-status" aria-live="polite"></span><input class="share-fallback" aria-label="${escapeHtml(siteText('ui_shareAria'))}" readonly hidden></div></div></div>
+    <div class="dossier-navigation"><button data-build-step="-1" class="dossier-previous" aria-label="${escapeHtml(siteText('ui_previousAria'))}"><span>←</span><span><small>${escapeHtml(siteText('garage_prev_label'))}</small>${escapeHtml(builds[(index-1+builds.length)%builds.length].name)}</span></button><span class="dossier-counter">${car.number} / ${String(builds.length).padStart(2,'0')}</span><button data-build-step="1" class="dossier-next" aria-label="${escapeHtml(siteText('ui_nextAria'))}"><span><small>${escapeHtml(siteText('garage_next_label'))}</small>${escapeHtml(builds[(index+1)%builds.length].name)}</span><span>→</span></button></div>`;
   dialog.setAttribute('aria-labelledby','detail-title');
   dialog.scrollTop=0;
   if (focusControl) {const heading=dialog.querySelector('#detail-title');heading.tabIndex=-1;heading.focus({preventScroll:true});}
@@ -106,7 +111,7 @@ function openCar(id,{fromHash=false,focusControl}={}) {
   updateScrollLock();
 }
 cars.addEventListener('click',event=>{const button=event.target.closest('[data-car]');if(button)openCar(button.dataset.car);});
-for (const button of document.querySelectorAll('[data-open-build]')) button.addEventListener('click',()=>openCar(button.dataset.openBuild));
+for (const button of document.querySelectorAll('[data-open-build]')) button.addEventListener('click',()=>{if(builds.some(car=>car.id===button.dataset.openBuild))openCar(button.dataset.openBuild);else if(collectionMode==='managed'&&!builds.length)location.hash='garage';});
 dialog.addEventListener('click',async event=>{
   const photoButton=event.target.closest('[data-gallery-index]');
   if(photoButton)selectPhoto(Number(photoButton.dataset.galleryIndex));
@@ -124,10 +129,10 @@ dialog.addEventListener('click',async event=>{
     try {
       if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
       await navigator.clipboard.writeText(publicUrl.href);
-      if(status?.isConnected)status.textContent='Link gekopieerd.';
+      if(status?.isConnected)status.textContent=siteText('garage_share_success');
     } catch {
       const input=dialog.querySelector('.share-fallback');
-      if (input) {input.hidden=false;input.value=publicUrl.href;input.focus();input.select();status.textContent='Selecteer en kopieer deze link.';}
+      if (input) {input.hidden=false;input.value=publicUrl.href;input.focus();input.select();status.textContent=siteText('garage_share_fallback');}
     }
   }
 });
@@ -148,10 +153,11 @@ dialog.addEventListener('close',()=>{
 });
 
 function openNote(id,{fromHash=false}={}) {
-  const note=notes[id];if(!note)return;
+  const note=notes[id];if(!note)return;activeNote=id;
   if(!noteDialog.open){noteFocus=fromHash?document.querySelector(`[data-note="${id}"]`):document.activeElement;noteReturnHash=location.hash.startsWith('#note-')?'#journal':(location.hash||'#journal');}
   if(!fromHash)history.pushState(null,'',`#note-${id}`);
-  document.querySelector('#note-detail').innerHTML=`<div class="dossier-top"><span>KC / VISUAL ESSAY</span><span>${note.number} / 03</span></div><img class="note-image" src="${imageUrl(note.image)}" alt="${escapeHtml(note.alt)}"><div class="note-copy"><span class="eyebrow">${note.kicker}</span><h2 id="note-title">${escapeHtml(note.title)}</h2><p class="note-lead">${escapeHtml(note.lead)}</p>${note.paragraphs.map(text=>`<p>${escapeHtml(text)}</p>`).join('')}<p class="disclaimer">Visueel essay met referentiefotografie. Foto: ${escapeHtml(note.credit)}. Dit is geen verslag van een clubactiviteit.</p><button class="text-link" data-related-builds="${note.category}">ONTDEK DE ${note.category.toUpperCase()}-BUILDS ${arrow}</button></div>`;
+  document.querySelector('#note-detail').innerHTML=`<div class="dossier-top"><span>${escapeHtml(siteText('ui_essayEyebrow'))}</span><span>${note.number} / 03</span></div><img class="note-image" src="${imageUrl(note.image)}" alt="${escapeHtml(note.alt)}"><div class="note-copy"><span class="eyebrow">${escapeHtml(note.kicker)}</span><h2 id="note-title">${escapeHtml(note.title)}</h2><p class="note-lead">${escapeHtml(note.lead)}</p>${note.paragraphs.map(text=>`<p>${escapeHtml(text)}</p>`).join('')}<p class="disclaimer">${escapeHtml(siteText('journal_disclaimer',{credit:note.credit}))}</p><button class="text-link" data-related-builds="${note.category}">${escapeHtml(siteText('journal_related_cta',{category:note.category.toUpperCase()}))} ${arrow}</button></div>`;
+  applySiteImage(noteDialog.querySelector('.note-image'),`note_${id}_image`);
   noteDialog.setAttribute('aria-labelledby','note-title');
   if(!noteDialog.open)noteDialog.showModal();updateScrollLock();
 }
@@ -172,9 +178,9 @@ function syncRoute(){
 window.addEventListener('popstate',syncRoute);window.addEventListener('hashchange',syncRoute);
 
 function selectStory(id,{focus=false}={}){
-  const story=stories[id];if(!story)return;
+  const story=stories[id];if(!story)return;activeStory=id;
   for(const button of document.querySelectorAll('[data-story]')){const active=button.dataset.story===id;button.setAttribute('aria-selected',String(active));button.tabIndex=active?0:-1;document.querySelector(`#panel-${button.dataset.story}`).hidden=!active;}
-  const image=document.querySelector('#story-image');image.src=imageUrl(story.image);image.alt=story.alt;
+  const image=document.querySelector('#story-image');image.dataset.cmsImage=`story_${id}_image`;applySiteImage(image,`story_${id}_image`);
   document.querySelector('#story-frame').textContent=story.frame;document.querySelector('#story-caption').textContent=story.caption;document.querySelector('#story-counter').textContent=story.counter;
   if(focus)document.querySelector(`[data-story="${id}"]`).focus();
 }
@@ -188,8 +194,8 @@ for(const button of document.querySelectorAll('[data-story]')){
     event.preventDefault();selectStory(ids[index],{focus:true});
   });
 }
-function closeMenu(){menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label','Menu openen');mobileNav.hidden=true;}
-menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));menuButton.setAttribute('aria-label',open?'Menu openen':'Menu sluiten');mobileNav.hidden=open;});
+function closeMenu(){menuButton.setAttribute('aria-expanded','false');menuButton.setAttribute('aria-label',siteText('menu_open'));mobileNav.hidden=true;}
+menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')==='true';menuButton.setAttribute('aria-expanded',String(!open));menuButton.setAttribute('aria-label',siteText(open?'menu_open':'menu_close'));mobileNav.hidden=open;});
 mobileNav.addEventListener('click',event=>{if(event.target.closest('a'))closeMenu();});
 document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!mobileNav.hidden){closeMenu();menuButton.focus();}});
 window.matchMedia('(min-width:1001px)').addEventListener('change',event=>{if(event.matches)closeMenu();});
@@ -199,8 +205,8 @@ let scrollQueued=false;
 function updateScrollUI(){
   const height=document.documentElement.scrollHeight-innerHeight;
   document.documentElement.style.setProperty('--scroll-progress',`${height>0?Math.min(100,scrollY/height*100):0}%`);
-  if(!isAdminPreview&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.style.setProperty('--hero-offset',`${Math.min(25,scrollY*.035)}px`);
-  let current='';for(const section of navSections){if(section.getBoundingClientRect().top<innerHeight*.35)current=section.id;}
+  if(!isAdminPreview&&!isSitePreview&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.style.setProperty('--hero-offset',`${Math.min(25,scrollY*.035)}px`);
+  let current='',nearest=-Infinity;for(const section of navSections){if(section.hidden||section.hasAttribute('data-cms-hidden'))continue;const top=section.getBoundingClientRect().top;if(top<innerHeight*.35&&top>nearest){current=section.id;nearest=top;}}
   for(const link of document.querySelectorAll('.desktop-nav a,.mobile-nav a')){const active=link.getAttribute('href')===`#${current}`;link.classList.toggle('active',active);if(active)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');}
   scrollQueued=false;
 }
@@ -216,7 +222,7 @@ function normalizeVehicle(record,index){
   if(!/^club-\d+$/.test(record.id)||!disciplines[record.category]||typeof record.name!=='string')throw new Error('Invalid vehicle');
   const validImage=path=>typeof path==='string'&&((location.protocol==='file:'&&path.startsWith('data:image/'))||(isAdminPreview&&(path.startsWith('blob:'+location.origin+'/')||/^data:image\/(jpeg|png|webp|svg\+xml)[;,]/.test(path)||/^https:\/\/raw\.githubusercontent\.com\/alldaydigital\/Kaijuclub_kc\/(main|[a-f0-9]{40})\/cms\/media\/\d+\/[a-f0-9]{64}\.(jpg|png|webp)$/.test(path)))||/^\/images\/vehicles\/\d+\/[a-f0-9]{64}\.(jpg|png|webp)$/.test(path));
   if(!validImage(record.image)||!Array.isArray(record.gallery)||!record.gallery.length||record.gallery.some(photo=>!validImage(photo.src)))throw new Error('Invalid image');
-  return {...record,number:String(index+1).padStart(2,'0'),reference:false,series:String(record.series||''),origin:String(record.origin||''),model:String(record.model||record.category.toUpperCase()),credit:String(record.credit||''),title:String(record.title||'De details van deze build.'),intro:String(record.intro||record.teaser||''),paragraphs:Array.isArray(record.paragraphs)?record.paragraphs:[],focus:Array.isArray(record.focus)?record.focus:[],specs:Array.isArray(record.specs)?record.specs:[],teaser:String(record.teaser||record.intro||'Ontdek deze clubwagen van dichtbij.')};
+  return {...record,number:String(index+1).padStart(2,'0'),reference:false,series:String(record.series||''),origin:String(record.origin||''),model:String(record.model||record.category.toUpperCase()),credit:String(record.credit||''),title:String(record.title||siteText('ui_defaultVehicleTitle')),intro:String(record.intro||record.teaser||''),paragraphs:Array.isArray(record.paragraphs)?record.paragraphs:[],focus:Array.isArray(record.focus)?record.focus:[],specs:Array.isArray(record.specs)?record.specs:[],teaser:String(record.teaser||record.intro||siteText('ui_defaultVehicleTeaser'))};
 }
 function applyCollection(data){
     if(data.mode==='managed'){
@@ -224,13 +230,52 @@ function applyCollection(data){
       const nextBuilds=data.vehicles.map(normalizeVehicle);
       appliedCollection=fingerprint;
       if(dialog.open)dialog.close();builds=nextBuilds;collectionMode='managed';setFilter('all');
-      document.querySelector('.collection-note p').textContent=builds.length?'Onze clubwagens, met hun eigen foto’s, details en verhalen. Neem de tijd om ze van dichtbij te ontdekken.':'De collectie wordt hier opgebouwd met eigen clubwagens en hun verhalen.';
-      const first=builds[0];
-      for(const button of document.querySelectorAll('[data-open-build]')){button.disabled=!first;if(first){button.dataset.openBuild=first.id;button.setAttribute('aria-label',`Ontdek ${first.name}`);}}
-      const detailButton=document.querySelector('.connect-bottom [data-open-build]');if(detailButton)detailButton.innerHTML=`${first?'BEKIJK DE UITGELICHTE FICHE':'DE COLLECTIE KOMT ERAAN'} ${arrow}`;
+      updateCollectionCopy();
       syncRoute();
     }
 }
+function updateCollectionCopy(){
+  const note=document.querySelector('.collection-note p');
+  const noteKey=collectionMode==='managed'?(builds.length?'garage_live_note':'garage_empty_note'):'garage_reference_note';
+  if(note){note.dataset.cmsText=noteKey;note.textContent=siteText(noteKey);}
+  const first=builds[0];
+  for(const button of document.querySelectorAll('[data-open-build]')){
+    button.disabled=!first&&button.classList.contains('connect-arrow');
+    button.dataset.openBuild=first?.id||'';
+    if(first)button.setAttribute('aria-label',siteText('ui_openBuildAria',{name:first.name}));
+    else button.removeAttribute('aria-label');
+  }
+  const detailButton=document.querySelector('.connect-bottom [data-open-build]');
+  if(detailButton){
+    const key=collectionMode==='reference'?'connect_reference_cta':first?'connect_live_cta':'connect_empty_cta';
+    let label=detailButton.querySelector('[data-cms-text]');
+    if(!label){label=document.createElement('span');detailButton.replaceChildren(label);detailButton.insertAdjacentHTML('beforeend',arrow);}
+    label.dataset.cmsText=key;label.textContent=siteText(key)+' ';
+  }
+}
+function updateDynamicContent(){
+  for(const [id,story] of Object.entries(stories)){
+    const photo=siteImage(`story_${id}_image`);
+    Object.assign(story,{image:photo.src,alt:photo.alt,frame:siteText(`story_${id}_frame`),caption:siteText(`story_${id}_caption`)});
+  }
+  for(const [id,note] of Object.entries(notes)){
+    const photo=siteImage(`note_${id}_image`);
+    Object.assign(note,{image:photo.src,alt:photo.alt,title:siteText(`note_${id}_title`),kicker:siteText(`note_${id}_kicker`),credit:photo.credit||siteText(`note_${id}_credit`),category:siteText(`note_${id}_category`),lead:siteText(`note_${id}_lead`),paragraphs:siteText(`note_${id}_body`).split(/\n\s*\n/).filter(text=>text.trim())});
+  }
+  selectStory(activeStory);
+  updateCollectionCopy();
+  render(activeFilter);
+  if(dialog.open&&activeCar){
+    const photo=selectedPhoto,scroll=dialog.scrollTop;
+    const focusedGallery=dialog.querySelector('[data-gallery-index]:focus')?.dataset.galleryIndex;
+    renderCar(activeCar);selectPhoto(photo);dialog.scrollTop=scroll;
+    if(focusedGallery!==undefined)dialog.querySelector(`[data-gallery-index="${focusedGallery}"]`)?.focus({preventScroll:true});
+  }
+  if(noteDialog.open&&activeNote){const scroll=noteDialog.scrollTop;openNote(activeNote,{fromHash:true});noteDialog.scrollTop=scroll;}
+  menuButton.setAttribute('aria-label',siteText(mobileNav.hidden?'menu_open':'menu_close'));
+  updateScrollUI();
+}
+onSiteContentChange(updateDynamicContent);
 async function loadCollection(){
   const controller=new AbortController();const timeout=setTimeout(()=>controller.abort(),10000);
   try{
@@ -239,7 +284,7 @@ async function loadCollection(){
     const data=await response.json();if(data.schemaVersion!==1||!Array.isArray(data.vehicles))throw new Error('Invalid collection');
     applyCollection(data);
   }catch{
-    if(collectionMode!=='managed')document.querySelector('.collection-status').textContent='REFERENTIECOLLECTIE';
+    if(collectionMode!=='managed')document.querySelector('.collection-status').textContent=siteText('ui_referenceUnavailable');
   }finally{clearTimeout(timeout);}
 }
 if(!isAdminPreview)loadCollection();
