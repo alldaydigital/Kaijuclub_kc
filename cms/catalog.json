@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": 3,
-  "updatedAt": "2026-10-13T19:16:01.039Z",
+  "revision": 4,
+  "updatedAt": "2026-10-13T19:17:04.424Z",
   "vehicles": [
     {
       "id": "club-179187225387544098",
@@ -94,6 +94,52 @@
       },
       "archived": false,
       "updatedAt": "2026-10-13T19:16:01.039Z"
+    },
+    {
+      "id": "club-179191896905936322",
+      "name": "Nissan S13",
+      "category": "drift",
+      "series": "",
+      "origin": "",
+      "story": "",
+      "specs": [],
+      "photos": [
+        {
+          "path": "cms/media/179191896905936322/597eea51b1d8487c35e24610c0cf8dfa864708273077bc25819095fab9fee2a2.png",
+          "digest": "597eea51b1d8487c35e24610c0cf8dfa864708273077bc25819095fab9fee2a2",
+          "extension": "png",
+          "width": 2048,
+          "height": 1536,
+          "alt": "",
+          "blobSha": "892f47c9d64e8f613ba1095389eac367344d128b"
+        }
+      ],
+      "featured": false,
+      "position": "50% 50%",
+      "published": {
+        "id": "club-179191896905936322",
+        "name": "Nissan S13",
+        "category": "drift",
+        "series": "",
+        "origin": "",
+        "story": "",
+        "specs": [],
+        "photos": [
+          {
+            "path": "cms/media/179191896905936322/597eea51b1d8487c35e24610c0cf8dfa864708273077bc25819095fab9fee2a2.png",
+            "digest": "597eea51b1d8487c35e24610c0cf8dfa864708273077bc25819095fab9fee2a2",
+            "extension": "png",
+            "width": 2048,
+            "height": 1536,
+            "alt": "",
+            "blobSha": "892f47c9d64e8f613ba1095389eac367344d128b"
+          }
+        ],
+        "featured": false,
+        "position": "50% 50%"
+      },
+      "archived": false,
+      "updatedAt": "2026-10-13T19:17:04.424Z"
     }
   ]
 }

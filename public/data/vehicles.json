@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "mode": "managed",
   "source": "site-editor",
-  "updatedAt": "2026-10-13T19:16:01.039Z",
+  "updatedAt": "2026-10-13T19:17:04.424Z",
   "vehicles": [
     {
       "id": "club-179187225387544098",
@@ -55,6 +55,36 @@
       "alt": "Nissan S13 — foto 1",
       "width": 1362,
       "height": 2047,
+      "title": "Nissan S13",
+      "intro": "",
+      "paragraphs": [],
+      "specs": [],
+      "teaser": "Ontdek deze clubwagen van dichtbij.",
+      "credit": "",
+      "focus": [],
+      "reference": false
+    },
+    {
+      "id": "club-179191896905936322",
+      "name": "Nissan S13",
+      "category": "drift",
+      "series": "",
+      "origin": "",
+      "model": "DRIFT",
+      "featured": false,
+      "position": "50% 50%",
+      "gallery": [
+        {
+          "src": "/images/vehicles/179191896905936322/597eea51b1d8487c35e24610c0cf8dfa864708273077bc25819095fab9fee2a2.png",
+          "alt": "Nissan S13 — foto 1",
+          "width": 2048,
+          "height": 1536
+        }
+      ],
+      "image": "/images/vehicles/179191896905936322/597eea51b1d8487c35e24610c0cf8dfa864708273077bc25819095fab9fee2a2.png",
+      "alt": "Nissan S13 — foto 1",
+      "width": 2048,
+      "height": 1536,
       "title": "Nissan S13",
       "intro": "",
       "paragraphs": [],
