@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": 1,
-  "publishedAt": "2026-10-13T19:11:55.904Z",
+  "revision": 2,
+  "publishedAt": "2026-10-13T19:13:19.226Z",
   "content": {
     "contact_email": "kaijuclub.be@gmail.com",
     "social_instagram": "https://www.instagram.com/kaijuclub_kc/",
@@ -76,7 +76,7 @@
     "culture_text_3": "CLUB CAR / クラブ",
     "culture_text_4": "",
     "culture_text_5": "Wie zijn we?",
-    "culture_text_10": "Kaijuclub brengt mensen samen rond kwalitatieve wagens. Van drift en stance tot track en street: elke build heeft een eigen karakter, met aandacht voor de lijnen, de afwerking en de details. De Japanse autocultuur van de jaren 90 geeft onze wereld haar sfeer. Het zijn de wagens en de mensen erachter die onze club maken. Dat gevoel delen we hier, in onze garage, onze foto’s en de events waar we samenkomen. Kijk rond, ontdek de builds en kom ons ontmoeten. Dezelfde passie herken je van dichtbij.",
+    "culture_text_10": "Een tijdperk van JDM-legendes, nachtritten, neonlichten en de geur van benzine. Toen wagens nog karakter hadden en elke build een verhaal vertelde.\n\nVan low & slow tot full-send drifting. Van street builds tot track machines. Bij Kaijuclub draait alles om de rauwe Japanse autocultuur van de jaren 90. Oldschool vibes, tijdloze lijnen, iconische velgen en een obsessie voor details.\n\nGeen trends volgen, maar onze eigen stijl creëren. Geen gewone car club, maar een community van petrolheads die dezelfde passie delen.\n\nJe vindt ons in de garage, op verlaten industrieterreinen, tijdens late-night meets en op events waar de echte liefhebbers samenkomen.\n\nWelcome to Kaijuclub. Keep the 90s alive.",
     "culture_text_18": "",
     "culture_text_19": "",
     "culture_text_20": "怪獣",
@@ -168,8 +168,8 @@
       "positionMobile": "50% 65%",
       "credit": ""
     },
-    "story_attention_frame": "KC / THE GARAGE",
-    "story_attention_caption": "QUALITY BUILDS. SHARED PASSION.",
+    "story_attention_frame": "",
+    "story_attention_caption": "",
     "garage_reference_note": "Deze collectie gebruikt referentiewagens en stockfotografie. De echte clubwagens, eigen foto's en persoonlijke buildverhalen krijgen hier hun plek.",
     "garage_live_note": "Eigen wagens. Eigen verhalen. Ontdek de details achter elke clubbuild.",
     "garage_empty_note": "De eerste clubwagens krijgen hier binnenkort hun plek.",
