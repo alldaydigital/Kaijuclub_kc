@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "mode": "managed",
   "source": "site-editor",
-  "updatedAt": "2026-10-13T19:19:30.584Z",
+  "updatedAt": "2026-10-13T19:20:53.752Z",
   "vehicles": [
     {
       "id": "club-179191896905936322",
@@ -116,6 +116,36 @@
       "width": 900,
       "height": 1600,
       "title": "mitsubishi evo",
+      "intro": "",
+      "paragraphs": [],
+      "specs": [],
+      "teaser": "Ontdek deze clubwagen van dichtbij.",
+      "credit": "",
+      "focus": [],
+      "reference": false
+    },
+    {
+      "id": "club-179191922920065095",
+      "name": "Toyota Supra",
+      "category": "street",
+      "series": "",
+      "origin": "",
+      "model": "STREET",
+      "featured": false,
+      "position": "50% 50%",
+      "gallery": [
+        {
+          "src": "/images/vehicles/179191922920065095/f7f2c3b82fa80db4e298a9b2cc21ff5d133f275a115755b94ba4fd2bff223d01.png",
+          "alt": "Toyota Supra — foto 1",
+          "width": 1600,
+          "height": 1200
+        }
+      ],
+      "image": "/images/vehicles/179191922920065095/f7f2c3b82fa80db4e298a9b2cc21ff5d133f275a115755b94ba4fd2bff223d01.png",
+      "alt": "Toyota Supra — foto 1",
+      "width": 1600,
+      "height": 1200,
+      "title": "Toyota Supra",
       "intro": "",
       "paragraphs": [],
       "specs": [],

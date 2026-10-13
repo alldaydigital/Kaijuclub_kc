@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": 6,
-  "updatedAt": "2026-10-13T19:19:30.584Z",
+  "revision": 7,
+  "updatedAt": "2026-10-13T19:20:53.752Z",
   "vehicles": [
     {
       "id": "club-179187225387544098",
@@ -186,6 +186,52 @@
       },
       "archived": false,
       "updatedAt": "2026-10-13T19:18:36.089Z"
+    },
+    {
+      "id": "club-179191922920065095",
+      "name": "Toyota Supra",
+      "category": "street",
+      "series": "",
+      "origin": "",
+      "story": "",
+      "specs": [],
+      "photos": [
+        {
+          "path": "cms/media/179191922920065095/f7f2c3b82fa80db4e298a9b2cc21ff5d133f275a115755b94ba4fd2bff223d01.png",
+          "digest": "f7f2c3b82fa80db4e298a9b2cc21ff5d133f275a115755b94ba4fd2bff223d01",
+          "extension": "png",
+          "width": 1600,
+          "height": 1200,
+          "alt": "",
+          "blobSha": "1ae84a131fd4885ea7a8c499a4c32a5b5f3673a0"
+        }
+      ],
+      "featured": false,
+      "position": "50% 50%",
+      "published": {
+        "id": "club-179191922920065095",
+        "name": "Toyota Supra",
+        "category": "street",
+        "series": "",
+        "origin": "",
+        "story": "",
+        "specs": [],
+        "photos": [
+          {
+            "path": "cms/media/179191922920065095/f7f2c3b82fa80db4e298a9b2cc21ff5d133f275a115755b94ba4fd2bff223d01.png",
+            "digest": "f7f2c3b82fa80db4e298a9b2cc21ff5d133f275a115755b94ba4fd2bff223d01",
+            "extension": "png",
+            "width": 1600,
+            "height": 1200,
+            "alt": "",
+            "blobSha": "1ae84a131fd4885ea7a8c499a4c32a5b5f3673a0"
+          }
+        ],
+        "featured": false,
+        "position": "50% 50%"
+      },
+      "archived": false,
+      "updatedAt": "2026-10-13T19:20:53.752Z"
     }
   ]
 }
