@@ -19,7 +19,7 @@ export function siteLinkURL(value, {base = '/', page = 'home'} = {}) {
   if (value === '/') return prefix;
   if (value.startsWith('/partners/') || value.startsWith('/events/') || value.startsWith('/agenda/')) return prefix + value.slice(1);
   if (value.startsWith('/#')) return page === 'home' ? value.slice(1) : prefix + value.slice(1);
-  if (value.startsWith('#') && page !== 'home' && ['garage','culture','events','connect','top'].includes(value.slice(1))) return prefix + value;
+  if (value.startsWith('#') && page !== 'home' && ['garage','culture','events','top'].includes(value.slice(1))) return prefix + value;
   return value;
 }
 

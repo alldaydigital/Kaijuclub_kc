@@ -99,3 +99,5 @@ The homepage club story is one semantic text block and one club photograph, with
 
 
 The retired homepage Journal / Between the lines block and its essay dialogs are removed from the public page and website editor. The full “Different lines. Same feeling.” image interlude is also removed. Local recovery and stored snapshots discard only the known retired journal/interlude fields and remove both from section order; custom links to the removed anchor route to the photo portfolio.
+
+The closing “Eén build. Duizend details.” discovery block is removed from the homepage and editor. Existing local recovery removes its known retired fields/order entry and reroutes old closing-block links to the garage.

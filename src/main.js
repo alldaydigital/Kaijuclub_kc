@@ -96,7 +96,6 @@ function openCar(id,{fromHash=false,focusControl}={}) {
   updateScrollLock();
 }
 cars.addEventListener('click',event=>{const button=event.target.closest('[data-car]');if(button)openCar(button.dataset.car);});
-for (const button of document.querySelectorAll('[data-open-build]')) button.addEventListener('click',()=>{if(builds.some(car=>car.id===button.dataset.openBuild))openCar(button.dataset.openBuild);else if(collectionMode==='managed'&&!builds.length)location.hash='garage';});
 dialog.addEventListener('click',async event=>{
   const photoButton=event.target.closest('[data-gallery-index]');
   if(photoButton)selectPhoto(Number(photoButton.dataset.galleryIndex));
@@ -192,20 +191,7 @@ function updateCollectionCopy(){
   const note=document.querySelector('.collection-note p');
   const noteKey=collectionMode==='managed'?(builds.length?'garage_live_note':'garage_empty_note'):'garage_reference_note';
   if(note){note.dataset.cmsText=noteKey;note.textContent=siteText(noteKey);}
-  const first=builds[0];
-  for(const button of document.querySelectorAll('[data-open-build]')){
-    button.disabled=!first&&button.classList.contains('connect-arrow');
-    button.dataset.openBuild=first?.id||'';
-    if(first)button.setAttribute('aria-label',siteText('ui_openBuildAria',{name:first.name}));
-    else button.removeAttribute('aria-label');
-  }
-  const detailButton=document.querySelector('.connect-bottom [data-open-build]');
-  if(detailButton){
-    const key=collectionMode==='reference'?'connect_reference_cta':first?'connect_live_cta':'connect_empty_cta';
-    let label=detailButton.querySelector('[data-cms-text]');
-    if(!label){label=document.createElement('span');detailButton.replaceChildren(label);detailButton.insertAdjacentHTML('beforeend',arrow);}
-    label.dataset.cmsText=key;label.textContent=siteText(key)+' ';
-  }
+
 }
 function updateDynamicContent(){
   updateCollectionCopy();

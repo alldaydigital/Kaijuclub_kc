@@ -5,8 +5,7 @@
     "garage",
     "culture",
     "events",
-    "partnerTeaser",
-    "connect"
+    "partnerTeaser"
   ],
   "groups": [
     {
@@ -1048,76 +1047,6 @@
       ]
     },
     {
-      "id": "connect",
-      "label": "Laatste ontdekking",
-      "page": "home",
-      "selector": "#connect",
-      "fields": [
-        {
-          "key": "visible_connect",
-          "label": "Dit onderdeel tonen",
-          "type": "boolean",
-          "value": true
-        },
-        {
-          "key": "connect_text_1",
-          "label": "Label: YOUR NEXT DISCOVERY",
-          "type": "text",
-          "value": "YOUR NEXT DISCOVERY",
-          "maxLength": 500
-        },
-        {
-          "key": "connect_text_2",
-          "label": "Label: YOU'RE IN GOOD COMPANY.",
-          "type": "text",
-          "value": "YOU'RE IN GOOD COMPANY.",
-          "maxLength": 500
-        },
-        {
-          "key": "connect_text_3",
-          "label": "Label: DE AANDACHT DIE JIJ HERKENT.",
-          "type": "text",
-          "value": "DE AANDACHT DIE JIJ HERKENT.",
-          "maxLength": 500
-        },
-        {
-          "key": "connect_text_4",
-          "label": "Titel: Eén build. Duizend Details.",
-          "type": "textarea",
-          "value": "Eén build.\nDuizend details.",
-          "maxLength": 3000
-        },
-        {
-          "key": "connect_text_5",
-          "label": "Tekst: Ontdek een wagen van dichtbij. Het verhaal blijft hier.",
-          "type": "textarea",
-          "value": "Ontdek een wagen van dichtbij. Het verhaal blijft hier.",
-          "maxLength": 3000
-        },
-        {
-          "key": "connect_reference_cta",
-          "label": "Knop bij voorbeeldwagens",
-          "type": "text",
-          "value": "BEKIJK DE R34-FICHE",
-          "maxLength": 500
-        },
-        {
-          "key": "connect_live_cta",
-          "label": "Knop bij clubwagens",
-          "type": "text",
-          "value": "ONTDEK DE EERSTE BUILDFICHE",
-          "maxLength": 500
-        },
-        {
-          "key": "connect_empty_cta",
-          "label": "Knop zonder wagens",
-          "type": "text",
-          "value": "ONTDEK ONZE GARAGE",
-          "maxLength": 500
-        }
-      ]
-    },
-    {
       "id": "footer",
       "label": "Voettekst",
       "page": "global",
@@ -1498,8 +1427,7 @@
             "garage",
             "culture",
             "events",
-            "partnerTeaser",
-            "connect"
+            "partnerTeaser"
           ]
         }
       ]
