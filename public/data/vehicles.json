@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "mode": "managed",
   "source": "site-editor",
-  "updatedAt": "2026-10-13T19:17:04.424Z",
+  "updatedAt": "2026-10-13T19:18:36.089Z",
   "vehicles": [
     {
       "id": "club-179187225387544098",
@@ -86,6 +86,36 @@
       "width": 2048,
       "height": 1536,
       "title": "Nissan S13",
+      "intro": "",
+      "paragraphs": [],
+      "specs": [],
+      "teaser": "Ontdek deze clubwagen van dichtbij.",
+      "credit": "",
+      "focus": [],
+      "reference": false
+    },
+    {
+      "id": "club-179191903282182664",
+      "name": "mitsubishi evo",
+      "category": "street",
+      "series": "",
+      "origin": "",
+      "model": "STREET",
+      "featured": false,
+      "position": "50% 50%",
+      "gallery": [
+        {
+          "src": "/images/vehicles/179191903282182664/db69d8e1cab356ed33babc8e60953ac64b18594b11388098c5fe1bf3a4877d7e.png",
+          "alt": "mitsubishi evo — foto 1",
+          "width": 900,
+          "height": 1600
+        }
+      ],
+      "image": "/images/vehicles/179191903282182664/db69d8e1cab356ed33babc8e60953ac64b18594b11388098c5fe1bf3a4877d7e.png",
+      "alt": "mitsubishi evo — foto 1",
+      "width": 900,
+      "height": 1600,
+      "title": "mitsubishi evo",
       "intro": "",
       "paragraphs": [],
       "specs": [],

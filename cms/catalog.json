@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": 4,
-  "updatedAt": "2026-10-13T19:17:04.424Z",
+  "revision": 5,
+  "updatedAt": "2026-10-13T19:18:36.089Z",
   "vehicles": [
     {
       "id": "club-179187225387544098",
@@ -140,6 +140,52 @@
       },
       "archived": false,
       "updatedAt": "2026-10-13T19:17:04.424Z"
+    },
+    {
+      "id": "club-179191903282182664",
+      "name": "mitsubishi evo",
+      "category": "street",
+      "series": "",
+      "origin": "",
+      "story": "",
+      "specs": [],
+      "photos": [
+        {
+          "path": "cms/media/179191903282182664/db69d8e1cab356ed33babc8e60953ac64b18594b11388098c5fe1bf3a4877d7e.png",
+          "digest": "db69d8e1cab356ed33babc8e60953ac64b18594b11388098c5fe1bf3a4877d7e",
+          "extension": "png",
+          "width": 900,
+          "height": 1600,
+          "alt": "",
+          "blobSha": "0aec24ebef7500a1419ec04763626fab84ccb2ed"
+        }
+      ],
+      "featured": false,
+      "position": "50% 50%",
+      "published": {
+        "id": "club-179191903282182664",
+        "name": "mitsubishi evo",
+        "category": "street",
+        "series": "",
+        "origin": "",
+        "story": "",
+        "specs": [],
+        "photos": [
+          {
+            "path": "cms/media/179191903282182664/db69d8e1cab356ed33babc8e60953ac64b18594b11388098c5fe1bf3a4877d7e.png",
+            "digest": "db69d8e1cab356ed33babc8e60953ac64b18594b11388098c5fe1bf3a4877d7e",
+            "extension": "png",
+            "width": 900,
+            "height": 1600,
+            "alt": "",
+            "blobSha": "0aec24ebef7500a1419ec04763626fab84ccb2ed"
+          }
+        ],
+        "featured": false,
+        "position": "50% 50%"
+      },
+      "archived": false,
+      "updatedAt": "2026-10-13T19:18:36.089Z"
     }
   ]
 }
