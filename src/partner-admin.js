@@ -22,7 +22,7 @@ $('#partner-login-form').addEventListener('submit',async event=>{
   candidate=new GitHubStore(token);const user=await candidate.connect();const data=validatePartners(await candidate.readFile('cms/partners.json'));
   if(dirty&&catalog.revision!==data.revision&&!confirm('De opgeslagen partners zijn gewijzigd. Je huidige formulier behouden en de nieuwe collectie laden?')){candidate.lock();return;}
   store?.lock();store=candidate;catalog=data;connected=true;
-  $('#partner-connection-status').textContent='Verbonden als '+user.login;$('#partner-lock').hidden=false;$('#partner-connect').hidden=false;$('#partner-connect').textContent='Koppeling';$('#partner-login').close();
+  $('#partner-connection-status').textContent='Verbonden met GitHub';$('#partner-lock').hidden=false;$('#partner-connect').hidden=false;$('#partner-connect').textContent='Koppeling';$('#partner-login').close();
   renderList();if(!dirty&&catalog.partners.length){busy=false;select(catalog.partners.find(item=>item.id===current?.id)||catalog.partners[0]);}
  }catch(error){if(!connected)candidate?.lock();$('#partner-login-error').textContent=error.message;}
  finally{busy=false;button.disabled=false;$('#partner-token').value='';$('#partner-password').value='';}

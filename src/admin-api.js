@@ -1,5 +1,6 @@
 import {REPOSITORY,BRANCH,validateManagerCatalog,cleanFields,publicCatalog,validateFields,photoPublicPath} from './admin-model.js';
 import {checkGitHubConnection} from './admin-auth.js';
+import {gitHubRequest} from './admin-transport.js';
 const MANAGER_PATH='cms/catalog.json';
 const PUBLIC_PATH='public/data/vehicles.json';
 export class ApiError extends Error { constructor(message,status=0){super(message);this.status=status;} }
@@ -9,7 +10,7 @@ export function bytesBase64(bytes) {
 }
 const decodeContent=blob=>new TextDecoder().decode(Uint8Array.from(atob(blob.content.replace(/\s/g,'')),char=>char.charCodeAt(0)));
 export class GitHubStore {
-  constructor(token,{repository=REPOSITORY,branch=BRANCH,fetcher=fetch}={}){this.token=token;this.repository=repository;this.branch=branch;this.fetcher=fetcher;this.head=null;this.catalog=null;this.publicMode='reference';}
+  constructor(token,{repository=REPOSITORY,branch=BRANCH,fetcher=gitHubRequest}={}){this.token=token;this.repository=repository;this.branch=branch;this.fetcher=fetcher;this.head=null;this.catalog=null;this.publicMode='reference';}
   lock(){this.token='';this.head=null;this.catalog=null;}
   async request(path,{method='GET',body,signal}={}) {
     if(!this.token)throw new ApiError('Log opnieuw in om je wijzigingen op te slaan.',401);
@@ -31,20 +32,20 @@ export class GitHubStore {
     }catch(error){
       if(error instanceof ApiError)throw error;
       if(controller.signal.aborted)throw new ApiError('GitHub antwoordde niet op tijd. Je invoer is behouden. Controleer de verbinding en probeer opnieuw.');
-      const check=await checkGitHubConnection({fetcher:this.fetcher});
-      throw new ApiError(check.reachable?'GitHub is bereikbaar, maar de aanvraag met je beheersleutel kon niet worden voltooid. Open het beheer rechtstreeks in een apart browsertabblad en controleer eventuele privacy-extensies. Je invoer is behouden.':check.message);
+      const check=await checkGitHubConnection({fetcher:this.fetcher===gitHubRequest?fetch:this.fetcher});
+      const step=path.endsWith('/git/blobs')?(method==='POST'?'schrijfrechten of foto-upload':'collectiegegevens'):path.includes('/git/ref')?'collectieversie':path.includes('/git/trees')?'collectiebestanden':path.includes('/git/commits')?'collectiewijziging':'repositorytoegang';
+      throw new ApiError((check.reachable?'GitHub is bereikbaar, maar de aanvraag met je beheersleutel kon niet worden voltooid. Je invoer is behouden.':check.message)+` Stap: ${step}.`);
     }
     finally{clearTimeout(timer);signal?.removeEventListener('abort',abort);}
   }
   endpoint(path){return `repos/${this.repository}${path?'/'+path:''}`;}
   async connect() {
-    const user=await this.request('user');
     await this.request(this.endpoint(''));
     // The permissions field is optional in GitHub's repository response.
     // Test the actual write operation instead of rejecting missing metadata.
     // Verify actual token write scope without changing a branch or published file.
     await this.request(this.endpoint('git/blobs'),{method:'POST',body:{content:'Kaijuclub CMS connection check',encoding:'utf-8'}});
-    await this.load();return {login:user.login,avatar:user.avatar_url};
+    await this.load();return {login:'Clubbeheer'};
   }
   async load() {
     const ref=await this.request(this.endpoint(`git/ref/heads/${this.branch}`));

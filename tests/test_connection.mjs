@@ -52,10 +52,10 @@ test('connection keys reject SSH keys, OAuth keys, embedded whitespace, and othe
 test('a successful write-scope probe connects even when repository permission metadata is absent',async()=>{
   const fixture=connectionFixture();
   const result=await fixture.store.connect();
-  assert.equal(result.login,'fixture-owner');
+  assert.equal(result.login,'Clubbeheer');
   assert.equal(fixture.loadCount,1);
   assert.deepEqual(fixture.calls.map(({url,options})=>[url,options.method]),[
-    [api+'user','GET'],[api+repoPath,'GET'],[api+repoPath+'/git/blobs','POST'],
+    [api+repoPath,'GET'],[api+repoPath+'/git/blobs','POST'],
   ]);
   const probe=fixture.calls.at(-1);
   assert.equal(probe.options.headers.Authorization,'Bearer '+fineGrained);
@@ -82,7 +82,7 @@ test('a denied write probe never loads the collection or changes a branch',async
   assert.equal(fixture.calls.filter(({options})=>options.method==='POST').length,1);
 });
 
-test('an invalid or expired key has a specific safe error and stops before repository access',async()=>{
+test('an invalid or expired key has a specific safe error and stops before any write',async()=>{
   const calls=[];
   const providerMarker='PROVIDER_BODY_SHOULD_NEVER_APPEAR';
   const store=new GitHubStore(classic,{fetcher:async(url)=>{
@@ -96,7 +96,7 @@ test('an invalid or expired key has a specific safe error and stops before repos
     assert.ok(!error.message.includes(classic));
     return true;
   });
-  assert.deepEqual(calls,[api+'user']);
+  assert.deepEqual(calls,[api+repoPath]);
 });
 
 test('GitHub request-limit headers yield a temporary-limit error rather than a write-permission error',async()=>{
@@ -149,7 +149,7 @@ test('an inaccessible repository explains key repository selection and does not 
     return true;
   });
   assert.equal(fixture.loadCount,0);
-  assert.deepEqual(calls.map(({url})=>url),[api+'user',api+repoPath]);
+  assert.deepEqual(calls.map(({url})=>url),[api+repoPath]);
 });
 
 test('the public reachability probe verifies the intended repository without sending credentials or cookies',async()=>{
