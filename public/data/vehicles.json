@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "mode": "managed",
   "source": "site-editor",
-  "updatedAt": "2026-10-13T19:22:02.426Z",
+  "updatedAt": "2026-10-13T19:22:19.612Z",
   "vehicles": [
     {
       "id": "club-179191896905936322",
@@ -146,6 +146,36 @@
       "width": 1600,
       "height": 1200,
       "title": "Toyota Supra",
+      "intro": "",
+      "paragraphs": [],
+      "specs": [],
+      "teaser": "Ontdek deze clubwagen van dichtbij.",
+      "credit": "",
+      "focus": [],
+      "reference": false
+    },
+    {
+      "id": "club-179191929966998737",
+      "name": "Toyota AE86",
+      "category": "street",
+      "series": "",
+      "origin": "",
+      "model": "STREET",
+      "featured": false,
+      "position": "50% 50%",
+      "gallery": [
+        {
+          "src": "/images/vehicles/179191929966998737/2518925b377360f8d6c4d31305d4eb7a7fcce3649b6c23c7cedb64481afa0a9a.png",
+          "alt": "Toyota AE86 — foto 1",
+          "width": 1290,
+          "height": 1098
+        }
+      ],
+      "image": "/images/vehicles/179191929966998737/2518925b377360f8d6c4d31305d4eb7a7fcce3649b6c23c7cedb64481afa0a9a.png",
+      "alt": "Toyota AE86 — foto 1",
+      "width": 1290,
+      "height": 1098,
+      "title": "Toyota AE86",
       "intro": "",
       "paragraphs": [],
       "specs": [],

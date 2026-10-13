@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": 8,
-  "updatedAt": "2026-10-13T19:22:02.426Z",
+  "revision": 9,
+  "updatedAt": "2026-10-13T19:22:19.612Z",
   "vehicles": [
     {
       "id": "club-179187225387544098",
@@ -232,6 +232,52 @@
       },
       "archived": false,
       "updatedAt": "2026-10-13T19:22:02.426Z"
+    },
+    {
+      "id": "club-179191929966998737",
+      "name": "Toyota AE86",
+      "category": "street",
+      "series": "",
+      "origin": "",
+      "story": "",
+      "specs": [],
+      "photos": [
+        {
+          "path": "cms/media/179191929966998737/2518925b377360f8d6c4d31305d4eb7a7fcce3649b6c23c7cedb64481afa0a9a.png",
+          "digest": "2518925b377360f8d6c4d31305d4eb7a7fcce3649b6c23c7cedb64481afa0a9a",
+          "extension": "png",
+          "width": 1290,
+          "height": 1098,
+          "alt": "",
+          "blobSha": "7d53bfa9d1e4684779e94947f9f0473fe3537c56"
+        }
+      ],
+      "featured": false,
+      "position": "50% 50%",
+      "published": {
+        "id": "club-179191929966998737",
+        "name": "Toyota AE86",
+        "category": "street",
+        "series": "",
+        "origin": "",
+        "story": "",
+        "specs": [],
+        "photos": [
+          {
+            "path": "cms/media/179191929966998737/2518925b377360f8d6c4d31305d4eb7a7fcce3649b6c23c7cedb64481afa0a9a.png",
+            "digest": "2518925b377360f8d6c4d31305d4eb7a7fcce3649b6c23c7cedb64481afa0a9a",
+            "extension": "png",
+            "width": 1290,
+            "height": 1098,
+            "alt": "",
+            "blobSha": "7d53bfa9d1e4684779e94947f9f0473fe3537c56"
+          }
+        ],
+        "featured": false,
+        "position": "50% 50%"
+      },
+      "archived": false,
+      "updatedAt": "2026-10-13T19:22:19.612Z"
     }
   ]
 }
