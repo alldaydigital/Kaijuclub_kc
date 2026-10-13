@@ -10,7 +10,7 @@ export function upgradeSiteContent(content){
  for(const key of retiredFields)delete next[key];
  if(Array.isArray(next.home_order))next.home_order=next.home_order.filter(id=>!['journal','interlude','connect'].includes(id));
  for(const field of SITE_FIELDS.filter(field=>field.type==='url')){if(['#journal','/#journal'].includes(next[field.key]))next[field.key]='/events/';if(['#connect','/#connect'].includes(next[field.key]))next[field.key]='/#garage';}
- for(const field of CONTENT_GROUPS.filter(group=>['eventsArchive','agenda'].includes(group.id)).flatMap(group=>group.fields).concat(SITE_FIELDS.filter(field=>['nav_4_label','nav_4_link'].includes(field.key))))if(!Object.hasOwn(next,field.key))next[field.key]=structuredClone(field.value);
+ for(const field of CONTENT_GROUPS.filter(group=>['eventsArchive','agenda'].includes(group.id)).flatMap(group=>group.fields).concat(SITE_FIELDS.filter(field=>['brand_logo_image','nav_4_label','nav_4_link','footer_nav_heading','footer_contact_heading','footer_contact_copy','footer_albums_label','footer_albums_link','footer_agenda_label','footer_agenda_link'].includes(field.key))))if(!Object.hasOwn(next,field.key))next[field.key]=structuredClone(field.value);
  if(next.nav_2_link==='/#events'||next.nav_2_link==='#events')next.nav_2_link='/events/';
  const removed=Object.keys(legacyStory).filter(key=>key!=='culture_text_10');
  if(removed.some(key=>Object.hasOwn(next,key))){

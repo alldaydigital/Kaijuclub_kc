@@ -49,5 +49,7 @@
   "connect_text_5",
   "connect_reference_cta",
   "connect_live_cta",
-  "connect_empty_cta"
+  "connect_empty_cta",
+  "brand_prefix",
+  "brand_suffix"
 ]

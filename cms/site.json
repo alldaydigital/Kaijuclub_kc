@@ -26,8 +26,6 @@
     "visible_partnerRequest": true,
     "seo_home_title": "KAIJUCLUB — Voor wie écht kijkt.",
     "seo_home_description": "Kaijuclub is een automotive club met kwalitatieve wagens. Ontdek onze wereld van drift, stance, track en street. Vier disciplines, dezelfde aandacht.",
-    "brand_prefix": "kaiju",
-    "brand_suffix": "club",
     "brand_kanji": "怪獣",
     "nav_0_label": "Garage",
     "nav_1_label": "Ons verhaal",
@@ -286,7 +284,23 @@
     "agenda_cta_button": "VRAAG KAIJUCLUB AAN",
     "agenda_portfolio_button": "BEKIJK ONZE FOTOREPORTAGES",
     "seo_agenda_title": "Agenda — KAIJUCLUB",
-    "seo_agenda_description": "Ontdek op welke events Kaijuclub aanwezig is. Datums, locaties en praktische informatie over onze volgende stops."
+    "seo_agenda_description": "Ontdek op welke events Kaijuclub aanwezig is. Datums, locaties en praktische informatie over onze volgende stops.",
+    "footer_nav_heading": "Ontdek de club",
+    "footer_contact_heading": "Contact & aanvragen",
+    "footer_contact_copy": "Voor events, samenwerkingen en vragen.",
+    "footer_albums_label": "Fotoalbums",
+    "footer_albums_link": "/events/",
+    "footer_agenda_label": "Agenda",
+    "footer_agenda_link": "/agenda/",
+    "brand_logo_image": {
+      "src": "/images/kaiju-club-logo.png",
+      "alt": "KAIJU CLUB",
+      "width": 2170,
+      "height": 725,
+      "positionDesktop": "50% 50%",
+      "positionMobile": "50% 50%",
+      "credit": ""
+    }
   },
   "published": {
     "content": {
@@ -313,8 +327,6 @@
       "visible_partnerRequest": true,
       "seo_home_title": "KAIJUCLUB — Voor wie écht kijkt.",
       "seo_home_description": "Kaijuclub is een automotive club met kwalitatieve wagens. Ontdek onze wereld van drift, stance, track en street. Vier disciplines, dezelfde aandacht.",
-      "brand_prefix": "kaiju",
-      "brand_suffix": "club",
       "brand_kanji": "怪獣",
       "nav_0_label": "Garage",
       "nav_1_label": "Ons verhaal",
@@ -573,7 +585,23 @@
       "agenda_cta_button": "VRAAG KAIJUCLUB AAN",
       "agenda_portfolio_button": "BEKIJK ONZE FOTOREPORTAGES",
       "seo_agenda_title": "Agenda — KAIJUCLUB",
-      "seo_agenda_description": "Ontdek op welke events Kaijuclub aanwezig is. Datums, locaties en praktische informatie over onze volgende stops."
+      "seo_agenda_description": "Ontdek op welke events Kaijuclub aanwezig is. Datums, locaties en praktische informatie over onze volgende stops.",
+      "footer_nav_heading": "Ontdek de club",
+      "footer_contact_heading": "Contact & aanvragen",
+      "footer_contact_copy": "Voor events, samenwerkingen en vragen.",
+      "footer_albums_label": "Fotoalbums",
+      "footer_albums_link": "/events/",
+      "footer_agenda_label": "Agenda",
+      "footer_agenda_link": "/agenda/",
+      "brand_logo_image": {
+        "src": "/images/kaiju-club-logo.png",
+        "alt": "KAIJU CLUB",
+        "width": 2170,
+        "height": 725,
+        "positionDesktop": "50% 50%",
+        "positionMobile": "50% 50%",
+        "credit": ""
+      }
     },
     "publishedAt": null,
     "revision": 0

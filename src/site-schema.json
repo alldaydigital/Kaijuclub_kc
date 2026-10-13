@@ -36,25 +36,25 @@
           "maxLength": 500
         },
         {
-          "key": "brand_prefix",
-          "label": "Logo: eerste deel",
-          "type": "text",
-          "value": "kaiju",
-          "maxLength": 500
-        },
-        {
-          "key": "brand_suffix",
-          "label": "Logo: tweede deel",
-          "type": "text",
-          "value": "club",
-          "maxLength": 500
-        },
-        {
           "key": "brand_kanji",
           "label": "Japans logo-accent",
           "type": "text",
           "value": "怪獣",
           "maxLength": 500
+        },
+        {
+          "key": "brand_logo_image",
+          "label": "Clublogo — transparante PNG aanbevolen",
+          "type": "image",
+          "value": {
+            "src": "/images/kaiju-club-logo.png",
+            "alt": "KAIJU CLUB",
+            "width": 2170,
+            "height": 725,
+            "positionDesktop": "50% 50%",
+            "positionMobile": "50% 50%",
+            "credit": ""
+          }
         }
       ]
     },
@@ -1190,6 +1190,55 @@
           "label": "Link: TERUG NAAR BOVEN ↑",
           "type": "url",
           "value": "/#top",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_nav_heading",
+          "label": "Titel navigatie",
+          "type": "text",
+          "value": "Ontdek de club",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_contact_heading",
+          "label": "Titel contact",
+          "type": "text",
+          "value": "Contact & aanvragen",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_contact_copy",
+          "label": "Korte contacttekst",
+          "type": "textarea",
+          "value": "Voor events, samenwerkingen en vragen.",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_albums_label",
+          "label": "Linktekst fotoalbums",
+          "type": "text",
+          "value": "Fotoalbums",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_albums_link",
+          "label": "Link fotoalbums",
+          "type": "url",
+          "value": "/events/",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_agenda_label",
+          "label": "Linktekst agenda",
+          "type": "text",
+          "value": "Agenda",
+          "maxLength": 500
+        },
+        {
+          "key": "footer_agenda_link",
+          "label": "Link agenda",
+          "type": "url",
+          "value": "/agenda/",
           "maxLength": 500
         }
       ]
