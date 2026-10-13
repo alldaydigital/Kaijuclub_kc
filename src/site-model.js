@@ -8,7 +8,7 @@ export const defaultSiteContent=Object.fromEntries(SITE_FIELDS.map(field=>[field
 export function upgradeSiteContent(content){
  const next=structuredClone(content);if(!next||typeof next!=='object'||Array.isArray(next))return next;
  for(const key of retiredFields)delete next[key];
- if(Array.isArray(next.home_order))next.home_order=next.home_order.filter(id=>id!=='journal');
+ if(Array.isArray(next.home_order))next.home_order=next.home_order.filter(id=>!['journal','interlude'].includes(id));
  for(const field of SITE_FIELDS.filter(field=>field.type==='url'))if(['#journal','/#journal'].includes(next[field.key]))next[field.key]='/events/';
  for(const field of CONTENT_GROUPS.filter(group=>['eventsArchive','agenda'].includes(group.id)).flatMap(group=>group.fields).concat(SITE_FIELDS.filter(field=>['nav_4_label','nav_4_link'].includes(field.key))))if(!Object.hasOwn(next,field.key))next[field.key]=structuredClone(field.value);
  if(next.nav_2_link==='/#events'||next.nav_2_link==='#events')next.nav_2_link='/events/';

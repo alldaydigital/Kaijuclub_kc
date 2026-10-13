@@ -4,7 +4,6 @@
     "manifesto",
     "garage",
     "culture",
-    "interlude",
     "events",
     "partnerTeaser",
     "connect"
@@ -818,62 +817,6 @@
       ]
     },
     {
-      "id": "interlude",
-      "label": "Sfeerbeeld",
-      "page": "home",
-      "selector": ".culture-interlude",
-      "fields": [
-        {
-          "key": "visible_interlude",
-          "label": "Dit onderdeel tonen",
-          "type": "boolean",
-          "value": true
-        },
-        {
-          "key": "interlude_image_1",
-          "label": "Groot sfeerbeeld",
-          "type": "image",
-          "value": {
-            "src": "/images/porsche-duo.jpg",
-            "alt": "Twee klassieke Porsche wagens op het circuit, referentiefotografie",
-            "width": 3072,
-            "height": 3072,
-            "positionDesktop": "50% 65%",
-            "positionMobile": "57% 64%",
-            "credit": ""
-          }
-        },
-        {
-          "key": "interlude_text_1",
-          "label": "Label: KC / SHARED PASSION",
-          "type": "text",
-          "value": "KC / SHARED PASSION",
-          "maxLength": 500
-        },
-        {
-          "key": "interlude_text_2",
-          "label": "Titel: Different lines. Same feeling.",
-          "type": "textarea",
-          "value": "Different lines.\nSame feeling.",
-          "maxLength": 3000
-        },
-        {
-          "key": "interlude_text_3",
-          "label": "Knop: ONTDEK WAT ONS VERBINDT",
-          "type": "text",
-          "value": "ONTDEK WAT ONS VERBINDT",
-          "maxLength": 500
-        },
-        {
-          "key": "interlude_text_4",
-          "label": "Label: NIKA QUFARASHVILI / UNSPLASH · VISUAL REFERENCE",
-          "type": "text",
-          "value": "NIKA QUFARASHVILI / UNSPLASH · VISUAL REFERENCE",
-          "maxLength": 500
-        }
-      ]
-    },
-    {
       "id": "events",
       "label": "Eventaanvragen",
       "page": "home",
@@ -1554,7 +1497,6 @@
             "manifesto",
             "garage",
             "culture",
-            "interlude",
             "events",
             "partnerTeaser",
             "connect"

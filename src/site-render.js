@@ -52,7 +52,6 @@ export const sharedSiteCSS = `
 .cms-photo-credit{position:absolute;z-index:2;right:16px;bottom:14px;max-width:min(70%,360px);padding:6px 8px;background:#0b0b0abf;color:#fff;font:8px/1.5 var(--mono);text-align:right;overflow-wrap:anywhere;pointer-events:none}
 .hero-photo-frame>.cms-photo-credit{right:4.6%}
 .culture-visual>.cms-photo-credit{left:23px;right:auto;top:64px;bottom:auto;text-align:left}
-.culture-interlude>.cms-photo-credit{top:22px;bottom:auto;right:4.6%}
 @media(max-width:700px){.cms-photo-credit{font-size:7px;padding:5px 7px}.culture-visual>.cms-photo-credit{left:17px;top:50px}}
 [data-cms-hidden]{display:none!important}
 html[data-cms-preview] [data-cms-group]{position:relative}
