@@ -13,3 +13,5 @@
 @media(min-width:971px){.site-actionbar{position:sticky;top:0;z-index:9;background:#f5f5eff5;backdrop-filter:blur(9px)}.site-sections-panel{position:sticky;top:67px;height:calc(100dvh - 67px);align-self:start}.site-group-list{overflow-y:auto;min-height:0;scrollbar-width:thin;scrollbar-color:#b8c7a3 transparent}.site-preview-panel{top:67px;height:calc(100dvh - 67px);min-height:0}}
 .site-fields-heading{scroll-margin-top:82px}@media(max-width:700px){.site-fields-heading{scroll-margin-top:135px}}
 [data-preview-focus=true]{outline:2px solid var(--accent);outline-offset:7px;background:#f3f6ea}
+
+@media(max-width:370px){.management-nav a{font-size:8px;padding:7px 6px}}

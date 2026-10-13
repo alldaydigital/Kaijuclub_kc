@@ -120,7 +120,7 @@
           "key": "nav_2_link",
           "label": "Link: Events",
           "type": "url",
-          "value": "/#events",
+          "value": "/events/",
           "maxLength": 500
         },
         {
@@ -2004,6 +2004,252 @@
             "partnerTeaser",
             "connect"
           ]
+        }
+      ]
+    },
+    {
+      "id": "eventsArchive",
+      "label": "Events: pagina & portfolio",
+      "page": "events",
+      "selector": ".events-archive",
+      "fields": [
+        {
+          "key": "events_eyebrow",
+          "label": "Bovenlabel",
+          "value": "KAIJUCLUB / CLUB MOMENTS",
+          "type": "text",
+          "maxLength": 500
+        },
+        {
+          "key": "events_title",
+          "label": "Paginatitel",
+          "value": "Beyond\nthe garage.",
+          "type": "textarea",
+          "maxLength": 500
+        },
+        {
+          "key": "events_intro",
+          "label": "Inleiding",
+          "value": "De wagens brengen ons samen. Hier delen we de dagen, de plekken en de momenten die bij Kaijuclub horen.",
+          "type": "textarea",
+          "maxLength": 3000
+        },
+        {
+          "key": "events_photo_label",
+          "label": "Fotolabel",
+          "value": "怪獣 / SHARED PASSION",
+          "type": "text",
+          "maxLength": 500
+        },
+        {
+          "key": "events_collection_label",
+          "label": "Collectielabel",
+          "value": "OUR DAYS OUT.",
+          "type": "text",
+          "maxLength": 500
+        },
+        {
+          "key": "events_collection_title",
+          "label": "Titel van het fotoportfolio",
+          "value": "The moments.",
+          "type": "text",
+          "maxLength": 500
+        },
+        {
+          "key": "events_collection_intro",
+          "label": "Introductie van de reportages",
+          "value": "Meets, shows en circuitdagen. Ontdek onze wereld, één reportage tegelijk.",
+          "type": "text",
+          "maxLength": 500
+        },
+        {
+          "key": "events_empty_title",
+          "label": "Titel zonder reportages",
+          "value": "Het volgende hoofdstuk\nbegint onderweg.",
+          "type": "textarea",
+          "maxLength": 500
+        },
+        {
+          "key": "events_empty_copy",
+          "label": "Tekst zonder reportages",
+          "value": "Onze fotoreportages krijgen hier binnenkort hun plek. Van de eerste rit tot de laatste blik op een build: dit wordt ons clubarchief.",
+          "type": "textarea",
+          "maxLength": 3000
+        },
+        {
+          "key": "events_error",
+          "label": "Melding bij een laadprobleem",
+          "value": "De reportages konden niet geladen worden. Probeer opnieuw; onze club blijft bereikbaar via het contactadres hieronder.",
+          "type": "textarea",
+          "maxLength": 3000
+        },
+        {
+          "key": "events_filter_all",
+          "label": "Filter voor alle reportages",
+          "value": "ALLE MOMENTEN",
+          "type": "text",
+          "maxLength": 500
+        },
+        {
+          "key": "events_no_results",
+          "label": "Tekst bij een lege filter",
+          "value": "Er zijn nog geen reportages in deze selectie. Bekijk alle momenten.",
+          "type": "text",
+          "maxLength": 500
+        },
+        {
+          "key": "events_open",
+          "label": "Knop voor een reportage",
+          "value": "BEKIJK DE REPORTAGE",
+          "type": "text",
+          "maxLength": 500
+        },
+        {
+          "key": "events_photos_count",
+          "label": "Fototeller ({number})",
+          "value": "{number} FOTO’S",
+          "type": "text",
+          "maxLength": 500
+        },
+        {
+          "key": "events_back",
+          "label": "Terugknop",
+          "value": "TERUG NAAR DE MOMENTEN",
+          "type": "text",
+          "maxLength": 500
+        },
+        {
+          "key": "events_view_photo",
+          "label": "Fotoknop ({number})",
+          "value": "Bekijk foto {number}",
+          "type": "text",
+          "maxLength": 500
+        },
+        {
+          "key": "events_share",
+          "label": "Deelknop",
+          "value": "KOPIEER DE REPORTAGELINK",
+          "type": "text",
+          "maxLength": 500
+        },
+        {
+          "key": "events_share_success",
+          "label": "Melding na delen",
+          "value": "Link gekopieerd.",
+          "type": "text",
+          "maxLength": 500
+        },
+        {
+          "key": "events_share_fallback",
+          "label": "Melding bij handmatig delen",
+          "value": "Selecteer en kopieer deze link.",
+          "type": "text",
+          "maxLength": 500
+        },
+        {
+          "key": "events_cta_eyebrow",
+          "label": "Label van eventaanvragen",
+          "value": "YOUR EVENT. OUR COMMUNITY.",
+          "type": "text",
+          "maxLength": 500
+        },
+        {
+          "key": "events_cta_title",
+          "label": "Titel van eventaanvragen",
+          "value": "Zie jij ons\nop jouw event?",
+          "type": "textarea",
+          "maxLength": 500
+        },
+        {
+          "key": "events_cta_copy",
+          "label": "Tekst van eventaanvragen",
+          "value": "Een line-up met karakter en een gedeelde passie voor kwalitatieve wagens. Vertel ons wat je organiseert.",
+          "type": "textarea",
+          "maxLength": 3000
+        },
+        {
+          "key": "events_cta_button",
+          "label": "Knop voor eventaanvragen",
+          "value": "VRAAG KAIJUCLUB AAN",
+          "type": "text",
+          "maxLength": 500
+        },
+        {
+          "key": "events_cta_link",
+          "label": "Link voor eventaanvragen",
+          "value": "/#events",
+          "type": "url",
+          "maxLength": 500
+        },
+        {
+          "key": "seo_events_title",
+          "label": "Zoekresultaat: paginatitel",
+          "value": "Events & clubmomenten — KAIJUCLUB",
+          "type": "text",
+          "maxLength": 500
+        },
+        {
+          "key": "seo_events_description",
+          "label": "Zoekresultaat: omschrijving",
+          "value": "Ontdek de clubmomenten van Kaijuclub. Fotoreportages van meets, shows, drift en circuitdagen, met onze wagens en automotive community.",
+          "type": "textarea",
+          "maxLength": 3000
+        },
+        {
+          "key": "events_cover_image",
+          "label": "Headerfoto van de Events-pagina",
+          "type": "image",
+          "value": {
+            "src": "/images/kaiju-club-header.png",
+            "alt": "Twee witte Kaijuclub-wagens met hun kenmerkende tribal-livery",
+            "width": 1672,
+            "height": 941,
+            "positionDesktop": "50% 100%",
+            "positionMobile": "50% 50%",
+            "credit": ""
+          }
+        },
+        {
+          "key": "events_kind_club",
+          "label": "Type: clubmoment",
+          "value": "Clubmoment",
+          "type": "text",
+          "maxLength": 100
+        },
+        {
+          "key": "events_kind_meet",
+          "label": "Type: meet",
+          "value": "Meet",
+          "type": "text",
+          "maxLength": 100
+        },
+        {
+          "key": "events_kind_show",
+          "label": "Type: show",
+          "value": "Show",
+          "type": "text",
+          "maxLength": 100
+        },
+        {
+          "key": "events_kind_track",
+          "label": "Type: trackday",
+          "value": "Trackday",
+          "type": "text",
+          "maxLength": 100
+        },
+        {
+          "key": "events_kind_drift",
+          "label": "Type: drift",
+          "value": "Drift",
+          "type": "text",
+          "maxLength": 100
+        },
+        {
+          "key": "events_kind_street",
+          "label": "Type: street",
+          "value": "Street",
+          "type": "text",
+          "maxLength": 100
         }
       ]
     },

@@ -6,7 +6,7 @@ import '@fontsource/inter/600.css';
 import {normalizeConnectionToken, checkGitHubConnection} from './admin-auth.js';
 import {GitHubStore} from './admin-api.js';
 import {hasVault, unlockConnection, rememberConnection} from './admin-vault.js';
-import {CONTENT_GROUPS, SECTION_IDS, defaultSiteContent, newSiteManager, validateContent, validateSiteManager} from './site-model.js';
+import {CONTENT_GROUPS, SECTION_IDS, defaultSiteContent, newSiteManager, validateContent, validateSiteManager, upgradeSiteContent} from './site-model.js';
 import {saveSiteContent, previewSiteContent} from './site-store.js';
 
 if (window.top !== window.self) throw new Error('Open websitebeheer rechtstreeks in je browser.');
@@ -21,7 +21,7 @@ let manager = newSiteManager(), content = clone(defaultSiteContent), baseline = 
 let store = null, selectedGroup = CONTENT_GROUPS.find(group => group.id === 'hero') || CONTENT_GROUPS[0], currentPage = 'home', device = 'desktop';
 let dirty = false, busy = false, processing = false, pendingAction = null, watchVersion = 0, contentHeadSha = null;
 let previewTimer, recoveryTimer, previewLoadTimer, inactivityTimer, recoveryWarning = false;
-const pageNames = {home:'Homepage', partners:'Partners & sponsors', global:'Instellingen'};
+const pageNames = {home:'Homepage', partners:'Partners & sponsors', events:'Events & fotoreportages', global:'Instellingen'};
 
 function notice(message = '', error = false) {
   const element = $('#site-notice');
@@ -62,7 +62,7 @@ function visibleGroups() {
 function renderGroups() {
   const list = $('#site-group-list'); list.replaceChildren();
   const groups = visibleGroups();
-  for (const page of ['home', 'partners', 'global']) {
+  for (const page of ['home', 'partners', 'events', 'global']) {
     const items = groups.filter(group => group.page === page);
     if (!items.length) continue;
     const heading = document.createElement('p'); heading.className = 'group-list-heading'; heading.textContent = pageNames[page]; list.append(heading);
@@ -224,7 +224,7 @@ function sendPreview(select = false, only = null) {
   catch (error) { status('Controleer je invoer; het voorbeeld toont de vorige geldige versie.'); return; }
   for (const frame of only ? [only] : frames) if (readyFrames.has(frame)) frame.contentWindow.postMessage({type:'kaiju:site-preview', nonce, content:preview, ...(select ? {selectionGroup:selectedGroup.id, selection:selectedGroup.selector} : {})}, location.origin);
 }
-function previewUrl() { const url = new URL(base + (currentPage === 'partners' ? 'partners/' : ''), location.origin); url.searchParams.set('preview', 'site'); url.searchParams.set('nonce', nonce); return url.href; }
+function previewUrl() { const url = new URL(base + (currentPage === 'home' ? '' : currentPage + '/'), location.origin); url.searchParams.set('preview', 'site'); url.searchParams.set('nonce', nonce); return url.href; }
 function loadFrame(frame) { readyFrames.delete(frame); frame.src = previewUrl(); }
 function changePage(page) {
   currentPage = page; $('#site-preview-page').value = page; $('#site-preview-loading').hidden = false;
@@ -401,7 +401,7 @@ async function initialize() {
   try {
     const saved = await recovery('read');
     if (saved?.content && saved.recoveredAt > Date.now() - 30 * 24 * 60 * 60 * 1000) {
-      validateContent(saved.content, {preview:true}); validateContent(saved.baseline, {preview:true});
+      saved.content=upgradeSiteContent(saved.content);saved.baseline=upgradeSiteContent(saved.baseline);validateContent(saved.content, {preview:true}); validateContent(saved.baseline, {preview:true});
       if (!dirty) { content = saved.content; baseline = saved.baseline; contentHeadSha = /^[a-f0-9]{40}$/.test(saved.headSha || '') ? saved.headSha : null; updateDirty(); applied = true; notice('Je niet-opgeslagen werk uit deze browser is hersteld. Bewaar een concept om het definitief op te slaan.'); }
     }
   } catch { /* Recovery is optional; authenticated GitHub saves are authoritative. */ }

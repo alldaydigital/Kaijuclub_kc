@@ -3,10 +3,11 @@
 | Wat wil je aanpassen? | Open het beheer |
 | --- | --- |
 | Teksten, foto's, knoppen en uitstraling | [Website bewerken](https://alldaydigital.github.io/Kaijuclub_kc/beheer/website/) |
+| Eventreportages en fotogalerijen | [Events & fotoportfolio](https://alldaydigital.github.io/Kaijuclub_kc/beheer/events/) |
 | Clubwagens en hun dossiers | [Garage](https://alldaydigital.github.io/Kaijuclub_kc/beheer/) |
 | Partners, sponsors en logo's | [Partners & sponsors](https://alldaydigital.github.io/Kaijuclub_kc/beheer/partners/) |
 
-De drie beheerders gebruiken dezelfde GitHub-koppeling. Je hoeft geen code of GitHub-formulieren te gebruiken om inhoud toe te voegen. GitHub verzorgt achterliggend de opslag en publicatie.
+De vier beheerders gebruiken dezelfde GitHub-koppeling. Je hoeft geen code of GitHub-formulieren te gebruiken om inhoud toe te voegen. GitHub verzorgt achterliggend de opslag en publicatie.
 
 ## De website bewerken
 
@@ -29,7 +30,7 @@ Met **Herstel** zet je het gekozen onderdeel terug naar de laatst opgeslagen inh
 2. Open **Beheersleutel aanmaken**. Je GitHub-account moet schrijfrechten hebben op `alldaydigital/Kaijuclub_kc`.
 3. Kies een fine-grained personal access token met **Resource owner → alldaydigital**, **Repository access → Only select repositories → Kaijuclub_kc** en **Repository permissions → Contents → Read and write**. Metadata wordt automatisch toegevoegd.
 4. Klik **Generate token** en plak de volledige sleutel uitsluitend in het afgeschermde veld op de beheerpagina. Deel hem nooit in chat of website-inhoud.
-5. In website- of garagebeheer kun je **Onthoud de koppeling in deze browser** aanvinken. Kies een eigen beheerwachtwoord van minimaal 12 tekens. Later open je de drie beheerders op dit toestel met dat wachtwoord.
+5. In website- of garagebeheer kun je **Onthoud de koppeling in deze browser** aanvinken. Kies een eigen beheerwachtwoord van minimaal 12 tekens. Later open je de vier beheerders op dit toestel met dat wachtwoord.
 
 De koppeling controleert echte schrijfrechten. Het wachtwoord ontgrendelt versleutelde opslag in deze browser; op een ander toestel maak je de koppeling opnieuw. Bij een verlopen sleutel koppel je opnieuw. GitHub toont de vervaldatum bij het aanmaken.
 
@@ -84,3 +85,17 @@ Verschijnt **“We failed to generate the API credential, please try again”** 
 De verbinding gebruikt de standaard HTTP-client van de browser met actuele versiecontroles. Dat geldt ook voor Edge. Vernieuw de beheerpagina om de nieuwste versie te laden. Werking met je eigen Edge-instellingen en persoonlijke sleutel moet op je toestel worden bevestigd.
 
 Kan de browser de koppeling niet onthouden, dan blijft de werkende sessie open en verschijnt een aparte melding. Opnieuw verbinden herstelt geen ontbrekende GitHub-rechten; een sleutel geeft nooit meer toegang dan je account zelf heeft.
+
+## Events en fotoreportages
+
+1. Open [Events & fotoportfolio beheren](https://alldaydigital.github.io/Kaijuclub_kc/beheer/events/) en kies **Reportage toevoegen**.
+2. Geef het clubmoment een naam en kies het type. Datum en locatie zijn optioneel. Voor een eerste clubgalerij hoef je geen eventgegevens te verzinnen.
+3. Selecteer meerdere foto's tegelijk, of sleep ze naar het uploadvak. JPG, PNG en WebP worden automatisch verkleind; maximaal24 foto's van10MB per foto. HEIC wordt niet ondersteund.
+4. Kies **Cover** bij de foto die vooraan moet staan. Met de pijlen bepaal je de volgorde. Onder **Omschrijving & uitsnede** voeg je onderschriften, fotograaf en aparte desktop-/mobiele uitsnede toe. De galerij laat foto's volledig zien; uitsnede geldt voor de cover.
+5. Voeg een korte inleiding en eventueel een verhaal toe. Een lege regel begint een nieuwe alinea. Controleer de echte reportage in het desktop-, mobiele of vergrote voorbeeld.
+6. **Bewaar concept** om later verder te werken. **Publiceer reportage** zet de reportage op de aparte Events-pagina. Een bewerkt concept vervangt de gepubliceerde foto's pas bij opnieuw publiceren.
+7. **Verberg op de website** haalt een reportage van de pagina; de inhoud blijft in het beheer en kan opnieuw worden gepubliceerd.
+
+De bestaande GitHub-koppeling en het onthouden beheerwachtwoord werken hier ook. Niet-opgeslagen werk krijgt een eigen herstelkopie in deze browser. Op een ander toestel laad je opgeslagen reportages door het beheer te verbinden. De pagina begint met een clubgalerij van jullie reeds beschikbare beelden; eventnamen, datums en locaties worden pas ingevuld wanneer jullie die toevoegen.
+
+De algemene teksten en de uitstraling van de Events-pagina pas je aan bij **Website → Events: pagina & portfolio**. Bezoekers kunnen reportages, onderschriften en vergrote foto's op de website bekijken. De aanvraagknop leidt naar het bestaande eventformulier.

@@ -3,10 +3,11 @@ export const CONTENT_GROUPS=schema.groups;
 export const SECTION_IDS=schema.sections;
 export const SITE_FIELDS=CONTENT_GROUPS.flatMap(group=>group.fields);
 export const defaultSiteContent=Object.fromEntries(SITE_FIELDS.map(field=>[field.key,structuredClone(field.value)]));
+export function upgradeSiteContent(content){const next=structuredClone(content);if(!next||typeof next!=='object'||Array.isArray(next))return next;for(const field of CONTENT_GROUPS.find(group=>group.id==='eventsArchive').fields)if(!Object.hasOwn(next,field.key))next[field.key]=structuredClone(field.value);if(next.nav_2_link==='/#events'||next.nav_2_link==='#events')next.nav_2_link='/events/';return next;}
 const fail=message=>{throw new Error(message);};
 export function safeSiteLink(value){
  if(typeof value!=='string'||value.length>500||/[\u0000-\u0020\\]/.test(value))return false;
- if(/^\/(?:#[A-Za-z][\w-]*|partners\/(?:#[A-Za-z][\w-]*)?)?$/.test(value)||/^#[A-Za-z][\w-]*$/.test(value))return true;
+ if(/^\/(?:#[A-Za-z][\w-]*|(?:partners|events)\/(?:#[A-Za-z][\w-]*)?)?$/.test(value)||/^#[A-Za-z][\w-]*$/.test(value))return true;
  try{const url=new URL(value);return url.protocol==='https:'&&!url.username&&!url.password||url.protocol==='mailto:'&&!url.search&&!url.hash&&/^[^\s<>"\\@]+@[^\s<>"\\@]+\.[^\s<>"\\@]+$/.test(url.pathname)||url.protocol==='tel:'&&!url.search&&!url.hash&&/^\+?[0-9()-]+$/.test(url.pathname);}catch{return false;}
 }
 export function validateImage(image,{preview=false}={}){

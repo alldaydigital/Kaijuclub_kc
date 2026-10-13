@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "revision": 1,
+  "events": [
+    {
+      "id": "moment-179188407148301",
+      "title": "Kaijuclub / De line-up",
+      "kind": "club",
+      "date": "",
+      "location": "",
+      "description": "Een eerste blik op onze clubwagens. Kwalitatieve builds, een eigen karakter en dezelfde passie.",
+      "story": "Kaijuclub is een automotive club met kwalitatieve wagens. Drift, stance, track en street brengen ons samen.\n\nDeze eerste clubgalerij verzamelt de beelden die al bij onze website horen. Nieuwe meets, shows en circuitdagen krijgen elk hun eigen fotoreportage.",
+      "photos": [
+        {
+          "src": "/images/events/89f963108479625ceb3419f2feee7c2f6a17e23db4f0d7a5f26dfa00320e07c8.webp",
+          "width": 1290,
+          "height": 1351,
+          "alt": "Nissan S13 — foto 1",
+          "caption": "Onze eerste wagenfiche.",
+          "credit": "",
+          "positionDesktop": "50% 65%",
+          "positionMobile": "50% 65%"
+        },
+        {
+          "src": "/images/events/c4b52aae4b32f2707c04c1361eb17e527e6ae189748ef96532ee5ff519ad3cf7.webp",
+          "width": 1672,
+          "height": 941,
+          "alt": "Twee witte Kaijuclub-wagens met tribal-livery",
+          "caption": "De Kaijuclub-line-up.",
+          "credit": "",
+          "positionDesktop": "50% 100%",
+          "positionMobile": "50% 100%"
+        }
+      ],
+      "published": {
+        "id": "moment-179188407148301",
+        "title": "Kaijuclub / De line-up",
+        "kind": "club",
+        "date": "",
+        "location": "",
+        "description": "Een eerste blik op onze clubwagens. Kwalitatieve builds, een eigen karakter en dezelfde passie.",
+        "story": "Kaijuclub is een automotive club met kwalitatieve wagens. Drift, stance, track en street brengen ons samen.\n\nDeze eerste clubgalerij verzamelt de beelden die al bij onze website horen. Nieuwe meets, shows en circuitdagen krijgen elk hun eigen fotoreportage.",
+        "photos": [
+          {
+            "src": "/images/events/89f963108479625ceb3419f2feee7c2f6a17e23db4f0d7a5f26dfa00320e07c8.webp",
+            "width": 1290,
+            "height": 1351,
+            "alt": "Nissan S13 — foto 1",
+            "caption": "Onze eerste wagenfiche.",
+            "credit": "",
+            "positionDesktop": "50% 65%",
+            "positionMobile": "50% 65%"
+          },
+          {
+            "src": "/images/events/c4b52aae4b32f2707c04c1361eb17e527e6ae189748ef96532ee5ff519ad3cf7.webp",
+            "width": 1672,
+            "height": 941,
+            "alt": "Twee witte Kaijuclub-wagens met tribal-livery",
+            "caption": "De Kaijuclub-line-up.",
+            "credit": "",
+            "positionDesktop": "50% 100%",
+            "positionMobile": "50% 100%"
+          }
+        ]
+      },
+      "archived": false
+    }
+  ]
+}

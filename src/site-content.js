@@ -3,8 +3,8 @@ import { formatSiteText, renderSiteText, siteAssetURL, siteLinkURL, hiddenSiteAn
 
 const base = import.meta.env?.BASE_URL || '/';
 const hasDOM = typeof document !== 'undefined' && typeof window !== 'undefined';
-const publicPage = hasDOM && Boolean(document.querySelector('main .hero[data-cms-group],main .partner-intro[data-cms-group]'));
-const page = publicPage && document.querySelector('main .partner-intro') ? 'partners' : 'home';
+const publicPage = hasDOM && Boolean(document.querySelector('main .hero[data-cms-group],main .partner-intro[data-cms-group],main.events-archive[data-cms-group]'));
+const page = publicPage && document.querySelector('main.events-archive')?'events':publicPage && document.querySelector('main .partner-intro') ? 'partners' : 'home';
 const query = hasDOM ? new URLSearchParams(location.search) : new URLSearchParams();
 const nonce = query.get('nonce') || '';
 export const isSitePreview = Boolean(publicPage && window.parent !== window && query.get('preview') === 'site' && /^[a-f0-9]{16,128}$/i.test(nonce));
