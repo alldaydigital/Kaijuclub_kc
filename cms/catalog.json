@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": 7,
-  "updatedAt": "2026-10-13T19:20:53.752Z",
+  "revision": 8,
+  "updatedAt": "2026-10-13T19:22:02.426Z",
   "vehicles": [
     {
       "id": "club-179187225387544098",
@@ -190,7 +190,7 @@
     {
       "id": "club-179191922920065095",
       "name": "Toyota Supra",
-      "category": "street",
+      "category": "stance",
       "series": "",
       "origin": "",
       "story": "",
@@ -211,7 +211,7 @@
       "published": {
         "id": "club-179191922920065095",
         "name": "Toyota Supra",
-        "category": "street",
+        "category": "stance",
         "series": "",
         "origin": "",
         "story": "",
@@ -231,7 +231,7 @@
         "position": "50% 50%"
       },
       "archived": false,
-      "updatedAt": "2026-10-13T19:20:53.752Z"
+      "updatedAt": "2026-10-13T19:22:02.426Z"
     }
   ]
 }

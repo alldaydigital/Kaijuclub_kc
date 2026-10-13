@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "mode": "managed",
   "source": "site-editor",
-  "updatedAt": "2026-10-13T19:20:53.752Z",
+  "updatedAt": "2026-10-13T19:22:02.426Z",
   "vehicles": [
     {
       "id": "club-179191896905936322",
@@ -127,10 +127,10 @@
     {
       "id": "club-179191922920065095",
       "name": "Toyota Supra",
-      "category": "street",
+      "category": "stance",
       "series": "",
       "origin": "",
-      "model": "STREET",
+      "model": "STANCE",
       "featured": false,
       "position": "50% 50%",
       "gallery": [
