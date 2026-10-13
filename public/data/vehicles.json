@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "mode": "managed",
   "source": "site-editor",
-  "updatedAt": "2026-10-13T19:22:19.612Z",
+  "updatedAt": "2026-10-13T19:23:10.298Z",
   "vehicles": [
     {
       "id": "club-179191896905936322",
@@ -176,6 +176,36 @@
       "width": 1290,
       "height": 1098,
       "title": "Toyota AE86",
+      "intro": "",
+      "paragraphs": [],
+      "specs": [],
+      "teaser": "Ontdek deze clubwagen van dichtbij.",
+      "credit": "",
+      "focus": [],
+      "reference": false
+    },
+    {
+      "id": "club-179191934739921531",
+      "name": "Nissan Skyline R32 GTR",
+      "category": "stance",
+      "series": "",
+      "origin": "",
+      "model": "STANCE",
+      "featured": false,
+      "position": "50% 50%",
+      "gallery": [
+        {
+          "src": "/images/vehicles/179191934739921531/1f732ee5d731ba9ca68515b14d69d4690395eafdd008746e5a04aaf9ba49fc27.png",
+          "alt": "Nissan Skyline R32 GTR — foto 1",
+          "width": 1290,
+          "height": 1013
+        }
+      ],
+      "image": "/images/vehicles/179191934739921531/1f732ee5d731ba9ca68515b14d69d4690395eafdd008746e5a04aaf9ba49fc27.png",
+      "alt": "Nissan Skyline R32 GTR — foto 1",
+      "width": 1290,
+      "height": 1013,
+      "title": "Nissan Skyline R32 GTR",
       "intro": "",
       "paragraphs": [],
       "specs": [],

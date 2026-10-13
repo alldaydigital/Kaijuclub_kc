@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "revision": 9,
-  "updatedAt": "2026-10-13T19:22:19.612Z",
+  "revision": 10,
+  "updatedAt": "2026-10-13T19:23:10.298Z",
   "vehicles": [
     {
       "id": "club-179187225387544098",
@@ -278,6 +278,52 @@
       },
       "archived": false,
       "updatedAt": "2026-10-13T19:22:19.612Z"
+    },
+    {
+      "id": "club-179191934739921531",
+      "name": "Nissan Skyline R32 GTR",
+      "category": "stance",
+      "series": "",
+      "origin": "",
+      "story": "",
+      "specs": [],
+      "photos": [
+        {
+          "path": "cms/media/179191934739921531/1f732ee5d731ba9ca68515b14d69d4690395eafdd008746e5a04aaf9ba49fc27.png",
+          "digest": "1f732ee5d731ba9ca68515b14d69d4690395eafdd008746e5a04aaf9ba49fc27",
+          "extension": "png",
+          "width": 1290,
+          "height": 1013,
+          "alt": "",
+          "blobSha": "6db2b68f397c82c1388e41bb4b409a5a61e79daf"
+        }
+      ],
+      "featured": false,
+      "position": "50% 50%",
+      "published": {
+        "id": "club-179191934739921531",
+        "name": "Nissan Skyline R32 GTR",
+        "category": "stance",
+        "series": "",
+        "origin": "",
+        "story": "",
+        "specs": [],
+        "photos": [
+          {
+            "path": "cms/media/179191934739921531/1f732ee5d731ba9ca68515b14d69d4690395eafdd008746e5a04aaf9ba49fc27.png",
+            "digest": "1f732ee5d731ba9ca68515b14d69d4690395eafdd008746e5a04aaf9ba49fc27",
+            "extension": "png",
+            "width": 1290,
+            "height": 1013,
+            "alt": "",
+            "blobSha": "6db2b68f397c82c1388e41bb4b409a5a61e79daf"
+          }
+        ],
+        "featured": false,
+        "position": "50% 50%"
+      },
+      "archived": false,
+      "updatedAt": "2026-10-13T19:23:10.298Z"
     }
   ]
 }
